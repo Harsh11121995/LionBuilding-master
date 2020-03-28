@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#e63131</color>
+    <color name="colorPrimaryDark">#e63131</color>
+    <color name="colorAccent">#e63131</color>
+
+    <color name="colorBlack">#CAC7C7</color>
+    <color name="gray">#9E9E9E</color>
+    <color name="colorblack">#000000</color>
+    <color name="colorWight">#ffffff</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorDashBoard">#e63131</color>
+    <color name="green">#67AF46</color>
+    <color name="text_light_color">#9e9e9e</color>
+</resources>

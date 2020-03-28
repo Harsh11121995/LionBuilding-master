@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".activity.LoginActivity">
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/register_btn"
+        android:fontFamily="@font/poppins_regular"
+        android:padding="15dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:text="@string/btn_register"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/editText_textSize"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:text="Login"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-45dp"
+        android:layout_marginRight="25dp"
+        android:background="@color/colorWight"
+        app:cardCornerRadius="60dp">
+
+        <LinearLayout
+            android:id="@+id/liner_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/img_width"
+                    android:layout_height="@dimen/img_hight"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/icon_left_margin"
+                    android:src="@drawable/email" />
+                <EditText
+                    android:id="@+id/edt_mno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/colorTransparent"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="Mobile No"
+                    android:inputType="numberDecimal"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="0dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="@dimen/editText_textSize" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack" />
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/password"
+                    android:layout_marginLeft="@dimen/icon_left_margin"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/img_width"
+                    android:layout_height="@dimen/img_hight" />
+                <EditText
+                    android:inputType="textPassword"
+                    android:id="@+id/edt_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorTransparent"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="Password"
+                    android:layout_marginTop="0dp"
+                    android:paddingLeft="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textSize="@dimen/editText_textSize" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/half_circle_btn"
+        android:fontFamily="@font/poppins_regular"
+        android:padding="15dp"
+        android:text="@string/btn_Login"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/editText_textSize"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:text="Forgot Password"
+        android:textSize="@dimen/editText_textSize" />
+
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="editText_textSize">15sp</dimen>
+    <dimen name="img_hight">20dp</dimen>
+    <dimen name="img_width">20dp</dimen>
+    <dimen name="tv_size">15sp</dimen>
+    <dimen name="dash_icon_width">40dp</dimen>
+    <dimen name="dash_icon_hight">40dp</dimen>
+
+
+    <dimen name="icon_left_margin">35dp</dimen>
+
+</resources>

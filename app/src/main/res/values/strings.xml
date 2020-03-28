@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">LionBuilding</string>
+    <string name="btn_register">Register</string>
+    <string name="btn_Login">Login</string>
+    <string name="title_activity_show_shop_map">Map</string>
+
+    <string name="dateerror">Enter Date</string>
+    <string name="AND">and</string>
+    <string name="title_activity_multi_route_view_map">Map</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_shop_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorWight"
+        app:cardCornerRadius="5dp"
+        android:elevation="5dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:text="Bank Name"
+                android:textColor="@color/colorDashBoard"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="10dp"-->
+                <!--                    android:orientation="horizontal">-->
+
+
+                <!--                    <LinearLayout-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:orientation="vertical"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:layout_height="wrap_content">-->
+                <!--                        <TextView-->
+                <!--                            android:id="@+id/tv_text"-->
+                <!--                            android:layout_width="wrap_content"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:fontFamily="@font/poppins_regular"-->
+                <!--                            android:text="A/C Number:"-->
+                <!--                            android:textSize="@dimen/editText_textSize" />-->
+
+
+                <!--                        <TextView-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:textColor="@color/colorblack"-->
+                <!--                            android:layout_marginTop="5dp"-->
+                <!--                            android:id="@+id/txt_ac_number"-->
+                <!--                            android:text="01235487974564"/>-->
+
+
+                <!--                    </LinearLayout>-->
+
+                <!--&lt;!&ndash;                    <LinearLayout&ndash;&gt;-->
+                <!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;                        android:orientation="vertical"&ndash;&gt;-->
+                <!--&lt;!&ndash;                        android:layout_weight="1"&ndash;&gt;-->
+                <!--&lt;!&ndash;                        android:layout_height="wrap_content">&ndash;&gt;-->
+                <!--&lt;!&ndash;                        <TextView&ndash;&gt;-->
+                <!--&lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;                            android:fontFamily="@font/poppins_regular"&ndash;&gt;-->
+                <!--&lt;!&ndash;                            android:text="Bank Name"&ndash;&gt;-->
+                <!--&lt;!&ndash;                            android:textSize="@dimen/editText_textSize" />&ndash;&gt;-->
+
+
+                <!--&lt;!&ndash;                        <TextView&ndash;&gt;-->
+                <!--&lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;                            android:textColor="@color/colorblack"&ndash;&gt;-->
+                <!--&lt;!&ndash;                            android:layout_marginTop="5dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;                            android:id="@+id/txt_bank_name"&ndash;&gt;-->
+                <!--&lt;!&ndash;                            android:text="01235487974564"/>&ndash;&gt;-->
+
+
+                <!--&lt;!&ndash;                    </LinearLayout>&ndash;&gt;-->
+
+
+                <!--                </LinearLayout>-->
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Mobile NO"
+                            android:textSize="@dimen/editText_textSize" />
+
+
+                        <TextView
+                            android:id="@+id/txt_mobile_no"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="9898989898"
+                            android:textColor="@color/colorblack" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="Type"
+                            android:textSize="@dimen/editText_textSize" />
+
+
+                        <TextView
+                            android:id="@+id/txt_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Dealer"
+                            android:textColor="@color/colorblack" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="10dp"-->
+                <!--                    android:orientation="horizontal">-->
+
+                <!--                    <LinearLayout-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:orientation="vertical"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:layout_height="wrap_content">-->
+                <!--                        <TextView-->
+                <!--                            android:layout_width="wrap_content"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:fontFamily="@font/poppins_regular"-->
+                <!--                            android:text="Pan Number:"-->
+                <!--                            android:textSize="@dimen/editText_textSize" />-->
+
+
+                <!--                        <TextView-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:textColor="@color/colorblack"-->
+                <!--                            android:layout_marginTop="5dp"-->
+                <!--                            android:id="@+id/txt_pan_number"-->
+                <!--                            android:text="01235487974564"/>-->
+
+
+                <!--                    </LinearLayout>-->
+
+                <!--                    <LinearLayout-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:orientation="vertical"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:layout_height="wrap_content">-->
+                <!--                        <TextView-->
+                <!--                            android:layout_width="wrap_content"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:fontFamily="@font/poppins_regular"-->
+                <!--                            android:text="GST Number"-->
+                <!--                            android:textSize="@dimen/editText_textSize" />-->
+
+
+                <!--                        <TextView-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:textColor="@color/colorblack"-->
+                <!--                            android:layout_marginTop="5dp"-->
+                <!--                            android:id="@+id/txt_gst_number"-->
+                <!--                            android:text="012 3548 797"/>-->
+                <!--                    </LinearLayout>-->
+
+
+                <!--                    <LinearLayout-->
+                <!--                        android:visibility="gone"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:orientation="horizontal"-->
+                <!--                        android:layout_height="wrap_content">-->
+                <!--                        <TextView-->
+                <!--                            android:layout_width="wrap_content"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_marginStart="15dp"-->
+                <!--                            android:layout_marginEnd="0dp"-->
+                <!--                            android:fontFamily="@font/poppins_regular"-->
+                <!--                            android:text="IFSC Code:"-->
+                <!--                            android:layout_marginBottom="10dp"-->
+                <!--                            android:textSize="@dimen/editText_textSize" />-->
+
+                <!--                        <TextView-->
+                <!--                            android:id="@+id/tv_user"-->
+                <!--                            android:layout_width="wrap_content"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_marginStart="5dp"-->
+                <!--                            android:layout_marginEnd="0dp"-->
+                <!--                            android:textStyle="bold"-->
+                <!--                            android:fontFamily="@font/poppins_regular"-->
+                <!--                            android:text="IFSC Code"-->
+                <!--                            android:layout_marginBottom="10dp"-->
+                <!--                            android:textSize="@dimen/editText_textSize" />-->
+
+                <!--                    </LinearLayout>-->
+
+                <!--                </LinearLayout>-->
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view_detail"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="-15dp"
+        android:layout_marginEnd="35dp"
+        android:background="@color/colorWight"
+        app:cardCornerRadius="5dp"
+        android:elevation="5dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_view_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:text="View Detail "
+                android:textColor="@color/colorblack"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:src="@drawable/arrow3" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

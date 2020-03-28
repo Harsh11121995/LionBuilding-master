@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:shape="rectangle">
+<solid android:color="@color/colorDashBoard"/>
+<size
+    android:width="200dp"
+    android:height="30dp"/>
+<corners
+    android:topLeftRadius="40dp"
+    android:bottomLeftRadius="40dp"
+    android:topRightRadius="40dp"
+    android:bottomRightRadius="40dp"
+
+    />
+</shape>

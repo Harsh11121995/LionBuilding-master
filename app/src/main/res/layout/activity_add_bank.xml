@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.AddProfile">
+
+    <include
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-45dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="25dp"
+                android:background="@color/colorWight"
+                app:cardCornerRadius="50dp">
+
+                <LinearLayout
+                    android:id="@+id/liner_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:background="@drawable/register_bg"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/ic_ac_holder" />
+
+                        <EditText
+                            android:id="@+id/edt_AC_holder_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:backgroundTint="@color/colorTransparent"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="A/C Holder Name"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/ic_account_no" />
+
+                        <EditText
+                            android:id="@+id/edt_AC_Number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="A/C Number "
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/iconbank" />
+
+                        <EditText
+                            android:id="@+id/edt_bank_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Bank Name"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/icon_bank_branch" />
+
+                        <EditText
+                            android:id="@+id/edt_branch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Branch Name"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/ic_ifsc_code" />
+
+                        <EditText
+                            android:id="@+id/edt_ifsc_code"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="IFSC Code"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/ic_pan" />
+
+                        <EditText
+                            android:id="@+id/edt_pan_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:clickable="true"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Pan Number"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_pan_img"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="-45dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                android:background="@color/colorWight"
+                app:cardCornerRadius="50dp">
+
+                <LinearLayout
+                    android:id="@+id/upload_pan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+
+                    android:background="@drawable/register_bg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/view_pan_img"
+                        android:layout_width="120dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:layout_marginStart="0dp"
+                        android:src="@drawable/icon_camera"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/img_up_pan"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="0dp"
+                        android:src="@drawable/icon_camera" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:text="Upload Pan Image"
+                        android:textSize="@dimen/editText_textSize" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_bank_cheque"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="-45dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                android:background="@color/colorWight"
+                app:cardCornerRadius="50dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+
+                    android:background="@drawable/register_bg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/view_bank_cheque"
+                        android:layout_width="120dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:layout_marginStart="0dp"
+                        android:src="@drawable/icon_camera"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/img_up_cheque"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="0dp"
+                        android:src="@drawable/icon_camera" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:text="Upload Bank Cheque"
+                        android:textSize="@dimen/editText_textSize" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_aadhaar"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="-45dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="25dp"
+                android:background="@color/colorWight"
+                app:cardCornerRadius="50dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+
+                    android:background="@drawable/register_bg"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/view_aadhaar"
+                        android:layout_width="120dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="0dp"
+                        android:src="@drawable/icon_camera"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/img_up_aadhaar"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="0dp"
+                        android:src="@drawable/icon_camera" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:text="Upload Aadhaar Card"
+                        android:textSize="@dimen/editText_textSize" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_add_bank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/half_circle_btn"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:text="Add Bank"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

@@ -1,0 +1,113 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorDashBoard"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:titleTextColor="@android:color/white">
+
+
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="start"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/arrow1"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:visibility="visible"
+            android:id="@+id/ln_notify_icon"
+            android:layout_gravity="end"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/notify_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/app_name"
+                    android:padding="3dp"
+                    android:src="@drawable/notification"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/img_cart"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/cart_icon"
+                    android:layout_gravity="center_vertical"
+                    android:padding="3dp"
+                    android:visibility="gone"
+                    android:layout_marginLeft="15dp" />
+
+                <TextView
+                    android:id="@+id/badge_notification"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignEnd="@+id/notify_icon"
+                    android:layout_gravity="right|end|top"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="-5dp"
+                    android:background="@drawable/notification"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="99"
+                    android:visibility="gone"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:visibility="gone"
+            android:id="@+id/ln_cart_icon"
+            android:layout_marginEnd="0dp"
+            android:layout_gravity="end">
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/edit_icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="15dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/add"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/toolbar_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text=""
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"/>
+    </android.support.v7.widget.Toolbar>
+
+</LinearLayout>

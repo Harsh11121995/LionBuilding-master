@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.UserDetail">
+
+   <include layout="@layout/toolbar_layout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/lnr_color"
+            android:background="@color/colorDashBoard"/>
+
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            app:civ_border_width="0dp"
+            app:civ_border_color="#EEEEEE"
+            android:src="@drawable/product_image"/>
+
+
+<!--        <com.mikhaellopez.circularimageview.CircularImageView-->
+<!--            android:id="@+id/profile_image"-->
+<!--            android:layout_width="70dp"-->
+<!--            android:layout_height="70dp"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="0dp"-->
+<!--            android:src="@d"-->
+<!--            app:civ_border_color="#EEEEEE"-->
+<!--            app:civ_border_width="0dp"-->
+<!--            app:civ_shadow="true"-->
+<!--            app:civ_shadow_color="#b7b7b7"-->
+<!--            app:civ_shadow_radius="5" />-->
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_name"
+            android:layout_alignBottom="@+id/lnr_color"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="-29dp"
+            android:layout_toRightOf="@+id/profile_image"
+            android:gravity="bottom"
+            android:text="Harsh Shah"
+            android:textColor="@color/colorblack"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/tv_size"
+                android:text="UserType"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:id="@+id/txt_usertype"
+                android:textColor="@color/colorblack"
+                android:layout_weight="1"
+                android:text="Dealer"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorBlack"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/tv_size"
+                android:text="Email" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/txt_email"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:textColor="@color/colorblack"
+                android:gravity="end"
+                android:text="UserType"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorBlack"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/tv_size"
+                android:text="Address"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:gravity="end"
+                android:id="@+id/txt_address"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/tv_size"
+                android:textColor="@color/colorblack"
+                android:text="UserType"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorBlack"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/tv_size"
+                android:text="Date Of Birth"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:id="@+id/txt_dob"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/tv_size"
+                android:textColor="@color/colorblack"
+                android:text="UserType"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorBlack"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/tv_size"
+                android:text="Mobile No"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:id="@+id/txt_mobile"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/tv_size"
+                android:textColor="@color/colorblack"
+                android:text="98989898"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorBlack"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/tv_size"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="State"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:id="@+id/txt_state"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/tv_size"
+                android:textColor="@color/colorblack"
+                android:text="Gujrat"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorBlack"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/tv_size"
+                android:text="City"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/txt_city"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/tv_size"
+                android:textColor="@color/colorblack"
+                android:gravity="end"
+                android:text="Ahmedabad"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

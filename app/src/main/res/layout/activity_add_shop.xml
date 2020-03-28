@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.AddShop">
+
+    <include
+        layout="@layout/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-45dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="25dp"
+                android:background="@color/colorWight"
+                app:cardCornerRadius="50dp">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/register_bg"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/icon_left_margin"
+                            android:src="@drawable/shop" />
+
+                        <EditText
+                            android:id="@+id/edt_shop_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:backgroundTint="@color/colorTransparent"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Shop Name"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/icon_left_margin"
+                            android:src="@drawable/location" />
+
+                        <EditText
+                            android:id="@+id/edt_add1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:backgroundTint="@color/colorTransparent"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Address 1"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/icon_left_margin"
+                            android:src="@drawable/location" />
+
+                        <EditText
+                            android:id="@+id/edt_add2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:backgroundTint="@color/colorTransparent"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Address 2"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/icon_left_margin"
+                            android:src="@drawable/pincode" />
+
+                        <EditText
+                            android:id="@+id/edt_pincode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:backgroundTint="@color/colorTransparent"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Pincode"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/zone" />
+
+                        <Spinner
+                            android:id="@+id/spnr_zone"
+                            style="@style/mySpinnerItemStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp">
+
+                        </Spinner>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/ward" />
+
+                        <Spinner
+                            android:id="@+id/spnr_wrd_id"
+                            style="@style/mySpinnerItemStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp">
+
+                        </Spinner>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_add_shop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/half_circle_btn"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Add Shop"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/editText_textSize"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>
