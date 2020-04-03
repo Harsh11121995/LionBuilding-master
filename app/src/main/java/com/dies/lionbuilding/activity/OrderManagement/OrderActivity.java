@@ -50,6 +50,7 @@ public class OrderActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     String category[];
     Integer id[];
+    Integer no_of_product = 0;
 
     List<ProductCategoryModel.Data> arrayList;
     ArrayList<String> arrayList_catagory;
@@ -121,7 +122,6 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     public void setArray(List<ProductModel.Data> array, int i) {
-
         maps.put("Group" + String.valueOf(i), array);
         list.add(i);
     }
@@ -209,6 +209,18 @@ public class OrderActivity extends AppCompatActivity {
         Utility.getAppcon().getSession().arrayListOrderData = dt;
 
 
+        Log.e("arrayList_new_data", new Gson().toJson(Utility.getAppcon().getSession().arrayListOrderData));
+        ArrayList<ProductModel.Data> arrayList = new ArrayList<ProductModel.Data>();
+
+        if (Utility.getAppcon().getSession().arrayListOrderData.size() > 0) {
+            for (int i = 0; i < Utility.getAppcon().getSession().arrayListOrderData.size(); i++) {
+                if (!Utility.getAppcon().getSession().arrayListOrderData.get(i).getProduct_quentity().equals("0") && !Utility.getAppcon().getSession().arrayListOrderData.get(i).getProduct_quentity().equals("")) {
+                    arrayList.add(Utility.getAppcon().getSession().arrayListOrderData.get(i));
+                }
+            }
+        }
+
+
         Log.e("arrayList-step-1", new Gson().toJson(Utility.getAppcon().getSession().arrayListOrderData));
 
         total_qty = txt_total_qty.getText().toString();
@@ -221,6 +233,7 @@ public class OrderActivity extends AppCompatActivity {
             Utility.getAppcon().getSession().arrayListOrderData.get(0).setProduct_total_qty(total_qty);
 
             Intent intent = new Intent(OrderActivity.this, OrderSummaryActivty.class);
+            Utility.getAppcon().getSession().arrayListOrderDatanew=arrayList;
             startActivity(intent);
         }
     }

@@ -64,6 +64,8 @@ Context context;
                 .fit()
                 .into(holder.img_product);
 
+        arrayList.get(position).setProduct_quentity("");
+
 
         holder.img_plus.setOnClickListener(view -> {
             qty = Integer.parseInt(holder.edt_qty.getText().toString());
@@ -77,7 +79,7 @@ Context context;
             single_product_price = qty * Double.valueOf(arrayList.get(holder.getAdapterPosition()).getProduct_price());
 
             holder.edt_qty.setText(String.valueOf(qty));
-            arrayList.get(holder.getAdapterPosition()).setProduct_qty(holder.edt_qty.getText().toString());
+            arrayList.get(holder.getAdapterPosition()).setProduct_quentity(holder.edt_qty.getText().toString());
             arrayList.get(holder.getAdapterPosition()).setProduct_total(String.valueOf(single_product_price));
             ((OrderActivity) context).setText(main_qty.toString());
             ((OrderActivity) context).setTotal(order_total.toString());
@@ -104,7 +106,7 @@ Context context;
                 single_product_price = qty * Double.valueOf(arrayList.get(holder.getAdapterPosition()).getProduct_price());
 
                 holder.edt_qty.setText(String.valueOf(qty));
-                arrayList.get(holder.getAdapterPosition()).setProduct_qty(holder.edt_qty.getText().toString());
+                arrayList.get(holder.getAdapterPosition()).setProduct_quentity(holder.edt_qty.getText().toString());
                 arrayList.get(holder.getAdapterPosition()).setProduct_total(String.valueOf(single_product_price));
                 ((OrderActivity) context).setText(main_qty.toString());
                 ((OrderActivity) context).setTotal(order_total.toString());
