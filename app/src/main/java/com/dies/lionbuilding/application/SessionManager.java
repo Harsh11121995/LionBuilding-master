@@ -55,6 +55,7 @@ public class SessionManager {
     public ArrayList<NewUserModel.Data> arrayListUser = new ArrayList<>();
     public ArrayList<OrderData> arrayListorder= new ArrayList<>();
     public ArrayList<ProductModel.Data> arrayListOrderData= new ArrayList<>();
+    public ArrayList<ProductModel.Data> arrayListOrderDatanew= new ArrayList<>();
 
 
     public String screen_name = "";

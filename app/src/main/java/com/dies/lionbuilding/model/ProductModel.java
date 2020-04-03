@@ -39,6 +39,7 @@ public class ProductModel {
     public void setMessage(String message) {
         this.message = message;
     }
+
     public class Data {
 
         @SerializedName("product_id")
@@ -85,11 +86,10 @@ public class ProductModel {
         private int p_id;
         private String product_total;
         private String product_total_qty;
+        private String product_quentity;
 
 
-
-
-        public Data(String prcat_id, String product_catagory_id, String product_name, String product_price, String product_ratting, String product_weight, String product_qty, String product_barcode, String product_descpriction, String product_img, int p_id,String product_point) {
+        public Data(String prcat_id, String product_catagory_id, String product_name, String product_price, String product_ratting, String product_weight, String product_qty, String product_barcode, String product_descpriction, String product_img, int p_id, String product_point) {
             this.prcat_id = prcat_id;
             this.product_catagory_id = product_catagory_id;
             this.product_name = product_name;
@@ -101,7 +101,7 @@ public class ProductModel {
             this.product_descpriction = product_descpriction;
             this.product_img = product_img;
             this.p_id = p_id;
-            this.product_point=product_point;
+            this.product_point = product_point;
         }
 
         public String getPrcat_id() {
@@ -215,5 +215,13 @@ public class ProductModel {
         public void setProduct_total_qty(String product_total_qty) {
             this.product_total_qty = product_total_qty;
         }
+
+        public String getProduct_quentity() {
+            return product_quentity;
+        }
+
+        public void setProduct_quentity(String product_quentity) {
+            this.product_quentity = product_quentity;
+        }
     }
-    }
+}

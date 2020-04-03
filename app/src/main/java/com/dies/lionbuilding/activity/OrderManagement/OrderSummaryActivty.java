@@ -185,7 +185,8 @@ public class OrderSummaryActivty extends AppCompatActivity {
         });
 
 
-        arrayList = Utility.getAppcon().getSession().arrayListOrderData;
+        //arrayList = Utility.getAppcon().getSession().arrayListOrderData;
+        arrayList = Utility.getAppcon().getSession().arrayListOrderDatanew;
 
         Log.e(TAG, "onCreate: arralist--" + new Gson().toJson(arrayList));
 

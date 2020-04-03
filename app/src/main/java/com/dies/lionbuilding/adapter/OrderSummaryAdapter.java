@@ -37,7 +37,7 @@ public class OrderSummaryAdapter extends RecyclerView.Adapter<OrderSummaryAdapte
     public void onBindViewHolder(@NonNull OrderSummaryAdapter.ViewHolder holder, int position) {
 
         holder.txt_product_name.setText(arrayList.get(position).getProduct_name());
-        holder.txt_product_qty.setText(arrayList.get(position).getProduct_qty());
+        holder.txt_product_qty.setText(arrayList.get(position).getProduct_quentity());
         holder.txt_product_price.setText(arrayList.get(position).getProduct_price());
 
     }
