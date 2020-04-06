@@ -209,6 +209,7 @@ public class OrderActivity extends AppCompatActivity {
         Utility.getAppcon().getSession().arrayListOrderData = dt;
 
 
+
         Log.e("arrayList_new_data", new Gson().toJson(Utility.getAppcon().getSession().arrayListOrderData));
         ArrayList<ProductModel.Data> arrayList = new ArrayList<ProductModel.Data>();
 
