@@ -126,7 +126,7 @@ public class OrderSummaryActivty extends AppCompatActivity {
 
         btn_add.setOnClickListener(view -> {
 
-            /*if (sessionManager.getKeyRoll().equals("Dealer") || sessionManager.getKeyRoll().equals("Distributor")) {
+            if (sessionManager.getKeyRoll().equals("Dealer") || sessionManager.getKeyRoll().equals("Distributor")) {
                 callApi();
             } else {
 
@@ -138,9 +138,9 @@ public class OrderSummaryActivty extends AppCompatActivity {
 
                 }
                 // addOrder();
-            }*/
+            }
 
-            addOrder();
+            //addOrder();
         });
 
         arrayListotype.add("Primary Order");

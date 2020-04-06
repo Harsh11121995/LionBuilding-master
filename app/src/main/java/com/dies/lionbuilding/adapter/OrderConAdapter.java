@@ -15,9 +15,11 @@ import android.widget.TextView;
 
 import com.dies.lionbuilding.R;
 import com.dies.lionbuilding.activity.OrderManagement.OrderDeliveredActivity;
+import com.dies.lionbuilding.activity.OrderManagement.RmOrderViewActivity;
 import com.dies.lionbuilding.apiservice.ApiConstants;
 import com.dies.lionbuilding.apiservice.ApiService;
 import com.dies.lionbuilding.apiservice.ApiServiceCreator;
+import com.dies.lionbuilding.application.SessionManager;
 import com.dies.lionbuilding.application.Utility;
 import com.dies.lionbuilding.model.OrderConData;
 import com.dies.lionbuilding.model.PastRouteModel;
@@ -39,10 +41,13 @@ public class OrderConAdapter extends RecyclerView.Adapter<OrderConAdapter.MyView
 
     Context context;
     List<OrderConData.Data> dataList;
+    SessionManager sessionManager;
+
 
     public OrderConAdapter(Context context, List<OrderConData.Data> dataList) {
         this.context = context;
         this.dataList = dataList;
+        sessionManager = new SessionManager(context);
     }
 
     @NonNull
@@ -66,10 +71,15 @@ public class OrderConAdapter extends RecyclerView.Adapter<OrderConAdapter.MyView
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(context, OrderDeliveredActivity.class);
-                intent.putExtra("ord_id", dataList.get(position).getOrdId());
-                context.startActivity(intent);
-
+                if (sessionManager.getKeyRoll().equals("Distributor")) {
+                    Intent intent = new Intent(context, OrderDeliveredActivity.class);
+                    intent.putExtra("ord_id", dataList.get(position).getOrdId());
+                    context.startActivity(intent);
+                } else if (sessionManager.getKeyRoll().equals("RM")) {
+                    Intent intent = new Intent(context, RmOrderViewActivity.class);
+                    intent.putExtra("ord_id", dataList.get(position).getOrdId());
+                    context.startActivity(intent);
+                }
             }
         });
     }

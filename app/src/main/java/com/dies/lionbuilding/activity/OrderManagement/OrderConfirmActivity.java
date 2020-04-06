@@ -65,6 +65,18 @@ public class OrderConfirmActivity extends AppCompatActivity {
         rv_conOder_list.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(OrderConfirmActivity.this);
         rv_conOder_list.setLayoutManager(layoutManager);
+
+        if (sessionManager.getKeyRoll().equals("Distributor")) {
+            getAllDisOrderApi();
+        } else if (sessionManager.getKeyRoll().equals("RM")) {
+            getAllRmOrderApi();
+        }
+
+
+    }
+
+    private void getAllRmOrderApi() {
+
         pDialog = new ProgressDialog(OrderConfirmActivity.this);
         pDialog.setTitle("Checking Data");
         pDialog.setMessage("Please Wait...");
@@ -72,7 +84,59 @@ public class OrderConfirmActivity extends AppCompatActivity {
         pDialog.setCancelable(false);
         pDialog.show();
 
-        Observable<OrderConData> responseObservable = apiservice.getAllOrder(
+        Observable<OrderConData> responseObservable = apiservice.getAllRmOrder(
+                sessionManager.getKeyId());
+
+        Log.e(TAG, "getKeyId: " + sessionManager.getKeyId());
+
+        responseObservable.subscribeOn(Schedulers.newThread())
+                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
+                .onErrorResumeNext(throwable -> {
+                    if (throwable instanceof retrofit2.HttpException) {
+                        retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
+                        statusCode = ex.code();
+                        Log.e("error", ex.getLocalizedMessage());
+                    } else if (throwable instanceof SocketTimeoutException) {
+                        statusCode = 1000;
+                    }
+                    return Observable.empty();
+                })
+                .subscribe(new Observer<OrderConData>() {
+                    @Override
+                    public void onCompleted() {
+                        pDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("error", "" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(OrderConData orderConData) {
+                        statusCode = orderConData.getStatusCode();
+                        if (statusCode == 200) {
+
+                            arrayListdata = orderConData.getData();
+                            Log.e(TAG, "arrayListdata: " + new Gson().toJson(arrayListdata));
+                            myAdapter = new OrderConAdapter(OrderConfirmActivity.this, arrayListdata);
+                            rv_conOder_list.setAdapter(myAdapter);
+
+                        }
+                    }
+                });
+    }
+
+    private void getAllDisOrderApi() {
+
+        pDialog = new ProgressDialog(OrderConfirmActivity.this);
+        pDialog.setTitle("Checking Data");
+        pDialog.setMessage("Please Wait...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        Observable<OrderConData> responseObservable = apiservice.getAllDisOrder(
                 sessionManager.getKeyId());
 
         Log.e(TAG, "getKeyId: " + sessionManager.getKeyId());

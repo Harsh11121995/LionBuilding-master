@@ -13,6 +13,7 @@ import com.dies.lionbuilding.model.OrderConData;
 import com.dies.lionbuilding.model.PastRouteModel;
 import com.dies.lionbuilding.model.ProductCategoryModel;
 import com.dies.lionbuilding.model.ProductModel;
+import com.dies.lionbuilding.model.RmOrderViewModel;
 import com.dies.lionbuilding.model.RouteModel;
 import com.dies.lionbuilding.model.ShopViewModel;
 import com.dies.lionbuilding.model.UserDataResponse;
@@ -53,7 +54,8 @@ public interface ApiService {
                                                   @Field("city") String city,
                                                   @Field("pincode") String pincode,
                                                   @Field("user_type") String user_type,
-                                                  @Field("distributor_id") String d_id);
+                                                  @Field("distributor_id") String d_id,
+                                                  @Field("zone") String zone);
 
 
     @FormUrlEncoded
@@ -203,12 +205,19 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("UserData/getorder")
-    public Observable<OrderConData> getAllOrder(@Field("userId") String user_id);
+    public Observable<OrderConData> getAllDisOrder(@Field("userId") String user_id);
 
+    @FormUrlEncoded
+    @POST("UserData/getrmorder")
+    public Observable<OrderConData> getAllRmOrder(@Field("userId") String user_id);
 
     @FormUrlEncoded
     @POST("UserData/orderapproved")
     public Observable<OrderConData> getorderapproved(@Field("ord_id") String user_id);
+
+    @FormUrlEncoded
+    @POST("UserData/getorderdetail")
+    public Observable<RmOrderViewModel> getRmOrderDetail(@Field("ord_id") String user_id);
 
     @FormUrlEncoded
     @POST("UserData/distributor_orderconfirm")

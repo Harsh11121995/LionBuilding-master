@@ -2,14 +2,12 @@ package com.dies.lionbuilding.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,17 +19,10 @@ import com.dies.lionbuilding.apiservice.ApiServiceCreator;
 import com.dies.lionbuilding.application.SessionManager;
 import com.dies.lionbuilding.fragment.DealerFragment;
 import com.dies.lionbuilding.fragment.DistributorFragment;
-import com.dies.lionbuilding.fragment.HomeFragment;
+import com.dies.lionbuilding.fragment.RmFragment;
 import com.dies.lionbuilding.fragment.SalseExecutiveFragment;
-import com.dies.lionbuilding.model.UserDataResponse;
-
-import java.net.SocketTimeoutException;
 
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -79,16 +70,20 @@ public class HomeActivity extends AppCompatActivity {
             if (savedInstanceState != null) {
                 return;
             }
-            if (sessionManager.getKeyRoll().equals("Dealer")){
+            if (sessionManager.getKeyRoll().equals("Dealer")) {
                 DealerFragment dealerFragment = new DealerFragment();
                 getSupportFragmentManager().beginTransaction().add(R.id.contentContainer, dealerFragment).commit();
-            }else if (sessionManager.getKeyRoll().equals("Sales Executive")){
+            } else if (sessionManager.getKeyRoll().equals("Sales Executive")) {
                 SalseExecutiveFragment salseExecutiveFragment = new SalseExecutiveFragment();
                 getSupportFragmentManager().beginTransaction().add(R.id.contentContainer, salseExecutiveFragment).commit();
-            }else if (sessionManager.getKeyRoll().equals("Distributor")){
+            } else if (sessionManager.getKeyRoll().equals("Distributor")) {
                 DistributorFragment distributorFragment = new DistributorFragment();
-                getSupportFragmentManager().beginTransaction().add(R.id.contentContainer, distributorFragment).commit();
-            }else {
+                getSupportFragmentManager().beginTransaction().add(R.id.contentContainer,distributorFragment).commit();
+            } else if (sessionManager.getKeyRoll().equals("RM")) {
+                RmFragment rmFragment = new RmFragment();
+                getSupportFragmentManager().beginTransaction().add(R.id.contentContainer,rmFragment).commit();
+
+            } else {
 
             }
         }

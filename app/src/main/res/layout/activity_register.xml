@@ -4,379 +4,724 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
 
-    android:fillViewport="true"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg"
-        android:orientation="vertical"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        tools:context=".RegisterActivity">
-
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="150dp"
-            android:layout_height="55dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/register_btn"
-            android:fontFamily="@font/poppins_regular"
-            android:padding="1dp"
-            android:text="@string/btn_Login"
-            android:textAllCaps="false"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/editText_textSize"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txt_reg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="start"
-            android:text="Sign up"
-            android:textColor="#000000"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="start"
-            android:text="as"
-            android:layout_marginStart="15dp"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="normal" />
-
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:background="@drawable/bg"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            tools:context=".RegisterActivity">
 
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/register_btn"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:padding="1dp"
+                android:text="@string/btn_Login"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/editText_textSize"
+                android:textStyle="bold" />
 
-            <RadioGroup
-                android:id="@+id/rg1"
+            <TextView
+                android:id="@+id/txt_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="start"
+                android:text="Sign up"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
-                <RadioButton
-                    android:id="@+id/rd1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Dealer"
-                    android:textSize="15sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="start"
+                android:text="as"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:textStyle="normal" />
 
-                <RadioButton
-                    android:id="@+id/rd2"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Contractor"
-                    android:textSize="15sp" />
-
-                <RadioButton
-                    android:id="@+id/rd3"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Distributor"
-                    android:textSize="15sp" />
-            </RadioGroup>
-
-
-        </LinearLayout>
-
-
-
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="-45dp"
-            android:layout_marginRight="25dp"
-            android:background="@color/colorWight"
-            app:cardCornerRadius="50dp">
 
             <LinearLayout
-                android:id="@+id/liner_reg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/register_bg"
-                android:orientation="vertical">
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
 
-                <LinearLayout
+
+                <RadioGroup
+                    android:id="@+id/rg1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="@dimen/img_width"
-                        android:layout_height="@dimen/img_hight"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/icon_left_margin"
-                        android:src="@drawable/username" />
-
-                    <EditText
-                        android:id="@+id/edtfirstname"
-                        android:layout_width="match_parent"
+                    <RadioButton
+                        android:id="@+id/rd1"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:background="@null"
-                        android:backgroundTint="@color/colorTransparent"
-                        android:fontFamily="@font/poppins_regular"
-                        android:hint="First Name/Lastname"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:textSize="@dimen/editText_textSize" />
-                </LinearLayout>
+                        android:layout_weight="1"
+                        android:text="Dealer"
+                        android:textSize="15sp" />
 
+                    <RadioButton
+                        android:id="@+id/rd2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Contractor"
+                        android:textSize="15sp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorBlack" />
+                    <RadioButton
+                        android:id="@+id/rd3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Distributor"
+                        android:textSize="15sp" />
+
+                    <RadioButton
+                        android:id="@+id/rd4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="RM"
+                        android:textSize="15sp" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-45dp"
+                android:layout_marginRight="25dp"
+                android:background="@color/colorWight"
+                app:cardCornerRadius="50dp">
 
                 <LinearLayout
+                    android:id="@+id/liner_reg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="@dimen/img_width"
-                        android:layout_height="@dimen/img_hight"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/icon_left_margin"
-                        android:src="@drawable/call" />
-
-                    <EditText
-                        android:id="@+id/edt_mNo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:background="@null"
-                        android:fontFamily="@font/poppins_regular"
-                        android:hint="Mobile Number"
-                        android:inputType="number"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:textSize="@dimen/editText_textSize" />
-
-<!--                    <EditText-->
-<!--                        android:id="@+id/edtlastname"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="10dp"-->
-<!--                        android:background="@null"-->
-<!--                        android:fontFamily="@font/poppins_regular"-->
-<!--                        android:hint="Last Name"-->
-<!--                        android:paddingTop="5dp"-->
-<!--                        android:paddingBottom="5dp"-->
-<!--                        android:textSize="@dimen/editText_textSize" />-->
-                </LinearLayout>
-
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorBlack" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="@dimen/img_width"
-                        android:layout_height="@dimen/img_hight"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/icon_left_margin"
-                        android:src="@drawable/gst" />
-
-                    <EditText
-                        android:id="@+id/edt_gst"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:background="@null"
-                        android:fontFamily="@font/poppins_regular"
-                        android:hint="GST No."
-                        android:inputType="textEmailAddress"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:textSize="@dimen/editText_textSize" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorBlack" />
-
-
-                <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="@dimen/img_width"
-                        android:layout_height="@dimen/img_hight"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/icon_left_margin"
-                        android:src="@drawable/password" />
-
-                    <EditText
-                        android:id="@+id/edt_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:background="@color/colorTransparent"
-                        android:fontFamily="@font/poppins_regular"
-                        android:hint="Password"
-                        android:inputType="textPassword"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:textSize="@dimen/editText_textSize" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorBlack" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/register_bg"
                     android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="horizontal">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_weight="0.5">
-
-                    <ImageView
-                        android:layout_width="@dimen/img_width"
-                        android:layout_height="@dimen/img_hight"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/icon_left_margin"
-                        android:src="@drawable/location" />
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="Address"/>
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
                         android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/india"></ImageView>
-
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="25dp"
-                            android:text="India"/>
-
-                    </LinearLayout>
-                </LinearLayout>
-
-
-                    <EditText
-                        android:id="@+id/edt_address1"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/round_corner"
-                        android:fontFamily="@font/poppins_regular"
-                        android:hint=""
-                        android:gravity="top"
-                        android:padding="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:paddingTop="5dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_marginStart="35dp"
-                        android:paddingBottom="5dp"
-                        android:textSize="@dimen/editText_textSize" />
-                </LinearLayout>
-
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
 
                         <ImageView
                             android:layout_width="@dimen/img_width"
                             android:layout_height="@dimen/img_hight"
                             android:layout_gravity="center"
                             android:layout_marginLeft="@dimen/icon_left_margin"
-                            android:src="@drawable/state_" />
+                            android:src="@drawable/username" />
+
+                        <EditText
+                            android:id="@+id/edtfirstname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:backgroundTint="@color/colorTransparent"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="First Name/Lastname"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/call" />
+
+                        <EditText
+                            android:id="@+id/edt_mNo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Mobile Number"
+                            android:inputType="number"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="@dimen/editText_textSize" />
+
+                        <!--                    <EditText-->
+                        <!--                        android:id="@+id/edtlastname"-->
+                        <!--                        android:layout_width="match_parent"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        android:layout_marginLeft="10dp"-->
+                        <!--                        android:background="@null"-->
+                        <!--                        android:fontFamily="@font/poppins_regular"-->
+                        <!--                        android:hint="Last Name"-->
+                        <!--                        android:paddingTop="5dp"-->
+                        <!--                        android:paddingBottom="5dp"-->
+                        <!--                        android:textSize="@dimen/editText_textSize" />-->
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_gst"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/gst" />
+
+                        <EditText
+                            android:id="@+id/edt_gst"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="GST No."
+                            android:inputType="textEmailAddress"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/password" />
+
+                        <EditText
+                            android:id="@+id/edt_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@color/colorTransparent"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/img_width"
+                                    android:layout_height="@dimen/img_hight"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="@dimen/icon_left_margin"
+                                    android:src="@drawable/location" />
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:text="Address" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/india"></ImageView>
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="25dp"
+                                    android:text="India" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                        <EditText
+                            android:id="@+id/edt_address1"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/round_corner"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="top"
+                            android:hint=""
+                            android:padding="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/img_width"
+                                android:layout_height="@dimen/img_hight"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/icon_left_margin"
+                                android:src="@drawable/state_" />
+
+                            <Spinner
+                                android:id="@+id/spnr_state"
+                                style="@style/mySpinnerItemStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:fontFamily="@font/poppins_regular">
+
+                            </Spinner>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/img_width"
+                                android:layout_height="@dimen/img_hight"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/icon_left_margin"
+                                android:src="@drawable/location" />
+
+                            <EditText
+                                android:id="@+id/edt_city"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:background="@null"
+                                android:fontFamily="@font/poppins_regular"
+                                android:hint="City"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:textSize="@dimen/editText_textSize" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_zone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/zone" />
 
                         <Spinner
-                            android:id="@+id/spnr_state"
+                            android:id="@+id/spnr_zone"
+                            style="@style/mySpinnerItemStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp">
+
+                        </Spinner>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/location" />
+
+                        <EditText
+                            android:id="@+id/edt_pincode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Pincode"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_distributor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/location" />
+
+                        <EditText
+                            android:id="@+id/edt_distibutor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:focusable="false"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Distributor"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
+
+
+                    <!--                <View-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="1dp"-->
+                    <!--                    android:background="@color/colorBlack" />-->
+
+                    <!--                <LinearLayout-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:layout_marginTop="5dp"-->
+                    <!--                    android:layout_marginBottom="5dp"-->
+                    <!--                    android:orientation="horizontal">-->
+
+                    <!--                    <ImageView-->
+                    <!--                        android:layout_width="@dimen/img_width"-->
+                    <!--                        android:layout_height="@dimen/img_hight"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
+                    <!--                        android:src="@drawable/dob" />-->
+
+                    <!--                    <EditText-->
+                    <!--                        android:id="@+id/edt_Dob"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginLeft="10dp"-->
+                    <!--                        android:background="@null"-->
+                    <!--                        android:clickable="true"-->
+                    <!--                        android:editable="false"-->
+                    <!--                        android:fontFamily="@font/poppins_regular"-->
+                    <!--                        android:hint="Date of Birth"-->
+                    <!--                        android:paddingTop="5dp"-->
+                    <!--                        android:paddingBottom="5dp"-->
+                    <!--                        android:textSize="@dimen/editText_textSize" />-->
+                    <!--                </LinearLayout>-->
+
+                    <!--                <View-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="1dp"-->
+                    <!--                    android:background="@color/colorBlack" />-->
+
+                    <!--                <LinearLayout-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:layout_marginTop="5dp"-->
+                    <!--                    android:layout_marginBottom="5dp"-->
+                    <!--                    android:orientation="horizontal">-->
+
+                    <!--                    <ImageView-->
+                    <!--                        android:layout_width="@dimen/img_width"-->
+                    <!--                        android:layout_height="@dimen/img_hight"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
+                    <!--                        android:src="@drawable/call" />-->
+
+                    <!--&lt;!&ndash;                    <EditText&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        android:id="@+id/edt_mNo"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        android:layout_gravity="center"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        android:layout_marginLeft="10dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        android:background="@null"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        android:fontFamily="@font/poppins_regular"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        android:hint="Mobile Number"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        android:inputType="number"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        android:paddingTop="5dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        android:paddingBottom="5dp"&ndash;&gt;-->
+                    <!--&lt;!&ndash;                        android:textSize="@dimen/editText_textSize" />&ndash;&gt;-->
+                    <!--                </LinearLayout>-->
+
+                    <!--                <View-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="1dp"-->
+                    <!--                    android:background="@color/colorBlack" />-->
+
+                    <!--                <LinearLayout-->
+                    <!--                    android:orientation="horizontal"-->
+                    <!--                    android:layout_marginBottom="10dp"-->
+                    <!--                    android:layout_marginTop="10dp"-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="wrap_content">-->
+
+                    <!--                    <ImageView-->
+                    <!--                        android:layout_width="@dimen/img_width"-->
+                    <!--                        android:layout_height="@dimen/img_hight"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
+                    <!--                        android:src="@drawable/country" />-->
+                    <!--                    <Spinner-->
+                    <!--                        android:id="@+id/spnr_contry"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginLeft="5dp"-->
+                    <!--                        style="@style/mySpinnerItemStyle">-->
+                    <!--                    </Spinner>-->
+                    <!--                </LinearLayout>-->
+                    <!--                <View-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="1dp"-->
+                    <!--                    android:background="@color/colorBlack" />-->
+
+                    <!--            <LinearLayout-->
+                    <!--                android:orientation="horizontal"-->
+                    <!--                android:layout_marginTop="10dp"-->
+                    <!--                android:layout_marginBottom="10dp"-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="wrap_content">-->
+
+                    <!--                <ImageView-->
+                    <!--                    android:layout_width="@dimen/img_width"-->
+                    <!--                    android:layout_height="@dimen/img_hight"-->
+                    <!--                    android:layout_gravity="center"-->
+                    <!--                    android:layout_marginLeft="@dimen/icon_left_margin"-->
+                    <!--                    android:src="@drawable/state_" />-->
+
+                    <!--                <Spinner-->
+                    <!--                    android:id="@+id/spnr_state"-->
+                    <!--                    style="@style/mySpinnerItemStyle"-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:layout_marginLeft="5dp"-->
+                    <!--                    android:fontFamily="@font/poppins_regular">-->
+
+                    <!--                </Spinner>-->
+                    <!--            </LinearLayout>-->
+
+                    <!--                <View-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="1dp"-->
+                    <!--                    android:background="@color/colorBlack" />-->
+
+                    <!--                <LinearLayout-->
+                    <!--                    android:layout_marginTop="10dp"-->
+                    <!--                    android:layout_marginBottom="10dp"-->
+                    <!--                    android:orientation="horizontal"-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="wrap_content">-->
+
+                    <!--                    <ImageView-->
+                    <!--                        android:layout_width="@dimen/img_width"-->
+                    <!--                        android:layout_height="@dimen/img_hight"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
+                    <!--                        android:src="@drawable/city" />-->
+                    <!--                    <Spinner-->
+                    <!--                        android:id="@+id/spnr_city"-->
+                    <!--                        style="@style/mySpinnerItemStyle"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginLeft="5dp"-->
+                    <!--                        android:fontFamily="@font/poppins_regular">-->
+
+                    <!--                    </Spinner>-->
+                    <!--                </LinearLayout>-->
+                    <!--                <View-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="1dp"-->
+                    <!--                    android:background="@color/colorBlack" />-->
+
+
+                    <!--                <LinearLayout-->
+                    <!--                    android:layout_marginTop="10dp"-->
+                    <!--                    android:layout_marginBottom="10dp"-->
+                    <!--                    android:orientation="horizontal"-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="wrap_content">-->
+
+                    <!--                    <ImageView-->
+                    <!--                        android:layout_width="@dimen/img_width"-->
+                    <!--                        android:layout_height="@dimen/img_hight"-->
+                    <!--                        android:layout_gravity="center"-->
+                    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
+                    <!--                        android:src="@drawable/username" />-->
+                    <!--                    <Spinner-->
+                    <!--                        android:id="@+id/spnr_usertype"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginLeft="5dp"-->
+                    <!--                        android:fontFamily="@font/poppins_regular"-->
+                    <!--                        style="@style/mySpinnerItemStyle">-->
+
+                    <!--                    </Spinner>-->
+
+
+                    <!--                </LinearLayout>-->
+
+                    <LinearLayout
+                        android:id="@+id/lnr_spnrzone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/username" />
+
+                        <Spinner
+                            android:id="@+id/spnr_userzone"
                             style="@style/mySpinnerItemStyle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -384,376 +729,64 @@
                             android:fontFamily="@font/poppins_regular">
 
                         </Spinner>
+
+
                     </LinearLayout>
 
-
                     <LinearLayout
-                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:layout_marginBottom="5dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="@dimen/img_width"
-                    android:layout_height="@dimen/img_hight"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/icon_left_margin"
-                    android:src="@drawable/location" />
-
-                <EditText
-                    android:id="@+id/edt_city"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:background="@null"
-                    android:fontFamily="@font/poppins_regular"
-                    android:hint="City"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:textSize="@dimen/editText_textSize" />
-            </LinearLayout>
-
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorBlack" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="@dimen/img_width"
-                        android:layout_height="@dimen/img_hight"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/icon_left_margin"
-                        android:src="@drawable/location" />
-
-                    <EditText
-                        android:id="@+id/edt_pincode"
+                        android:id="@+id/lnr_spnrdistrict"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:background="@null"
-                        android:fontFamily="@font/poppins_regular"
-                        android:hint="Pincode"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-                        android:textSize="@dimen/editText_textSize" />
-                </LinearLayout>
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorBlack" />
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/username" />
 
-                <LinearLayout
-                    android:id="@+id/ll_distributor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="horizontal">
+                        <Spinner
+                            android:id="@+id/spnr_userdistrict"
+                            style="@style/mySpinnerItemStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:fontFamily="@font/poppins_regular">
 
-                    <ImageView
-                        android:layout_width="@dimen/img_width"
-                        android:layout_height="@dimen/img_hight"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/icon_left_margin"
-                        android:src="@drawable/location" />
+                        </Spinner>
 
-                    <EditText
-                        android:id="@+id/edt_distibutor"
+
+                    </LinearLayout>
+
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:background="@null"
-                        android:fontFamily="@font/poppins_regular"
-                        android:hint="Distributor"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-                        android:focusable="false"
-                        android:textSize="@dimen/editText_textSize" />
-                </LinearLayout>
-
-
-                <!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="1dp"-->
-<!--                    android:background="@color/colorBlack" />-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="5dp"-->
-<!--                    android:layout_marginBottom="5dp"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                    <ImageView-->
-<!--                        android:layout_width="@dimen/img_width"-->
-<!--                        android:layout_height="@dimen/img_hight"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
-<!--                        android:src="@drawable/dob" />-->
-
-<!--                    <EditText-->
-<!--                        android:id="@+id/edt_Dob"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="10dp"-->
-<!--                        android:background="@null"-->
-<!--                        android:clickable="true"-->
-<!--                        android:editable="false"-->
-<!--                        android:fontFamily="@font/poppins_regular"-->
-<!--                        android:hint="Date of Birth"-->
-<!--                        android:paddingTop="5dp"-->
-<!--                        android:paddingBottom="5dp"-->
-<!--                        android:textSize="@dimen/editText_textSize" />-->
-<!--                </LinearLayout>-->
-
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="1dp"-->
-<!--                    android:background="@color/colorBlack" />-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="5dp"-->
-<!--                    android:layout_marginBottom="5dp"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                    <ImageView-->
-<!--                        android:layout_width="@dimen/img_width"-->
-<!--                        android:layout_height="@dimen/img_hight"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
-<!--                        android:src="@drawable/call" />-->
-
-<!--&lt;!&ndash;                    <EditText&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:id="@+id/edt_mNo"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:layout_gravity="center"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:layout_marginLeft="10dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:background="@null"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:fontFamily="@font/poppins_regular"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:hint="Mobile Number"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:inputType="number"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:paddingTop="5dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:paddingBottom="5dp"&ndash;&gt;-->
-<!--&lt;!&ndash;                        android:textSize="@dimen/editText_textSize" />&ndash;&gt;-->
-<!--                </LinearLayout>-->
-
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="1dp"-->
-<!--                    android:background="@color/colorBlack" />-->
-
-<!--                <LinearLayout-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:layout_marginBottom="10dp"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content">-->
-
-<!--                    <ImageView-->
-<!--                        android:layout_width="@dimen/img_width"-->
-<!--                        android:layout_height="@dimen/img_hight"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
-<!--                        android:src="@drawable/country" />-->
-<!--                    <Spinner-->
-<!--                        android:id="@+id/spnr_contry"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        style="@style/mySpinnerItemStyle">-->
-<!--                    </Spinner>-->
-<!--                </LinearLayout>-->
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="1dp"-->
-<!--                    android:background="@color/colorBlack" />-->
-
-<!--            <LinearLayout-->
-<!--                android:orientation="horizontal"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="@dimen/img_width"-->
-<!--                    android:layout_height="@dimen/img_hight"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:layout_marginLeft="@dimen/icon_left_margin"-->
-<!--                    android:src="@drawable/state_" />-->
-
-<!--                <Spinner-->
-<!--                    android:id="@+id/spnr_state"-->
-<!--                    style="@style/mySpinnerItemStyle"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="5dp"-->
-<!--                    android:fontFamily="@font/poppins_regular">-->
-
-<!--                </Spinner>-->
-<!--            </LinearLayout>-->
-
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="1dp"-->
-<!--                    android:background="@color/colorBlack" />-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:layout_marginBottom="10dp"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content">-->
-
-<!--                    <ImageView-->
-<!--                        android:layout_width="@dimen/img_width"-->
-<!--                        android:layout_height="@dimen/img_hight"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
-<!--                        android:src="@drawable/city" />-->
-<!--                    <Spinner-->
-<!--                        android:id="@+id/spnr_city"-->
-<!--                        style="@style/mySpinnerItemStyle"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:fontFamily="@font/poppins_regular">-->
-
-<!--                    </Spinner>-->
-<!--                </LinearLayout>-->
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="1dp"-->
-<!--                    android:background="@color/colorBlack" />-->
-
-
-
-<!--                <LinearLayout-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:layout_marginBottom="10dp"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content">-->
-
-<!--                    <ImageView-->
-<!--                        android:layout_width="@dimen/img_width"-->
-<!--                        android:layout_height="@dimen/img_hight"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
-<!--                        android:src="@drawable/username" />-->
-<!--                    <Spinner-->
-<!--                        android:id="@+id/spnr_usertype"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="5dp"-->
-<!--                        android:fontFamily="@font/poppins_regular"-->
-<!--                        style="@style/mySpinnerItemStyle">-->
-
-<!--                    </Spinner>-->
-
-
-<!--                </LinearLayout>-->
-
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="horizontal"
-                    android:visibility="gone"
-                    android:id="@+id/lnr_spnrzone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_width="@dimen/img_width"
-                        android:layout_height="@dimen/img_hight"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/icon_left_margin"
-                        android:src="@drawable/username" />
-                    <Spinner
-                        android:id="@+id/spnr_userzone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:fontFamily="@font/poppins_regular"
-                        style="@style/mySpinnerItemStyle">
-
-                    </Spinner>
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
 
 
                 </LinearLayout>
+            </android.support.v7.widget.CardView>
 
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:id="@+id/lnr_spnrdistrict"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:visibility="gone"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_width="@dimen/img_width"
-                        android:layout_height="@dimen/img_hight"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/icon_left_margin"
-                        android:src="@drawable/username" />
-                    <Spinner
-                        android:id="@+id/spnr_userdistrict"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:fontFamily="@font/poppins_regular"
-                        style="@style/mySpinnerItemStyle">
-
-                    </Spinner>
-
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorBlack" />
-
-
-
-
-
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-        <Button
-            android:id="@+id/btn_register"
-            android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="25dp"
-            android:gravity="center"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/half_circle_btn"
-            android:fontFamily="@font/poppins_regular"
-            android:padding="15dp"
-            android:text="@string/btn_register"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/editText_textSize"
-            android:textStyle="bold" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/half_circle_btn"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="@string/btn_register"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/editText_textSize"
+                android:textStyle="bold" />
+        </LinearLayout>
     </RelativeLayout>
 </ScrollView>

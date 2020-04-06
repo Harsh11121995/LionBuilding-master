@@ -21,7 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustResize">
-        <activity android:name=".activity.OrderManagement.OrderDeliveredSummary"></activity>
+        <activity android:name=".activity.OrderManagement.RmOrderViewActivity"></activity>
+        <activity android:name=".activity.OrderManagement.OrderDeliveredSummary" />
         <activity android:name=".activity.OrderManagement.OrderDeliveredActivity" />
         <activity android:name=".activity.OrderManagement.OrderConfirmActivity" />
         <activity android:name=".activity.RouteManagement.FutureRouteActivity" />

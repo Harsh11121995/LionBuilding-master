@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -71,6 +72,19 @@ public class RegisterActivity extends AppCompatActivity {
     RadioButton rd1;
     @BindView(R.id.rd2)
     RadioButton rd2;
+    @BindView(R.id.rd3)
+    RadioButton rd3;
+    @BindView(R.id.rd4)
+    RadioButton rd4;
+    @BindView(R.id.ll_gst)
+    LinearLayout ll_gst;
+
+    @BindView(R.id.ll_distributor)
+    LinearLayout ll_distributor;
+
+    @BindView(R.id.ll_zone)
+    LinearLayout ll_zone;
+
     //    @BindView(R.id.spnr_city)
 //    Spinner spnr_city;
 //    @BindView(R.id.spnr_usertype)
@@ -83,8 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
 //    LinearLayout lnr_spnrzone;
 //    @BindView(R.id.lnr_spnrdistrict)
 //    LinearLayout lnr_spnrdistrict;
-    @BindView(R.id.rd3)
-    RadioButton rd3;
+
     //    @BindView(R.id.spnr_contry)
 //    Spinner spnr_contry;
     @BindView(R.id.spnr_state)
@@ -98,7 +111,7 @@ public class RegisterActivity extends AppCompatActivity {
     List<WardModel.Data> wardList;
     String zone, wrd;
     String z_id, wrd_id;
-    RadioButton rb1, rb2, rb3;
+    RadioButton rb1, rb2, rb3, rb4;
     String rbtn1, rbtn2, rbtn3;
     String c_id = "1", s_id, city_id, roll_id;
     String uid;
@@ -112,6 +125,8 @@ public class RegisterActivity extends AppCompatActivity {
     private ApiService apiservice;
     private SessionManager sessionManager = null;
     private ProgressDialog pDialog;
+    @BindView(R.id.spnr_zone)
+    Spinner spnr_zone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,31 +142,38 @@ public class RegisterActivity extends AppCompatActivity {
         getState("1");
         // getUsertype();
 
+        getZone();
 
-//        spnr_contry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                if (spnr_contry.getSelectedItem() == "Select Contry") {
-//                    Contry = "";
-//                    //Do nothing.
-//                } else {
-//                    Contry = spnr_contry.getSelectedItem().toString();
-//                    CountryModel.Data datalist = data.get(i - 1);
-//                    c_id = datalist.getCountry_id();
-//
-//                    Log.e("state_id", c_id);
-//                    getState(c_id);
-//
-//                    //Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
 
+        ll_zone.setVisibility(View.GONE);
+
+        spnr_zone.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                TextView textView = (TextView)adapterView.getChildAt(0);
+//                textView.setTextColor(getResources().getColor(R.color.colorblack));
+                if (spnr_zone.getSelectedItem() == "Select Zone") {
+                    zone = "";
+                    //Utility.displayToast(RegisterActivity.this, "not data selected");
+                    //Do nothing.
+                } else {
+
+                    Utility.displayToast(RegisterActivity.this, "selected");
+                    zone = spnr_zone.getSelectedItem().toString();
+                    ZoneModel.Data datalist = zoneList.get(i - 1);
+                    z_id = datalist.getZn_id();
+                    Log.e("zone_id", z_id);
+                    getWrdId(z_id);
+
+                    //Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         spnr_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -183,132 +205,33 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
-//        spnr_city.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//                if (spnr_city.getSelectedItem() == "Select City") {
-//                    City = "";
-//                    //Do nothing.
-//                } else {
-//                    City = spnr_city.getSelectedItem().toString();
-//                    CountryModel.Data datalist = data2.get(i - 1);
-//                    city_id = datalist.getCity_id();
-//                    //Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
+        rg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int id = rg1.getCheckedRadioButtonId();
+                switch (id) {
+                    case R.id.rd1:
+                        ll_distributor.setVisibility(View.VISIBLE);
+                        ll_zone.setVisibility(View.GONE);
+                        break;
+                    case R.id.rd2:
+                        ll_distributor.setVisibility(View.GONE);
+                        ll_zone.setVisibility(View.GONE);
+                        break;
+                    case R.id.rd3:
+                        ll_distributor.setVisibility(View.GONE);
+                        ll_zone.setVisibility(View.GONE);
+                        break;
+                    case R.id.rd4:
+                        ll_distributor.setVisibility(View.GONE);
+                        ll_zone.setVisibility(View.VISIBLE);
 
-
-//        spnr_usertype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                if (spnr_usertype.getSelectedItem() == "Select UserType") {
-//                    user_type = "";
-//
-//                } else {
-//                    user_type = spnr_usertype.getSelectedItem().toString();
-//                    CountryModel.Data datalist = data3.get(i - 1);
-//                    if (user_type.equals("Sales Executive")){
-//                        getZone();
-//                        lnr_spnrzone.setVisibility(View.VISIBLE);
-//                        lnr_spnrdistrict.setVisibility(View.VISIBLE);
-//
-//                    }else {
-//                        lnr_spnrzone.setVisibility(View.GONE);
-//                        lnr_spnrdistrict.setVisibility(View.GONE);
-//                    }
-//
-//                    roll_id = datalist.getRoleId();
-//                   // Log.d("dataList", "onItemSelected: " + roll_id);
-//
-//                    //Toast.makeText(RegisterActivity.this, spnr_usertype.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
-
-
-//        spnr_userzone.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                TextView textView = (TextView)adapterView.getChildAt(0);
-//                textView.setTextColor(getResources().getColor(R.color.colorblack));
-//                if (spnr_userzone.getSelectedItem() == "Select Zone") {
-//                    zone = "";
-//                    //Do nothing.
-//                } else {
-//                    zone = spnr_userzone.getSelectedItem().toString();
-//                    ZoneModel.Data datalist = zoneList.get(i - 1);
-//                    z_id = datalist.getZn_id();
-//                    Log.e("state_id", z_id);
-//                    getWrdId(z_id);
-//
-//                    //Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
-//        spnr_userdistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                if (spnr_userdistrict.getSelectedItem() == "Select ward") {
-//                    wrd = "";
-//                    //Do nothing.
-//                } else {
-//                    wrd = spnr_userdistrict.getSelectedItem().toString();
-//                    WardModel.Data datalist = wardList.get(i - 1);
-//                    wrd_id = datalist.getWrd_id();
-//
-//                    //Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
-
-//        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-//
-//            @Override
-//            public void onDateSet(DatePicker view, int year, int monthOfYear,
-//                                  int dayOfMonth) {
-//                // TODO Auto-generated method stub
-//                myCalendar.set(Calendar.YEAR, year);
-//                myCalendar.set(Calendar.MONTH, monthOfYear);
-//                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-////                updateLabel();
-//            }
-//
-//        };
-//        edt_Dob.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                // TODO Auto-generated method stub
-//                new DatePickerDialog(RegisterActivity.this, date, myCalendar
-//                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-//                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-//            }
-//        });
-
-
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -346,14 +269,23 @@ public class RegisterActivity extends AppCompatActivity {
             } else {
                 int selectedId = rg1.getCheckedRadioButtonId();
                 rb1 = (RadioButton) findViewById(selectedId);
+                rb2 = (RadioButton) findViewById(selectedId);
+                rb3 = (RadioButton) findViewById(selectedId);
+                rb4 = (RadioButton) findViewById(selectedId);
                 if (rb1.getText().toString().equals("Dealer")) {
-                    edt_distributor.setVisibility(View.VISIBLE);
+                    ll_distributor.setVisibility(View.VISIBLE);
                     roll_id = "2";
-                } else if (rb1.getText().toString().equals("Contractor")) {
-                    edt_distributor.setVisibility(View.GONE);
+                } else if (rb2.getText().toString().equals("Contractor")) {
+                    ll_distributor.setVisibility(View.GONE);
                     roll_id = "3";
+                } else if (rb3.getText().toString().equals("Distributor")) {
+                    ll_distributor.setVisibility(View.GONE);
+                    roll_id = "4";
+                } else if (rb4.getText().toString().equals("RM")) {
+                    ll_distributor.setVisibility(View.GONE);
+                    roll_id = "6";
                 } else {
-                    edt_distributor.setVisibility(View.GONE);
+                    ll_distributor.setVisibility(View.GONE);
                     roll_id = "5";
                 }
                 // one of the radio buttons is checked
@@ -382,7 +314,6 @@ public class RegisterActivity extends AppCompatActivity {
         pDialog.setCancelable(false);
         pDialog.show();
 
-
         Observable<LoginResponse> responseObservable = apiservice.registerUser(
                 edt_firstname.getText().toString(),
                 edt_mobileNo.getText().toString(),
@@ -392,7 +323,7 @@ public class RegisterActivity extends AppCompatActivity {
                 s_id,
                 edt_city.getText().toString(),
                 edt_pincode.getText().toString(),
-                roll_id, uid
+                roll_id, uid, z_id
         );
         responseObservable.subscribeOn(Schedulers.newThread())
                 .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
@@ -553,6 +484,63 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    public void getZone() {
+      /*  pDialog = new ProgressDialog(this);
+        pDialog.setTitle("Checking Data");
+        pDialog.setMessage("Please Wait...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();*/
+
+
+        Observable<ZoneModel> responseObservable = apiservice.getZone();
+        responseObservable.subscribeOn(Schedulers.newThread())
+                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
+                .onErrorResumeNext(throwable -> {
+                    if (throwable instanceof retrofit2.HttpException) {
+                        retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
+                        statusCode = ex.code();
+                        Log.e("error", ex.getLocalizedMessage());
+                    } else if (throwable instanceof SocketTimeoutException) {
+                        statusCode = 1000;
+                    }
+                    return Observable.empty();
+                })
+                .subscribe(new Observer<ZoneModel>() {
+                    @Override
+                    public void onCompleted() {
+                        pDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("error", "" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(ZoneModel zoneModel) {
+                        statusCode = zoneModel.getStatusCode();
+                        if (statusCode == 200) {
+                            zoneList = zoneModel.getData();
+
+                            for (int i = 0; i < zoneModel.getData().size(); i++) {
+                                zoneArray.add(zoneModel.getData().get(i).getZn_name());
+                            }
+
+                        } else {
+                            Utility.displayToast(RegisterActivity.this, zoneModel.getMessage());
+                        }
+                    }
+
+                });
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item, zoneArray);
+        dataAdapter.add("Select Zone");
+        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
+        spnr_zone.setAdapter(dataAdapter);
+
+    }
+
+
     public void getCity(String s_id) {
 
         pDialog = new ProgressDialog(this);
@@ -666,63 +654,6 @@ public class RegisterActivity extends AppCompatActivity {
         dataAdapter.notifyDataSetChanged();
     }
 
-    public void getZone() {
-
-        zoneArray.clear();
-        pDialog = new ProgressDialog(this);
-        pDialog.setTitle("Checking Data");
-        pDialog.setMessage("Please Wait...");
-        pDialog.setIndeterminate(false);
-        pDialog.setCancelable(false);
-        pDialog.show();
-
-
-        Observable<ZoneModel> responseObservable = apiservice.getZone();
-        responseObservable.subscribeOn(Schedulers.newThread())
-                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
-                .onErrorResumeNext(throwable -> {
-                    if (throwable instanceof retrofit2.HttpException) {
-                        retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
-                        statusCode = ex.code();
-                        Log.e("error", ex.getLocalizedMessage());
-                    } else if (throwable instanceof SocketTimeoutException) {
-                        statusCode = 1000;
-                    }
-                    return Observable.empty();
-                })
-                .subscribe(new Observer<ZoneModel>() {
-                    @Override
-                    public void onCompleted() {
-                        pDialog.dismiss();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e("error", "" + e.getMessage());
-                    }
-
-                    @Override
-                    public void onNext(ZoneModel zoneModel) {
-                        statusCode = zoneModel.getStatusCode();
-                        if (statusCode == 200) {
-                            zoneList = zoneModel.getData();
-
-                            for (int i = 0; i < zoneModel.getData().size(); i++) {
-                                zoneArray.add(zoneModel.getData().get(i).getZn_name());
-                            }
-
-                        } else {
-                            Utility.displayToast(RegisterActivity.this, zoneModel.getMessage());
-                        }
-                    }
-
-                });
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item, zoneArray);
-        dataAdapter.add("Select Zone");
-        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
-        //spnr_userzone.setAdapter(dataAdapter);
-
-    }
 
     public void getWrdId(String z_id) {
 
@@ -802,3 +733,151 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 }
+
+//        spnr_city.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                if (spnr_city.getSelectedItem() == "Select City") {
+//                    City = "";
+//                    //Do nothing.
+//                } else {
+//                    City = spnr_city.getSelectedItem().toString();
+//                    CountryModel.Data datalist = data2.get(i - 1);
+//                    city_id = datalist.getCity_id();
+//                    //Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
+
+
+//        spnr_usertype.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                if (spnr_usertype.getSelectedItem() == "Select UserType") {
+//                    user_type = "";
+//
+//                } else {
+//                    user_type = spnr_usertype.getSelectedItem().toString();
+//                    CountryModel.Data datalist = data3.get(i - 1);
+//                    if (user_type.equals("Sales Executive")){
+//                        getZone();
+//                        lnr_spnrzone.setVisibility(View.VISIBLE);
+//                        lnr_spnrdistrict.setVisibility(View.VISIBLE);
+//
+//                    }else {
+//                        lnr_spnrzone.setVisibility(View.GONE);
+//                        lnr_spnrdistrict.setVisibility(View.GONE);
+//                    }
+//
+//                    roll_id = datalist.getRoleId();
+//                   // Log.d("dataList", "onItemSelected: " + roll_id);
+//
+//                    //Toast.makeText(RegisterActivity.this, spnr_usertype.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
+
+
+//        spnr_userzone.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                TextView textView = (TextView)adapterView.getChildAt(0);
+//                textView.setTextColor(getResources().getColor(R.color.colorblack));
+//                if (spnr_userzone.getSelectedItem() == "Select Zone") {
+//                    zone = "";
+//                    //Do nothing.
+//                } else {
+//                    zone = spnr_userzone.getSelectedItem().toString();
+//                    ZoneModel.Data datalist = zoneList.get(i - 1);
+//                    z_id = datalist.getZn_id();
+//                    Log.e("state_id", z_id);
+//                    getWrdId(z_id);
+//
+//                    //Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
+//        spnr_userdistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                if (spnr_userdistrict.getSelectedItem() == "Select ward") {
+//                    wrd = "";
+//                    //Do nothing.
+//                } else {
+//                    wrd = spnr_userdistrict.getSelectedItem().toString();
+//                    WardModel.Data datalist = wardList.get(i - 1);
+//                    wrd_id = datalist.getWrd_id();
+//
+//                    //Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
+
+//        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+//
+//            @Override
+//            public void onDateSet(DatePicker view, int year, int monthOfYear,
+//                                  int dayOfMonth) {
+//                // TODO Auto-generated method stub
+//                myCalendar.set(Calendar.YEAR, year);
+//                myCalendar.set(Calendar.MONTH, monthOfYear);
+//                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+////                updateLabel();
+//            }
+//
+//        };
+//        edt_Dob.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                // TODO Auto-generated method stub
+//                new DatePickerDialog(RegisterActivity.this, date, myCalendar
+//                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+//                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+//            }
+//        });
+//        spnr_contry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                if (spnr_contry.getSelectedItem() == "Select Contry") {
+//                    Contry = "";
+//                    //Do nothing.
+//                } else {
+//                    Contry = spnr_contry.getSelectedItem().toString();
+//                    CountryModel.Data datalist = data.get(i - 1);
+//                    c_id = datalist.getCountry_id();
+//
+//                    Log.e("state_id", c_id);
+//                    getState(c_id);
+//
+//                    //Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
