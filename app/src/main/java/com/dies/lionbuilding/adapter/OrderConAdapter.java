@@ -41,13 +41,10 @@ public class OrderConAdapter extends RecyclerView.Adapter<OrderConAdapter.MyView
 
     Context context;
     List<OrderConData.Data> dataList;
-    SessionManager sessionManager;
-
 
     public OrderConAdapter(Context context, List<OrderConData.Data> dataList) {
         this.context = context;
         this.dataList = dataList;
-        sessionManager = new SessionManager(context);
     }
 
     @NonNull
@@ -71,7 +68,12 @@ public class OrderConAdapter extends RecyclerView.Adapter<OrderConAdapter.MyView
             @Override
             public void onClick(View view) {
 
-                if (sessionManager.getKeyRoll().equals("Distributor")) {
+
+                Intent intent = new Intent(context, OrderDeliveredActivity.class);
+                intent.putExtra("ord_id", dataList.get(position).getOrdId());
+                context.startActivity(intent);
+
+                /*if (sessionManager.getKeyRoll().equals("Distributor")) {
                     Intent intent = new Intent(context, OrderDeliveredActivity.class);
                     intent.putExtra("ord_id", dataList.get(position).getOrdId());
                     context.startActivity(intent);
@@ -79,7 +81,7 @@ public class OrderConAdapter extends RecyclerView.Adapter<OrderConAdapter.MyView
                     Intent intent = new Intent(context, RmOrderViewActivity.class);
                     intent.putExtra("ord_id", dataList.get(position).getOrdId());
                     context.startActivity(intent);
-                }
+                }*/
             }
         });
     }

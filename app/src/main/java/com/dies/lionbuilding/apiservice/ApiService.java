@@ -188,6 +188,8 @@ public interface ApiService {
                                              @Field("product_id") String uname,
                                              @Field("product_id") String qty);
 
+    /////////////////////// ordr apis ///////////////////////////////////////////////
+
     @FormUrlEncoded
     @POST("UserData/create_order")
     public Observable<UserDataResponse> CreateOrder(@Field("ord_slm_id") String ord_slm_id,
@@ -225,10 +227,16 @@ public interface ApiService {
                                                            @Field("userId") String user_id);
 
     @FormUrlEncoded
+    @POST("UserData/rm_distributor_orderconfirm")
+    public Observable<OrderConData> get_rm_distrbtr_odrconfirm(@Field("ord_id") String ord_id,
+                                                               @Field("userId") String user_id);
+
+    @FormUrlEncoded
     @POST("UserData/delivered_order")
     public Observable<OrderConData> getDeliveredOrder(@Field("userId") String user_id);
 
 
+    /////////////////// route apis ////////////////////////////////////////////////
     @FormUrlEncoded
     @POST("UserData/get_user_subroute")
     public Observable<RouteModel> getAllRoute(@Field("userId") String user_id);

@@ -222,18 +222,17 @@ public class OrderSummaryActivty extends AppCompatActivity {
         for (int i = 0; i < arrayList.size(); i++) {
 
             list_pid.add(String.valueOf(arrayList.get(i).getPrcat_id()));
-            pqty.add(arrayList.get(i).getProduct_qty());
+            pqty.add(arrayList.get(i).getProduct_quentity());
             order_price.add(arrayList.get(i).getProduct_price());
 
 
-            sorderprice = Double.parseDouble(arrayList.get(i).getProduct_price()) * Double.parseDouble(arrayList.get(i).getProduct_qty());
-            sorderpoint = Double.parseDouble(arrayList.get(i).getProduct_point()) * Double.parseDouble(arrayList.get(i).getProduct_qty());
+            sorderprice = Double.parseDouble(arrayList.get(i).getProduct_price()) * Double.parseDouble(arrayList.get(i).getProduct_quentity());
+            sorderpoint = Double.parseDouble(arrayList.get(i).getProduct_point()) * Double.parseDouble(arrayList.get(i).getProduct_quentity());
 
             total_point = total_point + sorderpoint;
 
             sord_point.add(String.valueOf(sorderpoint));
             sord_price.add(String.valueOf(sorderprice));
-
 
         }
         Log.e(TAG, "getTotalData: " + "sorderprice" + sorderprice + "---" + "sorderpoint" + sorderpoint);

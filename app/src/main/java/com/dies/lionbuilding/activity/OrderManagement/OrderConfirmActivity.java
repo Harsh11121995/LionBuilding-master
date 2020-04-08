@@ -12,6 +12,7 @@ import com.dies.lionbuilding.R;
 import com.dies.lionbuilding.activity.RouteManagement.PastRouteActivity;
 import com.dies.lionbuilding.adapter.OrderConAdapter;
 import com.dies.lionbuilding.adapter.PastRouteAdapter;
+import com.dies.lionbuilding.adapter.RmOrderConAdapter;
 import com.dies.lionbuilding.apiservice.ApiService;
 import com.dies.lionbuilding.apiservice.ApiServiceCreator;
 import com.dies.lionbuilding.application.SessionManager;
@@ -43,7 +44,8 @@ public class OrderConfirmActivity extends AppCompatActivity {
     ProgressDialog pDialog;
     String TAG = "TAG";
     List<OrderConData.Data> arrayListdata;
-    OrderConAdapter myAdapter;
+    RmOrderConAdapter myrmAdapter;
+    OrderConAdapter mydisAdapter;
     RecyclerView.LayoutManager layoutManager;
     int statusCode;
 
@@ -117,15 +119,20 @@ public class OrderConfirmActivity extends AppCompatActivity {
                         statusCode = orderConData.getStatusCode();
                         if (statusCode == 200) {
 
+                            //arrayListdata.clear();
+
                             arrayListdata = orderConData.getData();
                             Log.e(TAG, "arrayListdata: " + new Gson().toJson(arrayListdata));
-                            myAdapter = new OrderConAdapter(OrderConfirmActivity.this, arrayListdata);
-                            rv_conOder_list.setAdapter(myAdapter);
+                            myrmAdapter = new RmOrderConAdapter(OrderConfirmActivity.this, arrayListdata);
+                            rv_conOder_list.setAdapter(myrmAdapter);
+                         //   myrmAdapter.notifyDataSetChanged();
+
 
                         }
                     }
                 });
     }
+
 
     private void getAllDisOrderApi() {
 
@@ -171,11 +178,12 @@ public class OrderConfirmActivity extends AppCompatActivity {
 
                             arrayListdata = orderConData.getData();
                             Log.e(TAG, "arrayListdata: " + new Gson().toJson(arrayListdata));
-                            myAdapter = new OrderConAdapter(OrderConfirmActivity.this, arrayListdata);
-                            rv_conOder_list.setAdapter(myAdapter);
+                            mydisAdapter = new OrderConAdapter(OrderConfirmActivity.this, arrayListdata);
+                            rv_conOder_list.setAdapter(mydisAdapter);
 
                         }
                     }
                 });
     }
+
 }
