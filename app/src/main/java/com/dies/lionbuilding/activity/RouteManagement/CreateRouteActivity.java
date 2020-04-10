@@ -257,7 +257,7 @@ public class CreateRouteActivity extends AppCompatActivity {
 
                 //((TextView) spnr_route.getSelectedView()).setTextColor(Color.WHITE);
 
-               // ((TextView) view).setTextColor(getResources().getColor(R.color.colorblack));
+                // ((TextView) view).setTextColor(getResources().getColor(R.color.colorblack));
                 if (spnr_route.getSelectedItem() == "Select Route") {
                     ll_zonedata.setVisibility(View.GONE);
                     State = "";
@@ -355,12 +355,16 @@ public class CreateRouteActivity extends AppCompatActivity {
             } else if (dealer_id_str.equals("")) {
                 Utility.displayToast(this, "dealer not found");
             } else {
-                AddData();
+
+                if (sessionManager.getKeyRoll().equals("RM")) {
+                    AddRmData();
+                } else {
+                    AddData();
+                }
             }
         });
 
     }
-
 
     public void RouteData() {
 
@@ -494,10 +498,129 @@ public class CreateRouteActivity extends AppCompatActivity {
                             String dealernamee = TextUtils.join(", ", dealername);
                             txt_dealer_name.setText(dealernamee);
 
+                        }
+                    }
+                });
+
+    }
+
+    private void AddRmData() {
+
+        pDialog = new ProgressDialog(this);
+        pDialog.setTitle("Checking Data");
+        pDialog.setMessage("Please Wait...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        Observable<RouteModel> responseObservable = apiservice.AddRmData(
+                r_id,
+                sessionManager.getKeyId(),
+                city_id_str,
+                dealer_id_str,
+                zone_id_str,
+                day,
+                month,
+                year);
+
+        responseObservable.subscribeOn(Schedulers.newThread())
+                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
+                .onErrorResumeNext(throwable -> {
+                    if (throwable instanceof retrofit2.HttpException) {
+                        retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
+                        statusCode = ex.code();
+                        Log.e("error", ex.getLocalizedMessage());
+                    } else if (throwable instanceof SocketTimeoutException) {
+                        statusCode = 1000;
+                    }
+                    return Observable.empty();
+                })
+                .subscribe(new Observer<RouteModel>() {
+                    @Override
+                    public void onCompleted() {
+                        pDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("error", "" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(RouteModel routeModel) {
+                        statusCode = routeModel.getStatusCode();
+                        if (statusCode == 200) {
+                            Utility.displayToast(CreateRouteActivity.this, routeModel.getMessage());
+                            finish();
+                        } else {
+                            Utility.displayToast(CreateRouteActivity.this, routeModel.getMessage());
+                        }
+                    }
+                });
+    }
+
+
+    public void AddData() {
+
+        pDialog = new ProgressDialog(this);
+        pDialog.setTitle("Checking Data");
+        pDialog.setMessage("Please Wait...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        Observable<RouteModel> responseObservable = apiservice.AddData(
+                r_id,
+                sessionManager.getKeyId(),
+                city_id_str,
+                dealer_id_str,
+                zone_id_str,
+                day,
+                month,
+                year);
+
+        responseObservable.subscribeOn(Schedulers.newThread())
+                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
+                .onErrorResumeNext(throwable -> {
+                    if (throwable instanceof retrofit2.HttpException) {
+                        retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
+                        statusCode = ex.code();
+                        Log.e("error", ex.getLocalizedMessage());
+                    } else if (throwable instanceof SocketTimeoutException) {
+                        statusCode = 1000;
+                    }
+                    return Observable.empty();
+                })
+                .subscribe(new Observer<RouteModel>() {
+                    @Override
+                    public void onCompleted() {
+                        pDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("error", "" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(RouteModel routeModel) {
+                        statusCode = routeModel.getStatusCode();
+                        if (statusCode == 200) {
+                            Utility.displayToast(CreateRouteActivity.this, routeModel.getMessage());
+                            finish();
+                        } else {
+                            Utility.displayToast(CreateRouteActivity.this, routeModel.getMessage());
+                        }
+                    }
+                });
+
+    }
+}
+
 //                            ArrayList<String> arrayListdata = new ArrayList<>();
 //                            friend_id = new String[routeModel.getData().size()];
 //                            friend_name = new String[routeModel.getData().size()];
-                            //Integer array_length = routeModel.getData().size();
+//Integer array_length = routeModel.getData().size();
 
 //                            if (routeModel.getData().size() > 0) {
 //                                for (int i = 0; i < routeModel.getData().size(); i++) {
@@ -514,11 +637,6 @@ public class CreateRouteActivity extends AppCompatActivity {
 //                                spin_route_list.setAdapter(spin_route_adapter, false, onSelected_route);
 //                                selectedItemsFriend = new boolean[friend_id.length];
 //                            }
-                        }
-                    }
-                });
-
-    }
 
 
 //    public void CityData(String r_id){
@@ -648,63 +766,3 @@ public class CreateRouteActivity extends AppCompatActivity {
 //                });
 //
 //    }
-
-
-    public void AddData() {
-
-        pDialog = new ProgressDialog(this);
-        pDialog.setTitle("Checking Data");
-        pDialog.setMessage("Please Wait...");
-        pDialog.setIndeterminate(false);
-        pDialog.setCancelable(false);
-        pDialog.show();
-
-        Observable<RouteModel> responseObservable = apiservice.AddData(
-                r_id,
-                sessionManager.getKeyId(),
-                city_id_str,
-                dealer_id_str,
-                zone_id_str,
-                day,
-                month,
-                year);
-
-        responseObservable.subscribeOn(Schedulers.newThread())
-                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
-                .onErrorResumeNext(throwable -> {
-                    if (throwable instanceof retrofit2.HttpException) {
-                        retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
-                        statusCode = ex.code();
-                        Log.e("error", ex.getLocalizedMessage());
-                    } else if (throwable instanceof SocketTimeoutException) {
-                        statusCode = 1000;
-                    }
-                    return Observable.empty();
-                })
-                .subscribe(new Observer<RouteModel>() {
-                    @Override
-                    public void onCompleted() {
-                        pDialog.dismiss();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e("error", "" + e.getMessage());
-                    }
-
-                    @Override
-                    public void onNext(RouteModel routeModel) {
-                        statusCode = routeModel.getStatusCode();
-                        if (statusCode == 200) {
-                            Utility.displayToast(CreateRouteActivity.this, routeModel.getMessage());
-                            finish();
-                        } else {
-                            Utility.displayToast(CreateRouteActivity.this, routeModel.getMessage());
-                        }
-                    }
-                });
-
-    }
-
-
-}

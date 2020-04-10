@@ -1,4 +1,4 @@
-package com.dies.lionbuilding.adapter;
+package com.dies.lionbuilding.adapter.Order;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.dies.lionbuilding.R;
-import com.dies.lionbuilding.activity.OrderManagement.OrderDeliveredActivity;
+import com.dies.lionbuilding.activity.OrderManagement.OrderConfirmActivity;
 import com.dies.lionbuilding.activity.OrderManagement.RmOrderViewActivity;
 import com.dies.lionbuilding.apiservice.ApiService;
 import com.dies.lionbuilding.apiservice.ApiServiceCreator;
@@ -133,6 +133,8 @@ public class RmOrderConAdapter extends RecyclerView.Adapter<RmOrderConAdapter.My
                                     Log.e(TAG, "arrayListdata: save btn-- " + new Gson().toJson(dataList));
 
                                     Utility.displayToast(context, orderConData.getMessage());
+
+                                    ((OrderConfirmActivity)context).getAllRmOrderApi();
                                     //notifyItemChanged(position);
                                     //holder.btn_confrm.setVisibility(View.GONE);
                                    // updateData(dataList);

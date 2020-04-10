@@ -1,3 +1,4 @@
+/*
 package com.dies.lionbuilding.TimeLine;
 
 
@@ -398,3 +399,4 @@ public class TimelineViewAdapter extends ArrayAdapter<TimelineRow> {
     }
 
 }
+*/

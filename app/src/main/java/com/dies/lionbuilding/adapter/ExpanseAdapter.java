@@ -40,7 +40,7 @@ public class ExpanseAdapter extends RecyclerView.Adapter<ExpanseAdapter.MyViewHo
     @NonNull
     @Override
     public ExpanseAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.expanse_layout,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.expanse_layout, parent, false);
         return new ExpanseAdapter.MyViewHolder(view);
     }
 
@@ -51,10 +51,18 @@ public class ExpanseAdapter extends RecyclerView.Adapter<ExpanseAdapter.MyViewHo
         holder.txt_amount.setText(arrayList.get(position).getExp_amount());
         holder.txt_desc.setText(Html.fromHtml(arrayList.get(position).getExp_desc()));
 
-        if (!arrayList.get(position).getExp_images().equals("")){
+       /* if (!arrayList.get(position).getExp_images().equals("")){
             holder.card_image.setVisibility(View.VISIBLE);
         }else {
             holder.card_image.setVisibility(View.GONE);
+        }*/
+
+        if (arrayList.get(position).getExp_images() == null) {
+            holder.card_expimage.setVisibility(View.GONE);
+
+        } else {
+            holder.card_expimage.setVisibility(View.VISIBLE);
+
         }
 
         Picasso.with(context).load(ApiConstants.IMAGE_URL + arrayList.get(position).getExp_images())
@@ -86,9 +94,12 @@ public class ExpanseAdapter extends RecyclerView.Adapter<ExpanseAdapter.MyViewHo
         @BindView(R.id.card_image)
         CardView card_image;
 
+        @BindView(R.id.card_expimage)
+        CardView card_expimage;
+
         public MyViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
 
         }
     }

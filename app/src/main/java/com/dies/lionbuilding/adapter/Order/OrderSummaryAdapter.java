@@ -1,4 +1,4 @@
-package com.dies.lionbuilding.adapter;
+package com.dies.lionbuilding.adapter.Order;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +14,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
-            android:layout_marginBottom="25dp"
             android:orientation="vertical"
             android:weightSum="3">
 
@@ -108,7 +107,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_weight="1"
             android:orientation="horizontal"
             android:weightSum="2">
@@ -152,7 +151,7 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_oderdilivered"
+                android:id="@+id/card_selsorder"
                 android:layout_width="0dp"
                 android:layout_height="160dp"
                 android:layout_marginStart="10dp"
@@ -175,14 +174,14 @@
                         android:src="@drawable/add_profile" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Order Delivered"
+                        android:text="SalesExecutive Order"
                         android:textColor="@color/colorblack"
                         android:textSize="@dimen/editText_textSize"
                         android:textStyle="bold" />
@@ -190,6 +189,94 @@
             </android.support.v7.widget.CardView>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_route_management"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorWight"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dash_icon_width"
+                        android:layout_height="@dimen/dash_icon_hight"
+                        android:src="@drawable/route" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Route Management"
+                        android:textColor="@color/colorblack"
+                        android:textSize="@dimen/editText_textSize"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_leave_management"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@color/colorWight"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/dash_icon_width"
+                        android:layout_height="@dimen/dash_icon_hight"
+                        android:src="@drawable/route" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Leave Management"
+                        android:textColor="@color/colorblack"
+                        android:textSize="@dimen/editText_textSize"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -76,6 +76,10 @@ public class FutureRouteActivity extends AppCompatActivity {
             finish();
         });
 
+        rv_future_route_list.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(FutureRouteActivity.this);
+        rv_future_route_list.setLayoutManager(layoutManager);
+
         txt_selectdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,11 +97,11 @@ public class FutureRouteActivity extends AppCompatActivity {
                         if (selectedmonth < 10) {
                             txt_selectdate.setText(selectedday + "-" + "0" + selectedmonth + "-" + selectedyear);
                             date = selectedday + "-" + "0" + selectedmonth + "-" + selectedyear;
-                            Log.e(TAG, "date: "+date );
+                            Log.e(TAG, "date: " + date);
                         } else {
                             txt_selectdate.setText(selectedday + "-" + selectedmonth + "-" + selectedyear);
                             date = selectedday + "-" + selectedmonth + "-" + selectedyear;
-                            Log.e(TAG, "date: "+date );
+                            Log.e(TAG, "date: " + date);
                         }
                         // txt_pickup_date.setText(selectedday+ "/" + selectedmonth + "/" + selectedyear);
                         txt_selectdate.setTextColor(getResources().getColor(R.color.colorblack));
@@ -117,60 +121,123 @@ public class FutureRouteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                rv_future_route_list.setHasFixedSize(true);
-                layoutManager = new LinearLayoutManager(FutureRouteActivity.this);
-                rv_future_route_list.setLayoutManager(layoutManager);
-                pDialog = new ProgressDialog(FutureRouteActivity.this);
-                pDialog.setTitle("Checking Data");
-                pDialog.setMessage("Please Wait...");
-                pDialog.setIndeterminate(false);
-                pDialog.setCancelable(false);
-                pDialog.show();
+                if (sessionManager.getKeyRoll().equals("RM")) {
+                    getRMFutureRouteApi();
+                } else {
+                    getSalesFutureRouteApi();
 
-                Observable<RouteModel> responseObservable = apiservice.getAllFutureRoute(
-                        sessionManager.getKeyId(),
-                        date);
+                }
 
-                Log.e(TAG, "getKeyId: " + sessionManager.getKeyId());
-                Log.e(TAG, "txt_selectdate: " + date);
-
-                responseObservable.subscribeOn(Schedulers.newThread())
-                        .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
-                        .onErrorResumeNext(throwable -> {
-                            if (throwable instanceof retrofit2.HttpException) {
-                                retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
-                                statusCode = ex.code();
-                                Log.e("error", ex.getLocalizedMessage());
-                            } else if (throwable instanceof SocketTimeoutException) {
-                                statusCode = 1000;
-                            }
-                            return Observable.empty();
-                        })
-                        .subscribe(new Observer<RouteModel>() {
-                            @Override
-                            public void onCompleted() {
-                                pDialog.dismiss();
-                            }
-
-                            @Override
-                            public void onError(Throwable e) {
-                                Log.e("error", "" + e.getMessage());
-                            }
-
-                            @Override
-                            public void onNext(RouteModel routeModel) {
-                                statusCode = routeModel.getStatusCode();
-                                if (statusCode == 200) {
-
-                                    arrayListdata = routeModel.getData().get(0).getRoute_data();
-                                    Log.e(TAG, "arrayListdata: "+new Gson().toJson(arrayListdata) );
-                                    myAdapter = new FutureRouteAdapter(FutureRouteActivity.this, arrayListdata);
-                                    rv_future_route_list.setAdapter(myAdapter);
-
-                                }
-                            }
-                        });
             }
         });
+    }
+
+    private void getSalesFutureRouteApi() {
+
+        pDialog = new ProgressDialog(FutureRouteActivity.this);
+        pDialog.setTitle("Checking Data");
+        pDialog.setMessage("Please Wait...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        Observable<RouteModel> responseObservable = apiservice.getAllFutureRoute(
+                sessionManager.getKeyId(),
+                date);
+
+        Log.e(TAG, "getKeyId: " + sessionManager.getKeyId());
+        Log.e(TAG, "txt_selectdate: " + date);
+
+        responseObservable.subscribeOn(Schedulers.newThread())
+                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
+                .onErrorResumeNext(throwable -> {
+                    if (throwable instanceof retrofit2.HttpException) {
+                        retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
+                        statusCode = ex.code();
+                        Log.e("error", ex.getLocalizedMessage());
+                    } else if (throwable instanceof SocketTimeoutException) {
+                        statusCode = 1000;
+                    }
+                    return Observable.empty();
+                })
+                .subscribe(new Observer<RouteModel>() {
+                    @Override
+                    public void onCompleted() {
+                        pDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("error", "" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(RouteModel routeModel) {
+                        statusCode = routeModel.getStatusCode();
+                        if (statusCode == 200) {
+
+                            arrayListdata = routeModel.getData().get(0).getRoute_data();
+                            Log.e(TAG, "arrayListdata: " + new Gson().toJson(arrayListdata));
+                            myAdapter = new FutureRouteAdapter(FutureRouteActivity.this, arrayListdata);
+                            rv_future_route_list.setAdapter(myAdapter);
+
+                        }
+                    }
+                });
+    }
+
+    private void getRMFutureRouteApi() {
+
+        pDialog = new ProgressDialog(FutureRouteActivity.this);
+        pDialog.setTitle("Checking Data");
+        pDialog.setMessage("Please Wait...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        Observable<RouteModel> responseObservable = apiservice.getAllRMFutureRoute(
+                sessionManager.getKeyId(),
+                date);
+
+        Log.e(TAG, "getKeyId: " + sessionManager.getKeyId());
+        Log.e(TAG, "txt_selectdate: " + date);
+
+        responseObservable.subscribeOn(Schedulers.newThread())
+                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
+                .onErrorResumeNext(throwable -> {
+                    if (throwable instanceof retrofit2.HttpException) {
+                        retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
+                        statusCode = ex.code();
+                        Log.e("error", ex.getLocalizedMessage());
+                    } else if (throwable instanceof SocketTimeoutException) {
+                        statusCode = 1000;
+                    }
+                    return Observable.empty();
+                })
+                .subscribe(new Observer<RouteModel>() {
+                    @Override
+                    public void onCompleted() {
+                        pDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("error", "" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(RouteModel routeModel) {
+                        statusCode = routeModel.getStatusCode();
+                        if (statusCode == 200) {
+
+                            arrayListdata = routeModel.getData().get(0).getRoute_data();
+                            Log.e(TAG, "arrayListdata: " + new Gson().toJson(arrayListdata));
+                            myAdapter = new FutureRouteAdapter(FutureRouteActivity.this, arrayListdata);
+                            rv_future_route_list.setAdapter(myAdapter);
+
+                        }
+                    }
+                });
+
     }
 }

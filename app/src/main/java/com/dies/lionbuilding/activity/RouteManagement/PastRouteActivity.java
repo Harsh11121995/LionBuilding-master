@@ -38,7 +38,7 @@ public class PastRouteActivity extends AppCompatActivity {
     ApiService apiservice;
     ProgressDialog pDialog;
     String TAG = "TAG";
-    List<PastRouteModel.Data> arrayListdata ;
+    List<PastRouteModel.Data> arrayListdata;
     PastRouteAdapter myAdapter;
     RecyclerView.LayoutManager layoutManager;
     int statusCode;
@@ -60,6 +60,18 @@ public class PastRouteActivity extends AppCompatActivity {
         rv_pastroute_list.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(PastRouteActivity.this);
         rv_pastroute_list.setLayoutManager(layoutManager);
+
+
+        if (sessionManager.getKeyRoll().equals("RM")) {
+            getRMPastRouteApi();
+        } else {
+            getSalesPastRouteApi();
+        }
+
+    }
+
+    private void getSalesPastRouteApi() {
+
         pDialog = new ProgressDialog(PastRouteActivity.this);
         pDialog.setTitle("Checking Data");
         pDialog.setMessage("Please Wait...");
@@ -110,4 +122,58 @@ public class PastRouteActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    private void getRMPastRouteApi() {
+
+        pDialog = new ProgressDialog(PastRouteActivity.this);
+        pDialog.setTitle("Checking Data");
+        pDialog.setMessage("Please Wait...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        Observable<PastRouteModel> responseObservable = apiservice.getAllRMPastRoute(
+                sessionManager.getKeyId());
+
+        Log.e(TAG, "getKeyId: " + sessionManager.getKeyId());
+
+
+        responseObservable.subscribeOn(Schedulers.newThread())
+                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
+                .onErrorResumeNext(throwable -> {
+                    if (throwable instanceof retrofit2.HttpException) {
+                        retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
+                        statusCode = ex.code();
+                        Log.e("error", ex.getLocalizedMessage());
+                    } else if (throwable instanceof SocketTimeoutException) {
+                        statusCode = 1000;
+                    }
+                    return Observable.empty();
+                })
+                .subscribe(new Observer<PastRouteModel>() {
+                    @Override
+                    public void onCompleted() {
+                        pDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("error", "" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(PastRouteModel pastRouteModel) {
+                        statusCode = pastRouteModel.getStatusCode();
+                        if (statusCode == 200) {
+
+                            arrayListdata = pastRouteModel.getData();
+                            Log.e(TAG, "arrayListdata: " + new Gson().toJson(arrayListdata));
+                            myAdapter = new PastRouteAdapter(PastRouteActivity.this, arrayListdata);
+                            rv_pastroute_list.setAdapter(myAdapter);
+
+                        }
+                    }
+                });
+    }
+
 }

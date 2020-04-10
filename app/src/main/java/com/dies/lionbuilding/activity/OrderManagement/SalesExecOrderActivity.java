@@ -9,7 +9,8 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.dies.lionbuilding.R;
-import com.dies.lionbuilding.adapter.Order.OrderDeliveredAdapter;
+import com.dies.lionbuilding.adapter.Order.RmOrderConAdapter;
+import com.dies.lionbuilding.adapter.Order.SalesExeOrderAdapter;
 import com.dies.lionbuilding.apiservice.ApiService;
 import com.dies.lionbuilding.apiservice.ApiServiceCreator;
 import com.dies.lionbuilding.application.SessionManager;
@@ -26,10 +27,10 @@ import rx.Observable;
 import rx.Observer;
 import rx.schedulers.Schedulers;
 
-public class OrderDeliveredSummary extends AppCompatActivity {
+public class SalesExecOrderActivity extends AppCompatActivity {
 
-    @BindView(R.id.deliveredOdr_List)
-    RecyclerView deliveredOdr_List;
+    @BindView(R.id.rv_selsorderlist)
+    RecyclerView rv_selsorderlist;
 
     @BindView(R.id.back_icon)
     ImageView back_icon;
@@ -39,40 +40,42 @@ public class OrderDeliveredSummary extends AppCompatActivity {
     ProgressDialog pDialog;
     String TAG = "TAG";
     List<OrderConData.Data> arrayListdata;
-    OrderDeliveredAdapter myAdapter;
     RecyclerView.LayoutManager layoutManager;
+    SalesExeOrderAdapter myAdapter;
     int statusCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_delivered_summary);
+        setContentView(R.layout.activity_sales_exec_order);
 
         ButterKnife.bind(this);
         arrayListdata = new ArrayList<>();
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
 
+
         back_icon.setOnClickListener(view -> {
             finish();
         });
 
-        loadServerData();
+        rv_selsorderlist.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(SalesExecOrderActivity.this);
+        rv_selsorderlist.setLayoutManager(layoutManager);
+
+        getSalesExeOrderApi();
     }
 
-    private void loadServerData() {
+    private void getSalesExeOrderApi() {
 
-        deliveredOdr_List.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(OrderDeliveredSummary.this);
-        deliveredOdr_List.setLayoutManager(layoutManager);
-        pDialog = new ProgressDialog(OrderDeliveredSummary.this);
+        pDialog = new ProgressDialog(SalesExecOrderActivity.this);
         pDialog.setTitle("Checking Data");
         pDialog.setMessage("Please Wait...");
         pDialog.setIndeterminate(false);
         pDialog.setCancelable(false);
         pDialog.show();
 
-        Observable<OrderConData> responseObservable = apiservice.getDeliveredOrder(
+        Observable<OrderConData> responseObservable = apiservice.getAllRm_salesExeOrder(
                 sessionManager.getKeyId());
 
         Log.e(TAG, "getKeyId: " + sessionManager.getKeyId());
@@ -104,12 +107,10 @@ public class OrderDeliveredSummary extends AppCompatActivity {
                     public void onNext(OrderConData orderConData) {
                         statusCode = orderConData.getStatusCode();
                         if (statusCode == 200) {
-
                             arrayListdata = orderConData.getData();
                             Log.e(TAG, "arrayListdata: " + new Gson().toJson(arrayListdata));
-                            myAdapter = new OrderDeliveredAdapter(OrderDeliveredSummary.this, arrayListdata);
-                            deliveredOdr_List.setAdapter(myAdapter);
-
+                            myAdapter = new SalesExeOrderAdapter(SalesExecOrderActivity.this, arrayListdata);
+                            rv_selsorderlist.setAdapter(myAdapter);
                         }
                     }
                 });

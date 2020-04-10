@@ -1,4 +1,4 @@
-package com.dies.lionbuilding.activity.OrderManagement;
+package com.dies.lionbuilding.activity;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +9,13 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.dies.lionbuilding.R;
-import com.dies.lionbuilding.adapter.Order.OrderDeliveredAdapter;
+import com.dies.lionbuilding.activity.OrderManagement.SalesExecOrderActivity;
+import com.dies.lionbuilding.adapter.Order.SalesExeOrderAdapter;
+import com.dies.lionbuilding.adapter.RmLeaveAdapter;
 import com.dies.lionbuilding.apiservice.ApiService;
 import com.dies.lionbuilding.apiservice.ApiServiceCreator;
 import com.dies.lionbuilding.application.SessionManager;
+import com.dies.lionbuilding.model.LeaveModel;
 import com.dies.lionbuilding.model.OrderConData;
 import com.google.gson.Gson;
 
@@ -26,10 +29,10 @@ import rx.Observable;
 import rx.Observer;
 import rx.schedulers.Schedulers;
 
-public class OrderDeliveredSummary extends AppCompatActivity {
+public class RmGetAllLeaveActivty extends AppCompatActivity {
 
-    @BindView(R.id.deliveredOdr_List)
-    RecyclerView deliveredOdr_List;
+    @BindView(R.id.rv_rm_getLeaveList)
+    RecyclerView rv_rm_getLeaveList;
 
     @BindView(R.id.back_icon)
     ImageView back_icon;
@@ -38,41 +41,43 @@ public class OrderDeliveredSummary extends AppCompatActivity {
     ApiService apiservice;
     ProgressDialog pDialog;
     String TAG = "TAG";
-    List<OrderConData.Data> arrayListdata;
-    OrderDeliveredAdapter myAdapter;
+    List<LeaveModel.Data> arrayListdata;
     RecyclerView.LayoutManager layoutManager;
+    RmLeaveAdapter myAdapter;
     int statusCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_delivered_summary);
-
+        setContentView(R.layout.activity_rm_get_all_leave_activty);
         ButterKnife.bind(this);
         arrayListdata = new ArrayList<>();
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
 
+
         back_icon.setOnClickListener(view -> {
             finish();
         });
 
-        loadServerData();
+        rv_rm_getLeaveList.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(RmGetAllLeaveActivty.this);
+        rv_rm_getLeaveList.setLayoutManager(layoutManager);
+
+        getRmLeaveDataApi();
+
     }
 
-    private void loadServerData() {
+    public void getRmLeaveDataApi() {
 
-        deliveredOdr_List.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(OrderDeliveredSummary.this);
-        deliveredOdr_List.setLayoutManager(layoutManager);
-        pDialog = new ProgressDialog(OrderDeliveredSummary.this);
+        pDialog = new ProgressDialog(RmGetAllLeaveActivty.this);
         pDialog.setTitle("Checking Data");
         pDialog.setMessage("Please Wait...");
         pDialog.setIndeterminate(false);
         pDialog.setCancelable(false);
         pDialog.show();
 
-        Observable<OrderConData> responseObservable = apiservice.getDeliveredOrder(
+        Observable<LeaveModel> responseObservable = apiservice.rmGetAllLeave(
                 sessionManager.getKeyId());
 
         Log.e(TAG, "getKeyId: " + sessionManager.getKeyId());
@@ -89,7 +94,7 @@ public class OrderDeliveredSummary extends AppCompatActivity {
                     }
                     return Observable.empty();
                 })
-                .subscribe(new Observer<OrderConData>() {
+                .subscribe(new Observer<LeaveModel>() {
                     @Override
                     public void onCompleted() {
                         pDialog.dismiss();
@@ -101,15 +106,13 @@ public class OrderDeliveredSummary extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onNext(OrderConData orderConData) {
-                        statusCode = orderConData.getStatusCode();
+                    public void onNext(LeaveModel leaveModel) {
+                        statusCode = leaveModel.getStatusCode();
                         if (statusCode == 200) {
-
-                            arrayListdata = orderConData.getData();
+                            arrayListdata = leaveModel.getData();
                             Log.e(TAG, "arrayListdata: " + new Gson().toJson(arrayListdata));
-                            myAdapter = new OrderDeliveredAdapter(OrderDeliveredSummary.this, arrayListdata);
-                            deliveredOdr_List.setAdapter(myAdapter);
-
+                            myAdapter = new RmLeaveAdapter(RmGetAllLeaveActivty.this, arrayListdata);
+                            rv_rm_getLeaveList.setAdapter(myAdapter);
                         }
                     }
                 });

@@ -46,6 +46,9 @@ public class LeaveModel {
         @SerializedName("lv_id")
         @Expose
         private String lv_id;
+        @SerializedName("lv_user_id")
+        @Expose
+        private String lv_user_id;
         @SerializedName("lv_desc")
         @Expose
         private String lv_desc;
@@ -58,13 +61,58 @@ public class LeaveModel {
         @SerializedName("lv_approved")
         @Expose
         private String lv_approved;
+
         @SerializedName("sales_exe_name")
         @Expose
         private String sales_exe_name;
+
+        @SerializedName("rm_leave_status")
+        @Expose
+        private String rm_leave_status;
+
+        @SerializedName("hr_leave_status")
+        @Expose
+        private String hr_leave_status;
+
+        @SerializedName("lv_rm_approved")
+        @Expose
+        private String lv_rm_approved;
+
         @SerializedName("last_name")
         @Expose
         private String last_name;
 
+        public String getLv_rm_approved() {
+            return lv_rm_approved;
+        }
+
+        public void setLv_rm_approved(String lv_rm_approved) {
+            this.lv_rm_approved = lv_rm_approved;
+        }
+
+        public String getLv_user_id() {
+            return lv_user_id;
+        }
+
+        public void setLv_user_id(String lv_user_id) {
+            this.lv_user_id = lv_user_id;
+        }
+
+        public String getRm_leave_status() {
+            return rm_leave_status;
+        }
+
+        public void setRm_leave_status(String rm_leave_status) {
+            this.rm_leave_status = rm_leave_status;
+        }
+
+        public String getHr_leave_status() {
+            return hr_leave_status;
+        }
+
+        public void setHr_leave_status(String hr_leave_status) {
+            this.hr_leave_status = hr_leave_status;
+        }
 
         public String getLv_id() {
             return lv_id;

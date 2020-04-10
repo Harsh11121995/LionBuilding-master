@@ -15,6 +15,8 @@ import com.dies.lionbuilding.activity.ExpanseManagementActivity;
 import com.dies.lionbuilding.activity.LeaveManagementActivity;
 import com.dies.lionbuilding.activity.OrderManagement.OrderActivity;
 import com.dies.lionbuilding.activity.OrderManagement.OrderConfirmActivity;
+import com.dies.lionbuilding.activity.OrderManagement.SalesExecOrderActivity;
+import com.dies.lionbuilding.activity.RmGetAllLeaveActivty;
 import com.dies.lionbuilding.activity.RouteManagement.RouteManagementActivity;
 import com.dies.lionbuilding.activity.SendLocation;
 import com.dies.lionbuilding.activity.Users;
@@ -33,8 +35,12 @@ public class RmFragment extends Fragment {
     CardView card_start_day;
     @BindView(R.id.card_oderCon)
     CardView card_oderCon;
-    @BindView(R.id.card_oderdilivered)
-    CardView card_oderdilivered;
+    @BindView(R.id.card_selsorder)
+    CardView card_selsorder;
+    @BindView(R.id.card_route_management)
+    CardView card_route_management;
+    @BindView(R.id.card_leave_management)
+    CardView card_leave_management;
 
     public RmFragment() {
     }
@@ -67,7 +73,24 @@ public class RmFragment extends Fragment {
                 startActivity(new Intent(getActivity(), OrderConfirmActivity.class));
             }
         });
-
+        card_selsorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), SalesExecOrderActivity.class));
+            }
+        });
+        card_route_management.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), RouteManagementActivity.class));
+            }
+        });
+        card_leave_management.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), RmGetAllLeaveActivty.class));
+            }
+        });
         return view;
     }
 
@@ -96,7 +119,7 @@ public class RmFragment extends Fragment {
 
             listPermissionNeeded.add("android.permission.ACCESS_FINE_LOCATION");
         }
-        if (location != 0) {
+        if (location1 != 0) {
 
             listPermissionNeeded.add("android.permission.ACCESS_COARSE_LOCATION");
         }

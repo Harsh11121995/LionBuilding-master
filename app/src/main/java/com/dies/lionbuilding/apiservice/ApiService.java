@@ -16,6 +16,7 @@ import com.dies.lionbuilding.model.ProductModel;
 import com.dies.lionbuilding.model.RmOrderViewModel;
 import com.dies.lionbuilding.model.RouteModel;
 import com.dies.lionbuilding.model.ShopViewModel;
+import com.dies.lionbuilding.model.UserAllData;
 import com.dies.lionbuilding.model.UserDataResponse;
 import com.dies.lionbuilding.model.WardModel;
 import com.dies.lionbuilding.model.ZoneModel;
@@ -161,6 +162,17 @@ public interface ApiService {
                                           @Field("smonth") String smonth,
                                           @Field("syear") String syear);
 
+    @FormUrlEncoded
+    @POST("UserData/rm_add_subroute_data")
+    public Observable<RouteModel> AddRmData(@Field("sroute_id") String city_id,
+                                            @Field("suserId") String zn_id,
+                                            @Field("scity") String scity,
+                                            @Field("sdlid") String sdlid,
+                                            @Field("szone") String szone,
+                                            @Field("sday") String sday,
+                                            @Field("smonth") String smonth,
+                                            @Field("syear") String syear);
+
     //addtrackrecord
 
     @FormUrlEncoded
@@ -214,6 +226,14 @@ public interface ApiService {
     public Observable<OrderConData> getAllRmOrder(@Field("userId") String user_id);
 
     @FormUrlEncoded
+    @POST("UserData/getrm_salesexeorder")
+    public Observable<OrderConData> getAllRm_salesExeOrder(@Field("userId") String user_id);
+
+    @FormUrlEncoded
+    @POST("UserData/getrm_salesexe_currentlocation")
+    public Observable<UserAllData> getRmSalesExe_currentLocation(@Field("ord_slm_id") String user_id);
+
+    @FormUrlEncoded
     @POST("UserData/orderapproved")
     public Observable<OrderConData> getorderapproved(@Field("ord_id") String user_id);
 
@@ -241,6 +261,9 @@ public interface ApiService {
     @POST("UserData/get_user_subroute")
     public Observable<RouteModel> getAllRoute(@Field("userId") String user_id);
 
+    @FormUrlEncoded
+    @POST("UserData/rm_get_user_subroute")
+    public Observable<RouteModel> getRmAllRoute(@Field("userId") String user_id);
 
     @FormUrlEncoded
     @POST("UserData/get_user_nextday_route")
@@ -248,9 +271,17 @@ public interface ApiService {
                                                     @Field("route_date") String route_date);
 
     @FormUrlEncoded
+    @POST("UserData/rm_get_user_nextday_route")
+    public Observable<RouteModel> getAllRMFutureRoute(@Field("userId") String user_id,
+                                                      @Field("route_date") String route_date);
+
+    @FormUrlEncoded
     @POST("UserData/get_user_visited_route")
     public Observable<PastRouteModel> getAllPastRoute(@Field("userId") String user_id);
 
+    @FormUrlEncoded
+    @POST("UserData/rm_get_user_visited_route")
+    public Observable<PastRouteModel> getAllRMPastRoute(@Field("userId") String user_id);
 
     @FormUrlEncoded
     @POST("UserData/adduserleave")
@@ -262,6 +293,16 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("UserData/get_all_leave")
     public Observable<LeaveModel> getAllLeave(@Field("lv_user_id") String user_id);
+
+    @FormUrlEncoded
+    @POST("UserData/rm_get_all_leave")
+    public Observable<LeaveModel> rmGetAllLeave(@Field("userId") String user_id);
+
+    @FormUrlEncoded
+    @POST("UserData/rm_leave_approved")
+    public Observable<LeaveModel> rm_getLeaveApproved(@Field("lv_id") String lv_id,
+                                                      @Field("lv_user_id") String lv_user_id,
+                                                      @Field("status") String status);
 
     @FormUrlEncoded
     @POST("UserData/get_all_gifts")
@@ -304,6 +345,9 @@ public interface ApiService {
     @POST("UserData/add_visited_data")
     public Observable<UserDataResponse> AddComment(@PartMap Map<String, RequestBody> map);
 
+    @Multipart
+    @POST("UserData/rm_add_visited_data")
+    public Observable<UserDataResponse> AddRMComment(@PartMap Map<String, RequestBody> map);
 
     @Multipart
     @POST("UserData/getcurrentlocation")

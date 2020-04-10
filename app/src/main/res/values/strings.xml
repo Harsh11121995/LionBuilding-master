@@ -7,6 +7,7 @@
     <string name="dateerror">Enter Date</string>
     <string name="AND">and</string>
     <string name="title_activity_multi_route_view_map">Map</string>
+    <string name="title_activity_show_salesexecutive">Map</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -30,6 +30,7 @@
             android:background="@android:color/darker_gray" />
 
 
+<!--
         <View
             android:id="@+id/crowBackground"
             android:layout_width="25dp"
@@ -37,6 +38,7 @@
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:background="@drawable/circle_shape" />
+-->
 
         <ImageView
             android:id="@+id/crowImg"

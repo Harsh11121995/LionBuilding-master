@@ -9,15 +9,12 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.dies.lionbuilding.R;
-import com.dies.lionbuilding.activity.RouteManagement.PastRouteActivity;
-import com.dies.lionbuilding.adapter.OrderConAdapter;
-import com.dies.lionbuilding.adapter.PastRouteAdapter;
-import com.dies.lionbuilding.adapter.RmOrderConAdapter;
+import com.dies.lionbuilding.adapter.Order.OrderConAdapter;
+import com.dies.lionbuilding.adapter.Order.RmOrderConAdapter;
 import com.dies.lionbuilding.apiservice.ApiService;
 import com.dies.lionbuilding.apiservice.ApiServiceCreator;
 import com.dies.lionbuilding.application.SessionManager;
 import com.dies.lionbuilding.model.OrderConData;
-import com.dies.lionbuilding.model.PastRouteModel;
 import com.google.gson.Gson;
 
 import java.net.SocketTimeoutException;
@@ -77,7 +74,7 @@ public class OrderConfirmActivity extends AppCompatActivity {
 
     }
 
-    private void getAllRmOrderApi() {
+    public void getAllRmOrderApi() {
 
         pDialog = new ProgressDialog(OrderConfirmActivity.this);
         pDialog.setTitle("Checking Data");

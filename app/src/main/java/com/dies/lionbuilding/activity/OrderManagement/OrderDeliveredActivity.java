@@ -11,13 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dies.lionbuilding.R;
-import com.dies.lionbuilding.activity.DashBoardActivity;
-import com.dies.lionbuilding.adapter.OrderConAdapter;
 import com.dies.lionbuilding.apiservice.ApiService;
 import com.dies.lionbuilding.apiservice.ApiServiceCreator;
 import com.dies.lionbuilding.application.SessionManager;
 import com.dies.lionbuilding.application.Utility;
-import com.dies.lionbuilding.fragment.DistributorFragment;
 import com.dies.lionbuilding.model.OrderConData;
 import com.google.gson.Gson;
 
@@ -50,8 +47,7 @@ public class OrderDeliveredActivity extends AppCompatActivity {
     int statusCode;
     List<OrderConData.Data> arrayListdata;
     String TAG = "TAG";
-    Intent intent;
-    String dlrname, status;
+
     String orderr_id;
 
 
@@ -91,8 +87,6 @@ public class OrderDeliveredActivity extends AppCompatActivity {
 
         Observable<OrderConData> responseObservable = apiservice.getdistrbtr_odrconfirm(
                 orderr_id, sessionManager.getKeyId());
-
-//            Log.e(TAG, "ord_id: " + arrayListdata.get(0).getOrdId());
 
         responseObservable.subscribeOn(Schedulers.newThread())
                 .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())

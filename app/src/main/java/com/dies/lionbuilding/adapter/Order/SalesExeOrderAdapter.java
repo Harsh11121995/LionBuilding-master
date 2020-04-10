@@ -1,62 +1,46 @@
-package com.dies.lionbuilding.adapter;
+package com.dies.lionbuilding.adapter.Order;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dies.lionbuilding.R;
-import com.dies.lionbuilding.activity.OrderManagement.OrderDeliveredActivity;
+import com.dies.lionbuilding.RmSalesMapActivity;
 import com.dies.lionbuilding.activity.OrderManagement.RmOrderViewActivity;
-import com.dies.lionbuilding.apiservice.ApiConstants;
-import com.dies.lionbuilding.apiservice.ApiService;
-import com.dies.lionbuilding.apiservice.ApiServiceCreator;
-import com.dies.lionbuilding.application.SessionManager;
-import com.dies.lionbuilding.application.Utility;
 import com.dies.lionbuilding.model.OrderConData;
-import com.dies.lionbuilding.model.PastRouteModel;
-import com.google.gson.Gson;
-import com.squareup.picasso.MemoryPolicy;
-import com.squareup.picasso.NetworkPolicy;
-import com.squareup.picasso.Picasso;
 
-import java.net.SocketTimeoutException;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.Observer;
-import rx.schedulers.Schedulers;
 
-public class OrderConAdapter extends RecyclerView.Adapter<OrderConAdapter.MyViewHolder> {
+public class SalesExeOrderAdapter extends RecyclerView.Adapter<SalesExeOrderAdapter.MyViewHolder> {
 
     Context context;
     List<OrderConData.Data> dataList;
 
-    public OrderConAdapter(Context context, List<OrderConData.Data> dataList) {
+    public SalesExeOrderAdapter(Context context, List<OrderConData.Data> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
 
     @NonNull
     @Override
-    public OrderConAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.ordercon_details, parent, false);
+    public SalesExeOrderAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rm_salesexeorder_details, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OrderConAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SalesExeOrderAdapter.MyViewHolder holder, int position) {
 
+        holder.txt_salesExename.setText(dataList.get(position).getSalesExeName());
         holder.txt_dlrname.setText(dataList.get(position).getDelerName());
         holder.txt_distriname.setText(dataList.get(position).getDistributorName());
         holder.txt_totalqty.setText(dataList.get(position).getOrdQty());
@@ -68,20 +52,21 @@ public class OrderConAdapter extends RecyclerView.Adapter<OrderConAdapter.MyView
             @Override
             public void onClick(View view) {
 
-
-                Intent intent = new Intent(context, OrderDeliveredActivity.class);
+                Intent intent = new Intent(context, RmOrderViewActivity.class);
                 intent.putExtra("ord_id", dataList.get(position).getOrdId());
                 context.startActivity(intent);
 
-                /*if (sessionManager.getKeyRoll().equals("Distributor")) {
-                    Intent intent = new Intent(context, OrderDeliveredActivity.class);
-                    intent.putExtra("ord_id", dataList.get(position).getOrdId());
-                    context.startActivity(intent);
-                } else if (sessionManager.getKeyRoll().equals("RM")) {
-                    Intent intent = new Intent(context, RmOrderViewActivity.class);
-                    intent.putExtra("ord_id", dataList.get(position).getOrdId());
-                    context.startActivity(intent);
-                }*/
+            }
+        });
+
+        holder.btn_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(context, RmSalesMapActivity.class);
+                intent.putExtra("ord_slm_id", dataList.get(position).getOrdSlmId());
+                context.startActivity(intent);
+
             }
         });
     }
@@ -92,6 +77,9 @@ public class OrderConAdapter extends RecyclerView.Adapter<OrderConAdapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+
+        @BindView(R.id.txt_salesExename)
+        TextView txt_salesExename;
 
         @BindView(R.id.txt_distriname)
         TextView txt_distriname;
@@ -113,6 +101,9 @@ public class OrderConAdapter extends RecyclerView.Adapter<OrderConAdapter.MyView
 
         @BindView(R.id.btn_view)
         Button btn_view;
+
+        @BindView(R.id.btn_location)
+        Button btn_location;
 
         public MyViewHolder(View itemView) {
             super(itemView);

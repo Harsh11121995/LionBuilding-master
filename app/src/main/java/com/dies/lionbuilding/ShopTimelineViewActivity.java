@@ -121,7 +121,12 @@ public class ShopTimelineViewActivity extends AppCompatActivity {
         arrayListdata = new ArrayList<>();
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
-        getRoute();
+
+        if (sessionManager.getKeyRoll().equals("RM")) {
+            getRmRoute();
+        } else {
+            getRoute();
+        }
 
         String datedate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         date.setText(datedate);
@@ -148,7 +153,6 @@ public class ShopTimelineViewActivity extends AppCompatActivity {
 
         // Helper.getListViewSize(timeline_listView);
     }
-
 
     private TimelineRow createRandomTimelineRow(int id, List<RouteModel.Data> list) {
 
@@ -208,6 +212,64 @@ public class ShopTimelineViewActivity extends AppCompatActivity {
 
     public int getRandomNumber(int min, int max) {
         return min + (int) (Math.random() * max);
+    }
+
+
+    private void getRmRoute() {
+
+        pDialog = new ProgressDialog(this);
+        pDialog.setTitle("Checking Data");
+        pDialog.setMessage("Please Wait...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        Observable<RouteModel> responseObservable = apiservice.getRmAllRoute(sessionManager.getKeyId());
+
+        responseObservable.subscribeOn(Schedulers.newThread())
+                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
+                .onErrorResumeNext(throwable -> {
+                    if (throwable instanceof retrofit2.HttpException) {
+                        retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
+                        statusCode = ex.code();
+                        Log.e("error", ex.getLocalizedMessage());
+                    } else if (throwable instanceof SocketTimeoutException) {
+                        statusCode = 1000;
+                    }
+                    return Observable.empty();
+                })
+                .subscribe(new Observer<RouteModel>() {
+                    @Override
+                    public void onCompleted() {
+                        pDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("error", "" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(RouteModel routeModel) {
+                        statusCode = routeModel.getStatusCode();
+                        if (statusCode == 200) {
+
+                            arrayListdata = routeModel.getData();
+                            txt_route_name.setText(routeModel.getData().get(0).getRoute_name());
+                            timelineRowsList = new ArrayList<>();
+                            for (int i = 0; i < routeModel.getData().get(0).getRoute_data().size(); i++) {
+                                timelineRowsList.add(createRandomTimelineRow(i, arrayListdata));
+                            }
+                            myAdapter = new TimelineViewAdapter(ShopTimelineViewActivity.this, 0, timelineRowsList,
+                                    true);
+                            timeline_listView.setAdapter(myAdapter);
+
+//                            RouteAdapter routeAdapter=new RouteAdapter(RouteViewActivity.this,routeModel.getData());
+//                            rcv_route.setAdapter(routeAdapter);
+                        }
+                    }
+                });
+
     }
 
     public void getRoute() {
@@ -335,6 +397,7 @@ public class ShopTimelineViewActivity extends AppCompatActivity {
 
             View rowUpperLine = (View) view.findViewById(R.id.crowUpperLine);
             View rowLowerLine = (View) view.findViewById(R.id.crowLowerLine);
+            // View backgroundView = (View) view.findViewById(R.id.crowBackground);
 
 
             did = RowDataList.get(position).getId();
@@ -453,8 +516,7 @@ public class ShopTimelineViewActivity extends AppCompatActivity {
 //        rowImage.getLayoutParams().width = pixels;
 //        rowImage.getLayoutParams().height = pixels;
 
-            View backgroundView = view.findViewById(R.id.crowBackground);
-            if (row.getBackgroundColor() == 0)
+     /*       if (row.getBackgroundColor() == 0)
                 backgroundView.setBackground(null);
             else {
                 if (row.getBackgroundSize() == -1) {
@@ -469,7 +531,7 @@ public class ShopTimelineViewActivity extends AppCompatActivity {
 //            if (background != null) {
 //                background.setColor(row.getBackgroundColor());
 //            }
-            }
+            }*/
 
 
             ViewGroup.MarginLayoutParams marginParams = (ViewGroup.MarginLayoutParams) rowImage.getLayoutParams();
@@ -551,7 +613,13 @@ public class ShopTimelineViewActivity extends AppCompatActivity {
                 if (et_coment.getText().toString().equals("")) {
 
                 } else {
-                    AddCommentShop();
+
+                    if (sessionManager.getKeyRoll().equals("RM")) {
+
+                        AddRMCommentShop();
+                    } else {
+                        AddCommentShop();
+                    }
                 }
 
             });
@@ -562,6 +630,96 @@ public class ShopTimelineViewActivity extends AppCompatActivity {
             window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
 
+        }
+
+        private void AddRMCommentShop() {
+
+            if (mediaPath == null) {
+                mediaPath = "";
+            }
+
+            Map<String, RequestBody> map = new HashMap<>();
+            Compressor compressedImageFile = new Compressor(context);
+            compressedImageFile.setQuality(60);
+            if (!mediaPath.equals("")) {
+                File file = new File(mediaPath);
+                File compressfile = null;
+                try {
+                    compressfile = compressedImageFile.compressToFile(file);
+                    RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), compressfile);
+                    map.put("tv_image\"; filename=\"" + file.getName() + "\"", requestBody);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            try {
+
+                RequestBody ex_cmnt = RequestBody.create(MediaType.parse("text/plain"), et_coment.getText().toString());
+                RequestBody ex_lat = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(wayLatitude));
+                RequestBody ex_long = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(wayLongitude));
+                RequestBody ex_id = RequestBody.create(MediaType.parse("text/plain"), d_idd);
+                RequestBody ex_user_id = RequestBody.create(MediaType.parse("text/plain"), sessionManager.getKeyId());
+
+                map.put("tv_slid", ex_user_id);
+                map.put("tv_dlid", ex_id);
+                map.put("tv_comment", ex_cmnt);
+                map.put("tv_lat", ex_lat);
+                map.put("tv_long", ex_long);
+
+                Log.e(TAG, "AddCommentShop--did--: " + did);
+
+                Log.e(TAG, "AddCommentShop--d_idd--: " + d_idd);
+
+
+                pDialog = new ProgressDialog(context);
+                pDialog.setTitle("Checking Data");
+                pDialog.setMessage("Please Wait...");
+                pDialog.setIndeterminate(false);
+                pDialog.setCancelable(false);
+                pDialog.show();
+
+                Observable<UserDataResponse> responseObservable = apiservice.AddRMComment(map);
+
+                responseObservable.subscribeOn(Schedulers.newThread())
+                        .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
+                        .onErrorResumeNext(throwable -> {
+                            if (throwable instanceof retrofit2.HttpException) {
+                                retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
+                                statusCode = ex.code();
+                                Log.e("error", ex.getLocalizedMessage());
+                            } else if (throwable instanceof SocketTimeoutException) {
+                                statusCode = 1000;
+                            }
+                            return Observable.empty();
+                        })
+                        .subscribe(new Observer<UserDataResponse>() {
+                            @Override
+                            public void onCompleted() {
+                                pDialog.dismiss();
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                Log.e("error", "" + e.getMessage());
+                            }
+
+                            @Override
+                            public void onNext(UserDataResponse userDataResponse) {
+                                statusCode = userDataResponse.getStatusCode();
+                                if (statusCode == 200) {
+                                    Utility.displayToast(context, userDataResponse.getMessage());
+                                    dialog.dismiss();
+                                    getRmRoute();
+
+                                } else {
+                                    Utility.displayToast(context, userDataResponse.getMessage());
+                                }
+                            }
+                        });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         public void AddCommentShop() {

@@ -21,7 +21,7 @@ import android.widget.TextView;
 import com.dies.lionbuilding.R;
 import com.dies.lionbuilding.activity.SelectDealerActivity;
 import com.dies.lionbuilding.activity.SelectDistributor;
-import com.dies.lionbuilding.adapter.OrderSummaryAdapter;
+import com.dies.lionbuilding.adapter.Order.OrderSummaryAdapter;
 import com.dies.lionbuilding.apiservice.ApiService;
 import com.dies.lionbuilding.apiservice.ApiServiceCreator;
 import com.dies.lionbuilding.application.SessionManager;

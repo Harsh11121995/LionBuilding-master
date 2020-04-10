@@ -21,7 +21,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustResize">
-        <activity android:name=".activity.OrderManagement.RmOrderViewActivity"></activity>
+        <activity android:name=".activity.RmGetAllLeaveActivty"></activity>
+        <activity android:name=".RmSalesMapActivity" />
+        <activity android:name=".activity.OrderManagement.SalesExecOrderActivity" />
+        <activity android:name=".activity.OrderManagement.RmOrderViewActivity" />
         <activity android:name=".activity.OrderManagement.OrderDeliveredSummary" />
         <activity android:name=".activity.OrderManagement.OrderDeliveredActivity" />
         <activity android:name=".activity.OrderManagement.OrderConfirmActivity" />

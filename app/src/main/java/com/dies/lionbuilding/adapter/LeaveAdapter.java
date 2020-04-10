@@ -33,7 +33,7 @@ public class LeaveAdapter extends RecyclerView.Adapter<LeaveAdapter.MyViewHolder
     @NonNull
     @Override
     public LeaveAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.leave_layout,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.leave_layout, parent, false);
         return new LeaveAdapter.MyViewHolder(view);
     }
 
@@ -42,13 +42,15 @@ public class LeaveAdapter extends RecyclerView.Adapter<LeaveAdapter.MyViewHolder
 
         holder.txt_lv_start.setText(arrayList.get(position).getLv_start_date());
         holder.txt_lv_end.setText(arrayList.get(position).getLv_end_date());
+        holder.txt_rm_status.setText(arrayList.get(position).getRm_leave_status());
+        holder.txt_hr_status.setText(arrayList.get(position).getHr_leave_status());
         holder.txt_lv_reason.setText(Html.fromHtml(arrayList.get(position).getLv_desc()));
 
-        if (arrayList.get(position).getLv_approved().equals("0")){
+        if (arrayList.get(position).getLv_rm_approved().equals("0")) {
             holder.image_status.setImageResource(R.drawable.disapprove);
-        }else if (arrayList.get(position).getLv_approved().equals("1")){
+        } else if (arrayList.get(position).getLv_rm_approved().equals("1")) {
             holder.image_status.setImageResource(R.drawable.approve);
-        }else {
+        } else {
             holder.image_status.setImageResource(R.drawable.pending);
         }
     }
@@ -68,15 +70,18 @@ public class LeaveAdapter extends RecyclerView.Adapter<LeaveAdapter.MyViewHolder
         @BindView(R.id.txt_lv_reason)
         TextView txt_lv_reason;
 
+        @BindView(R.id.txt_rm_status)
+        TextView txt_rm_status;
+
+        @BindView(R.id.txt_hr_status)
+        TextView txt_hr_status;
+
         @BindView(R.id.image_status)
         ImageView image_status;
 
-
-
-
         public MyViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
 
         }
     }
