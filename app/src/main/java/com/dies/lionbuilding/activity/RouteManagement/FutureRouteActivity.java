@@ -47,6 +47,8 @@ public class FutureRouteActivity extends AppCompatActivity {
 
     @BindView(R.id.back_icon)
     ImageView back_icon;
+    @BindView(R.id.toolbar_Title)
+    TextView toolbar_Title;
     SessionManager sessionManager;
     ApiService apiservice;
     ProgressDialog pDialog;
@@ -67,6 +69,7 @@ public class FutureRouteActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
 
+        toolbar_Title.setText("Future Route");
         initViews();
     }
 

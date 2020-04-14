@@ -63,8 +63,6 @@ public class OrderSummaryActivty extends AppCompatActivity {
     Spinner spnr_order_type;
     @BindView(R.id.back_icon)
     ImageView back_icon;
-    @BindView(R.id.notify_icon)
-    ImageView notify_icon;
     @BindView(R.id.toolbar_Title)
     TextView toolbar_Title;
     @BindView(R.id.btn_add)
@@ -122,7 +120,6 @@ public class OrderSummaryActivty extends AppCompatActivity {
 
         toolbar_Title.setText("Order Summary");
 
-        notify_icon.setVisibility(View.GONE);
 
         btn_add.setOnClickListener(view -> {
 

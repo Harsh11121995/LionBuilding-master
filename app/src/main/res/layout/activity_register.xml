@@ -84,6 +84,7 @@
                         android:id="@+id/rd1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
                         android:text="Dealer"
                         android:textSize="15sp" />
 
@@ -91,6 +92,8 @@
                         android:id="@+id/rd2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:buttonTint="@color/colorPrimary"
                         android:text="Contractor"
                         android:textSize="15sp" />
 
@@ -98,15 +101,17 @@
                         android:id="@+id/rd3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:buttonTint="@color/colorPrimary"
                         android:text="Distributor"
                         android:textSize="15sp" />
 
-                    <RadioButton
-                        android:id="@+id/rd4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="RM"
-                        android:textSize="15sp" />
+                    <!-- <RadioButton
+                         android:id="@+id/rd4"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="RM"
+                         android:textSize="15sp" />-->
                 </RadioGroup>
 
             </LinearLayout>
@@ -238,6 +243,7 @@
                     </LinearLayout>
 
                     <View
+                        android:id="@+id/vgst"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@color/colorBlack" />
@@ -419,36 +425,36 @@
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/colorBlack" />
+                    <!-- <View
+                         android:layout_width="match_parent"
+                         android:layout_height="1dp"
+                         android:background="@color/colorBlack" />
 
-                    <LinearLayout
-                        android:id="@+id/ll_zone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="horizontal">
+                     <LinearLayout
+                         android:id="@+id/ll_zone"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginBottom="10dp"
+                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="@dimen/img_width"
-                            android:layout_height="@dimen/img_hight"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="@dimen/icon_left_margin"
-                            android:src="@drawable/zone" />
+                         <ImageView
+                             android:layout_width="@dimen/img_width"
+                             android:layout_height="@dimen/img_hight"
+                             android:layout_gravity="center"
+                             android:layout_marginLeft="@dimen/icon_left_margin"
+                             android:src="@drawable/zone" />
 
-                        <Spinner
-                            android:id="@+id/spnr_zone"
-                            style="@style/mySpinnerItemStyle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:dropDownVerticalOffset="30dp">
+                         <Spinner
+                             android:id="@+id/spnr_zone"
+                             style="@style/mySpinnerItemStyle"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:layout_marginLeft="5dp"
+                             android:dropDownVerticalOffset="30dp">
 
-                        </Spinner>
-                    </LinearLayout>
+                         </Spinner>
+                     </LinearLayout>-->
 
                     <View
                         android:layout_width="match_parent"
@@ -516,190 +522,76 @@
                             android:textSize="@dimen/editText_textSize" />
                     </LinearLayout>
 
+                    <View
+                        android:id="@+id/vdis"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
 
-                    <!--                <View-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="1dp"-->
-                    <!--                    android:background="@color/colorBlack" />-->
+                    <LinearLayout
+                        android:id="@+id/ll_dealer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
 
-                    <!--                <LinearLayout-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="wrap_content"-->
-                    <!--                    android:layout_marginTop="5dp"-->
-                    <!--                    android:layout_marginBottom="5dp"-->
-                    <!--                    android:orientation="horizontal">-->
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/location" />
 
-                    <!--                    <ImageView-->
-                    <!--                        android:layout_width="@dimen/img_width"-->
-                    <!--                        android:layout_height="@dimen/img_hight"-->
-                    <!--                        android:layout_gravity="center"-->
-                    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
-                    <!--                        android:src="@drawable/dob" />-->
+                        <EditText
+                            android:id="@+id/edt_dealer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:focusable="false"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="Dealer"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
 
-                    <!--                    <EditText-->
-                    <!--                        android:id="@+id/edt_Dob"-->
-                    <!--                        android:layout_width="match_parent"-->
-                    <!--                        android:layout_height="wrap_content"-->
-                    <!--                        android:layout_marginLeft="10dp"-->
-                    <!--                        android:background="@null"-->
-                    <!--                        android:clickable="true"-->
-                    <!--                        android:editable="false"-->
-                    <!--                        android:fontFamily="@font/poppins_regular"-->
-                    <!--                        android:hint="Date of Birth"-->
-                    <!--                        android:paddingTop="5dp"-->
-                    <!--                        android:paddingBottom="5dp"-->
-                    <!--                        android:textSize="@dimen/editText_textSize" />-->
-                    <!--                </LinearLayout>-->
+                    <View
+                        android:id="@+id/vrm"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorBlack" />
 
-                    <!--                <View-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="1dp"-->
-                    <!--                    android:background="@color/colorBlack" />-->
+                    <LinearLayout
+                        android:id="@+id/ll_rm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
 
-                    <!--                <LinearLayout-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="wrap_content"-->
-                    <!--                    android:layout_marginTop="5dp"-->
-                    <!--                    android:layout_marginBottom="5dp"-->
-                    <!--                    android:orientation="horizontal">-->
+                        <ImageView
+                            android:layout_width="@dimen/img_width"
+                            android:layout_height="@dimen/img_hight"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="@dimen/icon_left_margin"
+                            android:src="@drawable/location" />
 
-                    <!--                    <ImageView-->
-                    <!--                        android:layout_width="@dimen/img_width"-->
-                    <!--                        android:layout_height="@dimen/img_hight"-->
-                    <!--                        android:layout_gravity="center"-->
-                    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
-                    <!--                        android:src="@drawable/call" />-->
+                        <EditText
+                            android:id="@+id/edt_rm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@null"
+                            android:focusable="false"
+                            android:fontFamily="@font/poppins_regular"
+                            android:hint="RM"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="@dimen/editText_textSize" />
+                    </LinearLayout>
 
-                    <!--&lt;!&ndash;                    <EditText&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        android:id="@+id/edt_mNo"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        android:layout_gravity="center"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        android:layout_marginLeft="10dp"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        android:background="@null"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        android:fontFamily="@font/poppins_regular"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        android:hint="Mobile Number"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        android:inputType="number"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        android:paddingTop="5dp"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        android:paddingBottom="5dp"&ndash;&gt;-->
-                    <!--&lt;!&ndash;                        android:textSize="@dimen/editText_textSize" />&ndash;&gt;-->
-                    <!--                </LinearLayout>-->
-
-                    <!--                <View-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="1dp"-->
-                    <!--                    android:background="@color/colorBlack" />-->
-
-                    <!--                <LinearLayout-->
-                    <!--                    android:orientation="horizontal"-->
-                    <!--                    android:layout_marginBottom="10dp"-->
-                    <!--                    android:layout_marginTop="10dp"-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="wrap_content">-->
-
-                    <!--                    <ImageView-->
-                    <!--                        android:layout_width="@dimen/img_width"-->
-                    <!--                        android:layout_height="@dimen/img_hight"-->
-                    <!--                        android:layout_gravity="center"-->
-                    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
-                    <!--                        android:src="@drawable/country" />-->
-                    <!--                    <Spinner-->
-                    <!--                        android:id="@+id/spnr_contry"-->
-                    <!--                        android:layout_width="match_parent"-->
-                    <!--                        android:layout_height="wrap_content"-->
-                    <!--                        android:layout_marginLeft="5dp"-->
-                    <!--                        style="@style/mySpinnerItemStyle">-->
-                    <!--                    </Spinner>-->
-                    <!--                </LinearLayout>-->
-                    <!--                <View-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="1dp"-->
-                    <!--                    android:background="@color/colorBlack" />-->
-
-                    <!--            <LinearLayout-->
-                    <!--                android:orientation="horizontal"-->
-                    <!--                android:layout_marginTop="10dp"-->
-                    <!--                android:layout_marginBottom="10dp"-->
-                    <!--                android:layout_width="match_parent"-->
-                    <!--                android:layout_height="wrap_content">-->
-
-                    <!--                <ImageView-->
-                    <!--                    android:layout_width="@dimen/img_width"-->
-                    <!--                    android:layout_height="@dimen/img_hight"-->
-                    <!--                    android:layout_gravity="center"-->
-                    <!--                    android:layout_marginLeft="@dimen/icon_left_margin"-->
-                    <!--                    android:src="@drawable/state_" />-->
-
-                    <!--                <Spinner-->
-                    <!--                    android:id="@+id/spnr_state"-->
-                    <!--                    style="@style/mySpinnerItemStyle"-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="wrap_content"-->
-                    <!--                    android:layout_marginLeft="5dp"-->
-                    <!--                    android:fontFamily="@font/poppins_regular">-->
-
-                    <!--                </Spinner>-->
-                    <!--            </LinearLayout>-->
-
-                    <!--                <View-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="1dp"-->
-                    <!--                    android:background="@color/colorBlack" />-->
-
-                    <!--                <LinearLayout-->
-                    <!--                    android:layout_marginTop="10dp"-->
-                    <!--                    android:layout_marginBottom="10dp"-->
-                    <!--                    android:orientation="horizontal"-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="wrap_content">-->
-
-                    <!--                    <ImageView-->
-                    <!--                        android:layout_width="@dimen/img_width"-->
-                    <!--                        android:layout_height="@dimen/img_hight"-->
-                    <!--                        android:layout_gravity="center"-->
-                    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
-                    <!--                        android:src="@drawable/city" />-->
-                    <!--                    <Spinner-->
-                    <!--                        android:id="@+id/spnr_city"-->
-                    <!--                        style="@style/mySpinnerItemStyle"-->
-                    <!--                        android:layout_width="match_parent"-->
-                    <!--                        android:layout_height="wrap_content"-->
-                    <!--                        android:layout_marginLeft="5dp"-->
-                    <!--                        android:fontFamily="@font/poppins_regular">-->
-
-                    <!--                    </Spinner>-->
-                    <!--                </LinearLayout>-->
-                    <!--                <View-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="1dp"-->
-                    <!--                    android:background="@color/colorBlack" />-->
-
-
-                    <!--                <LinearLayout-->
-                    <!--                    android:layout_marginTop="10dp"-->
-                    <!--                    android:layout_marginBottom="10dp"-->
-                    <!--                    android:orientation="horizontal"-->
-                    <!--                    android:layout_width="match_parent"-->
-                    <!--                    android:layout_height="wrap_content">-->
-
-                    <!--                    <ImageView-->
-                    <!--                        android:layout_width="@dimen/img_width"-->
-                    <!--                        android:layout_height="@dimen/img_hight"-->
-                    <!--                        android:layout_gravity="center"-->
-                    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
-                    <!--                        android:src="@drawable/username" />-->
-                    <!--                    <Spinner-->
-                    <!--                        android:id="@+id/spnr_usertype"-->
-                    <!--                        android:layout_width="match_parent"-->
-                    <!--                        android:layout_height="wrap_content"-->
-                    <!--                        android:layout_marginLeft="5dp"-->
-                    <!--                        android:fontFamily="@font/poppins_regular"-->
-                    <!--                        style="@style/mySpinnerItemStyle">-->
-
-                    <!--                    </Spinner>-->
-
-
-                    <!--                </LinearLayout>-->
 
                     <LinearLayout
                         android:id="@+id/lnr_spnrzone"
@@ -759,10 +651,12 @@
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/colorBlack" />
+                    <!--
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:background="@color/colorBlack" />
+                    -->
 
 
                 </LinearLayout>
@@ -787,3 +681,188 @@
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>
+
+
+    <!--                <View-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="1dp"-->
+    <!--                    android:background="@color/colorBlack" />-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="5dp"-->
+    <!--                    android:layout_marginBottom="5dp"-->
+    <!--                    android:orientation="horizontal">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:layout_width="@dimen/img_width"-->
+    <!--                        android:layout_height="@dimen/img_hight"-->
+    <!--                        android:layout_gravity="center"-->
+    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
+    <!--                        android:src="@drawable/dob" />-->
+
+    <!--                    <EditText-->
+    <!--                        android:id="@+id/edt_Dob"-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginLeft="10dp"-->
+    <!--                        android:background="@null"-->
+    <!--                        android:clickable="true"-->
+    <!--                        android:editable="false"-->
+    <!--                        android:fontFamily="@font/poppins_regular"-->
+    <!--                        android:hint="Date of Birth"-->
+    <!--                        android:paddingTop="5dp"-->
+    <!--                        android:paddingBottom="5dp"-->
+    <!--                        android:textSize="@dimen/editText_textSize" />-->
+    <!--                </LinearLayout>-->
+
+    <!--                <View-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="1dp"-->
+    <!--                    android:background="@color/colorBlack" />-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="5dp"-->
+    <!--                    android:layout_marginBottom="5dp"-->
+    <!--                    android:orientation="horizontal">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:layout_width="@dimen/img_width"-->
+    <!--                        android:layout_height="@dimen/img_hight"-->
+    <!--                        android:layout_gravity="center"-->
+    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
+    <!--                        android:src="@drawable/call" />-->
+
+    <!--&lt;!&ndash;                    <EditText&ndash;&gt;-->
+    <!--&lt;!&ndash;                        android:id="@+id/edt_mNo"&ndash;&gt;-->
+    <!--&lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;                        android:layout_gravity="center"&ndash;&gt;-->
+    <!--&lt;!&ndash;                        android:layout_marginLeft="10dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;                        android:background="@null"&ndash;&gt;-->
+    <!--&lt;!&ndash;                        android:fontFamily="@font/poppins_regular"&ndash;&gt;-->
+    <!--&lt;!&ndash;                        android:hint="Mobile Number"&ndash;&gt;-->
+    <!--&lt;!&ndash;                        android:inputType="number"&ndash;&gt;-->
+    <!--&lt;!&ndash;                        android:paddingTop="5dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;                        android:paddingBottom="5dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;                        android:textSize="@dimen/editText_textSize" />&ndash;&gt;-->
+    <!--                </LinearLayout>-->
+
+    <!--                <View-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="1dp"-->
+    <!--                    android:background="@color/colorBlack" />-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:orientation="horizontal"-->
+    <!--                    android:layout_marginBottom="10dp"-->
+    <!--                    android:layout_marginTop="10dp"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:layout_width="@dimen/img_width"-->
+    <!--                        android:layout_height="@dimen/img_hight"-->
+    <!--                        android:layout_gravity="center"-->
+    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
+    <!--                        android:src="@drawable/country" />-->
+    <!--                    <Spinner-->
+    <!--                        android:id="@+id/spnr_contry"-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginLeft="5dp"-->
+    <!--                        style="@style/mySpinnerItemStyle">-->
+    <!--                    </Spinner>-->
+    <!--                </LinearLayout>-->
+    <!--                <View-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="1dp"-->
+    <!--                    android:background="@color/colorBlack" />-->
+
+    <!--            <LinearLayout-->
+    <!--                android:orientation="horizontal"-->
+    <!--                android:layout_marginTop="10dp"-->
+    <!--                android:layout_marginBottom="10dp"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content">-->
+
+    <!--                <ImageView-->
+    <!--                    android:layout_width="@dimen/img_width"-->
+    <!--                    android:layout_height="@dimen/img_hight"-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:layout_marginLeft="@dimen/icon_left_margin"-->
+    <!--                    android:src="@drawable/state_" />-->
+
+    <!--                <Spinner-->
+    <!--                    android:id="@+id/spnr_state"-->
+    <!--                    style="@style/mySpinnerItemStyle"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginLeft="5dp"-->
+    <!--                    android:fontFamily="@font/poppins_regular">-->
+
+    <!--                </Spinner>-->
+    <!--            </LinearLayout>-->
+
+    <!--                <View-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="1dp"-->
+    <!--                    android:background="@color/colorBlack" />-->
+
+    <!--                <LinearLayout-->
+    <!--                    android:layout_marginTop="10dp"-->
+    <!--                    android:layout_marginBottom="10dp"-->
+    <!--                    android:orientation="horizontal"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:layout_width="@dimen/img_width"-->
+    <!--                        android:layout_height="@dimen/img_hight"-->
+    <!--                        android:layout_gravity="center"-->
+    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
+    <!--                        android:src="@drawable/city" />-->
+    <!--                    <Spinner-->
+    <!--                        android:id="@+id/spnr_city"-->
+    <!--                        style="@style/mySpinnerItemStyle"-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginLeft="5dp"-->
+    <!--                        android:fontFamily="@font/poppins_regular">-->
+
+    <!--                    </Spinner>-->
+    <!--                </LinearLayout>-->
+    <!--                <View-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="1dp"-->
+    <!--                    android:background="@color/colorBlack" />-->
+
+
+    <!--                <LinearLayout-->
+    <!--                    android:layout_marginTop="10dp"-->
+    <!--                    android:layout_marginBottom="10dp"-->
+    <!--                    android:orientation="horizontal"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="wrap_content">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:layout_width="@dimen/img_width"-->
+    <!--                        android:layout_height="@dimen/img_hight"-->
+    <!--                        android:layout_gravity="center"-->
+    <!--                        android:layout_marginLeft="@dimen/icon_left_margin"-->
+    <!--                        android:src="@drawable/username" />-->
+    <!--                    <Spinner-->
+    <!--                        android:id="@+id/spnr_usertype"-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_marginLeft="5dp"-->
+    <!--                        android:fontFamily="@font/poppins_regular"-->
+    <!--                        style="@style/mySpinnerItemStyle">-->
+
+    <!--                    </Spinner>-->
+
+
+    <!--                </LinearLayout>-->

@@ -136,10 +136,15 @@ public class RmSalesMapActivity extends FragmentActivity implements OnMapReadyCa
        // CameraUpdate updateZoom = CameraUpdateFactory.zoomBy(4);
 
         // Updating the camera position to the user input latitude and longitude
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(position));
+        //googleMap.moveCamera(CameraUpdateFactory.newLatLng(position));
 
         // Applying zoom to the marker position
        // googleMap.animateCamera(updateZoom);
 
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat,logi), 12.0f));
+
+
     }
+
+
 }

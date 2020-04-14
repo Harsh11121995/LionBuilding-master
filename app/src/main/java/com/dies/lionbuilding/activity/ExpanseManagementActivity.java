@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.dies.lionbuilding.R;
 import com.dies.lionbuilding.adapter.ExpanseAdapter;
@@ -39,6 +40,8 @@ public class ExpanseManagementActivity extends AppCompatActivity {
     @BindView(R.id.back_icon)
     ImageView back;
 
+    @BindView(R.id.toolbar_Title)
+    TextView toolbar_Title;
     SessionManager sessionManager;
     ApiService apiservice;
     ProgressDialog pDialog;
@@ -54,8 +57,9 @@ public class ExpanseManagementActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
 
+        toolbar_Title.setText("Expense Details");
         fab_add.setOnClickListener(view -> {
-            Intent intent=new Intent(this,AddExpanseActivity.class);
+            Intent intent = new Intent(this, AddExpanseActivity.class);
             startActivity(intent);
         });
 
@@ -70,7 +74,7 @@ public class ExpanseManagementActivity extends AppCompatActivity {
     }
 
 
-    public void getAllExpanse(){
+    public void getAllExpanse() {
         rcv_expanse.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         rcv_expanse.setLayoutManager(layoutManager);
@@ -110,7 +114,7 @@ public class ExpanseManagementActivity extends AppCompatActivity {
                     public void onNext(ExpanseModel leaveModel) {
                         statusCode = leaveModel.getStatusCode();
                         if (statusCode == 200) {
-                            ExpanseAdapter expanseAdapter=new ExpanseAdapter(ExpanseManagementActivity.this,leaveModel.getData()) ;
+                            ExpanseAdapter expanseAdapter = new ExpanseAdapter(ExpanseManagementActivity.this, leaveModel.getData());
                             rcv_expanse.setAdapter(expanseAdapter);
                         }
                     }

@@ -81,6 +81,9 @@ public class CreateRouteActivity extends AppCompatActivity {
     @BindView(R.id.back_icon)
     ImageView back;
 
+    @BindView(R.id.toolbar_Title)
+    TextView toolbar_Title;
+
     SessionManager sessionManager;
     ApiService apiservice;
     ProgressDialog pDialog;
@@ -216,6 +219,7 @@ public class CreateRouteActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
 
+        toolbar_Title.setText("Create Route");
         arrayList.add("Select Month");
         arrayList.add("January");
         arrayList.add("February");

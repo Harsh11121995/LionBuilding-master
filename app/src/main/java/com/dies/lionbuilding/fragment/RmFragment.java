@@ -29,8 +29,6 @@ import butterknife.ButterKnife;
 
 public class RmFragment extends Fragment {
 
-    @BindView(R.id.card_add_user)
-    CardView card_add_user;
     @BindView(R.id.card_start_day)
     CardView card_start_day;
     @BindView(R.id.card_oderCon)
@@ -41,6 +39,8 @@ public class RmFragment extends Fragment {
     CardView card_route_management;
     @BindView(R.id.card_leave_management)
     CardView card_leave_management;
+    @BindView(R.id.card_expense_management)
+    CardView card_expense_management;
 
     public RmFragment() {
     }
@@ -54,12 +54,6 @@ public class RmFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         checkAndRequestPermissions();
-        card_add_user.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), Users.class));
-            }
-        });
 
         card_start_day.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +83,12 @@ public class RmFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), RmGetAllLeaveActivty.class));
+            }
+        });
+        card_expense_management.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ExpanseManagementActivity.class));
             }
         });
         return view;

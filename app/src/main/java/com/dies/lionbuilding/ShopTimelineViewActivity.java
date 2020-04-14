@@ -122,6 +122,7 @@ public class ShopTimelineViewActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
 
+        toolbar_Title.setText("Today Route");
         if (sessionManager.getKeyRoll().equals("RM")) {
             getRmRoute();
         } else {

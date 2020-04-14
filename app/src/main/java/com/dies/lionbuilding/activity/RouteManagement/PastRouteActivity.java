@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.dies.lionbuilding.R;
 import com.dies.lionbuilding.adapter.PastRouteAdapter;
@@ -34,6 +35,8 @@ public class PastRouteActivity extends AppCompatActivity {
     @BindView(R.id.back_icon)
     ImageView back_icon;
 
+    @BindView(R.id.toolbar_Title)
+    TextView toolbar_Title;
     SessionManager sessionManager;
     ApiService apiservice;
     ProgressDialog pDialog;
@@ -52,7 +55,7 @@ public class PastRouteActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
 
-
+        toolbar_Title.setText("Past Route");
         back_icon.setOnClickListener(view -> {
             finish();
         });

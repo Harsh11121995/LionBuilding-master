@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.dies.lionbuilding.R;
 import com.dies.lionbuilding.adapter.Order.OrderConAdapter;
@@ -35,7 +36,8 @@ public class OrderConfirmActivity extends AppCompatActivity {
 
     @BindView(R.id.back_icon)
     ImageView back_icon;
-
+    @BindView(R.id.toolbar_Title)
+    TextView toolbar_Title;
     SessionManager sessionManager;
     ApiService apiservice;
     ProgressDialog pDialog;
@@ -56,7 +58,7 @@ public class OrderConfirmActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
 
-
+        toolbar_Title.setText("Order Confrim");
         back_icon.setOnClickListener(view -> {
             finish();
         });
@@ -122,7 +124,7 @@ public class OrderConfirmActivity extends AppCompatActivity {
                             Log.e(TAG, "arrayListdata: " + new Gson().toJson(arrayListdata));
                             myrmAdapter = new RmOrderConAdapter(OrderConfirmActivity.this, arrayListdata);
                             rv_conOder_list.setAdapter(myrmAdapter);
-                         //   myrmAdapter.notifyDataSetChanged();
+                            //   myrmAdapter.notifyDataSetChanged();
 
 
                         }

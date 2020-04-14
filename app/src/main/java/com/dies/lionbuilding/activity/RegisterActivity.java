@@ -40,6 +40,9 @@ import rx.schedulers.Schedulers;
 
 public class RegisterActivity extends AppCompatActivity {
     public static final int REQUEST_CODE = 100;
+    public static final int REQUEST_CODE_SECOND = 101;
+    public static final int REQUEST_CODE_THIRD = 102;
+
     final Calendar myCalendar = Calendar.getInstance();
     //    @BindView(R.id.edt_Dob)
 //    EditText edt_Dob;
@@ -63,6 +66,10 @@ public class RegisterActivity extends AppCompatActivity {
     EditText edt_pincode;
     @BindView(R.id.edt_distibutor)
     EditText edt_distributor;
+    @BindView(R.id.edt_dealer)
+    EditText edt_dealer;
+    @BindView(R.id.edt_rm)
+    EditText edt_rm;
     @BindView(R.id.edt_gst)
     EditText edt_gst;
     String dataa = null;
@@ -74,17 +81,28 @@ public class RegisterActivity extends AppCompatActivity {
     RadioButton rd2;
     @BindView(R.id.rd3)
     RadioButton rd3;
-    @BindView(R.id.rd4)
-    RadioButton rd4;
+    /*@BindView(R.id.rd4)
+    RadioButton rd4;*/
     @BindView(R.id.ll_gst)
     LinearLayout ll_gst;
 
     @BindView(R.id.ll_distributor)
     LinearLayout ll_distributor;
 
-    @BindView(R.id.ll_zone)
-    LinearLayout ll_zone;
+    @BindView(R.id.ll_rm)
+    LinearLayout ll_rm;
 
+    /*@BindView(R.id.ll_zone)
+    LinearLayout ll_zone;*/
+
+    @BindView(R.id.ll_dealer)
+    LinearLayout ll_dealer;
+
+    @BindView(R.id.vgst)
+    View vgst;
+
+    @BindView(R.id.vdis)
+    View vdis;
     //    @BindView(R.id.spnr_city)
 //    Spinner spnr_city;
 //    @BindView(R.id.spnr_usertype)
@@ -114,7 +132,7 @@ public class RegisterActivity extends AppCompatActivity {
     RadioButton rb1, rb2, rb3, rb4;
     String rbtn1, rbtn2, rbtn3;
     String c_id = "1", s_id, city_id, roll_id;
-    String uid;
+    String uid, dealer_id, rm_id;
     List<CountryModel.Data> data, data1, data2, data3;
     ArrayList<String> countryarray = new ArrayList<>();
     ArrayList<String> statearray = new ArrayList<>();
@@ -125,8 +143,8 @@ public class RegisterActivity extends AppCompatActivity {
     private ApiService apiservice;
     private SessionManager sessionManager = null;
     private ProgressDialog pDialog;
-    @BindView(R.id.spnr_zone)
-    Spinner spnr_zone;
+/*    @BindView(R.id.spnr_zone)
+    Spinner spnr_zone;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,38 +160,15 @@ public class RegisterActivity extends AppCompatActivity {
         getState("1");
         // getUsertype();
 
-        getZone();
+        // getZone();
 
 
-        ll_zone.setVisibility(View.GONE);
+        //ll_zone.setVisibility(View.GONE);
 
-        spnr_zone.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                TextView textView = (TextView)adapterView.getChildAt(0);
-//                textView.setTextColor(getResources().getColor(R.color.colorblack));
-                if (spnr_zone.getSelectedItem() == "Select Zone") {
-                    zone = "";
-                    //Utility.displayToast(RegisterActivity.this, "not data selected");
-                    //Do nothing.
-                } else {
+        ll_dealer.setVisibility(View.GONE);
+        ll_distributor.setVisibility(View.GONE);
+        ll_rm.setVisibility(View.GONE);
 
-                    Utility.displayToast(RegisterActivity.this, "selected");
-                    zone = spnr_zone.getSelectedItem().toString();
-                    ZoneModel.Data datalist = zoneList.get(i - 1);
-                    z_id = datalist.getZn_id();
-                    Log.e("zone_id", z_id);
-                    getWrdId(z_id);
-
-                    //Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
 
         spnr_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -204,7 +199,21 @@ public class RegisterActivity extends AppCompatActivity {
             startActivityForResult(dateintent, REQUEST_CODE);
         });
 
+        edt_dealer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent dateintent = new Intent(RegisterActivity.this, SelectDealerActivity.class);
+                startActivityForResult(dateintent, REQUEST_CODE_SECOND);
+            }
+        });
 
+        edt_rm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent dateintent = new Intent(RegisterActivity.this, SelectRMActivity.class);
+                startActivityForResult(dateintent, REQUEST_CODE_THIRD);
+            }
+        });
         rg1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -212,21 +221,38 @@ public class RegisterActivity extends AppCompatActivity {
                 switch (id) {
                     case R.id.rd1:
                         ll_distributor.setVisibility(View.VISIBLE);
-                        ll_zone.setVisibility(View.GONE);
+                        //ll_zone.setVisibility(View.GONE);
+                        ll_gst.setVisibility(View.VISIBLE);
+                        ll_dealer.setVisibility(View.GONE);
+                        ll_rm.setVisibility(View.GONE);
+                        vgst.setVisibility(View.VISIBLE);
+                        vdis.setVisibility(View.VISIBLE);
+
                         break;
                     case R.id.rd2:
                         ll_distributor.setVisibility(View.GONE);
-                        ll_zone.setVisibility(View.GONE);
+                        //ll_zone.setVisibility(View.GONE);
+                        ll_dealer.setVisibility(View.VISIBLE);
+                        ll_gst.setVisibility(View.GONE);
+                        ll_rm.setVisibility(View.GONE);
+                        vgst.setVisibility(View.GONE);
+                        vdis.setVisibility(View.GONE);
                         break;
                     case R.id.rd3:
                         ll_distributor.setVisibility(View.GONE);
-                        ll_zone.setVisibility(View.GONE);
+                        //ll_zone.setVisibility(View.GONE);
+                        ll_dealer.setVisibility(View.GONE);
+                        ll_gst.setVisibility(View.VISIBLE);
+                        ll_rm.setVisibility(View.VISIBLE);
+                        vgst.setVisibility(View.VISIBLE);
                         break;
-                    case R.id.rd4:
+                   /* case R.id.rd4:
                         ll_distributor.setVisibility(View.GONE);
                         ll_zone.setVisibility(View.VISIBLE);
+                        ll_gst.setVisibility(View.VISIBLE);
+                        vgst.setVisibility(View.VISIBLE);
 
-                        break;
+                    break;*/
                     default:
                         break;
                 }
@@ -236,12 +262,26 @@ public class RegisterActivity extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        dataa = data.getStringExtra("data");
-        uid = data.getStringExtra("user_id");
-        Utility.getAppcon().getSession().dealer_id = uid;
+
+        //  Utility.getAppcon().getSession().dealer_id = uid;
 //        Log.e("usr_id",uid);
-        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && dataa != null) {
+        /*if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && dataa != null) {
             edt_distributor.setText(dataa);
+        }*/
+
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+            dataa = data.getStringExtra("data");
+            uid = data.getStringExtra("user_id");
+            edt_distributor.setText(dataa);
+
+        } else if (requestCode == REQUEST_CODE_SECOND && resultCode == RESULT_OK) {
+            dataa = data.getStringExtra("data");
+            dealer_id = data.getStringExtra("user_id");
+            edt_dealer.setText(dataa);
+        } else if (requestCode == REQUEST_CODE_THIRD && resultCode == RESULT_OK) {
+            dataa = data.getStringExtra("data");
+            rm_id = data.getStringExtra("user_id");
+            edt_rm.setText(dataa);
         }
     }
 
@@ -323,7 +363,7 @@ public class RegisterActivity extends AppCompatActivity {
                 s_id,
                 edt_city.getText().toString(),
                 edt_pincode.getText().toString(),
-                roll_id, uid, z_id
+                roll_id, uid, dealer_id, rm_id
         );
         responseObservable.subscribeOn(Schedulers.newThread())
                 .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
@@ -483,63 +523,6 @@ public class RegisterActivity extends AppCompatActivity {
         dataAdapter.notifyDataSetChanged();
 
     }
-
-    public void getZone() {
-      /*  pDialog = new ProgressDialog(this);
-        pDialog.setTitle("Checking Data");
-        pDialog.setMessage("Please Wait...");
-        pDialog.setIndeterminate(false);
-        pDialog.setCancelable(false);
-        pDialog.show();*/
-
-
-        Observable<ZoneModel> responseObservable = apiservice.getZone();
-        responseObservable.subscribeOn(Schedulers.newThread())
-                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
-                .onErrorResumeNext(throwable -> {
-                    if (throwable instanceof retrofit2.HttpException) {
-                        retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
-                        statusCode = ex.code();
-                        Log.e("error", ex.getLocalizedMessage());
-                    } else if (throwable instanceof SocketTimeoutException) {
-                        statusCode = 1000;
-                    }
-                    return Observable.empty();
-                })
-                .subscribe(new Observer<ZoneModel>() {
-                    @Override
-                    public void onCompleted() {
-                        pDialog.dismiss();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e("error", "" + e.getMessage());
-                    }
-
-                    @Override
-                    public void onNext(ZoneModel zoneModel) {
-                        statusCode = zoneModel.getStatusCode();
-                        if (statusCode == 200) {
-                            zoneList = zoneModel.getData();
-
-                            for (int i = 0; i < zoneModel.getData().size(); i++) {
-                                zoneArray.add(zoneModel.getData().get(i).getZn_name());
-                            }
-
-                        } else {
-                            Utility.displayToast(RegisterActivity.this, zoneModel.getMessage());
-                        }
-                    }
-
-                });
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item, zoneArray);
-        dataAdapter.add("Select Zone");
-        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
-        spnr_zone.setAdapter(dataAdapter);
-
-    }
-
 
     public void getCity(String s_id) {
 
@@ -881,3 +864,90 @@ public class RegisterActivity extends AppCompatActivity {
 //
 //            }
 //        });
+ /*    spnr_zone.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+@Override
+public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                TextView textView = (TextView)adapterView.getChildAt(0);
+//                textView.setTextColor(getResources().getColor(R.color.colorblack));
+        if (spnr_zone.getSelectedItem() == "Select Zone") {
+        zone = "";
+        //Utility.displayToast(RegisterActivity.this, "not data selected");
+        //Do nothing.
+        } else {
+
+        Utility.displayToast(RegisterActivity.this, "selected");
+        zone = spnr_zone.getSelectedItem().toString();
+        ZoneModel.Data datalist = zoneList.get(i - 1);
+        z_id = datalist.getZn_id();
+        Log.e("zone_id", z_id);
+        getWrdId(z_id);
+
+        //Toast.makeText(MainActivity.this, spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+        }
+        }
+
+@Override
+public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+        });*/
+
+
+/*
+    public void getZone() {
+      */
+/*  pDialog = new ProgressDialog(this);
+        pDialog.setTitle("Checking Data");
+        pDialog.setMessage("Please Wait...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();*//*
+
+
+
+        Observable<ZoneModel> responseObservable = apiservice.getZone();
+        responseObservable.subscribeOn(Schedulers.newThread())
+                .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
+                .onErrorResumeNext(throwable -> {
+                    if (throwable instanceof retrofit2.HttpException) {
+                        retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
+                        statusCode = ex.code();
+                        Log.e("error", ex.getLocalizedMessage());
+                    } else if (throwable instanceof SocketTimeoutException) {
+                        statusCode = 1000;
+                    }
+                    return Observable.empty();
+                })
+                .subscribe(new Observer<ZoneModel>() {
+                    @Override
+                    public void onCompleted() {
+                        pDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("error", "" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(ZoneModel zoneModel) {
+                        statusCode = zoneModel.getStatusCode();
+                        if (statusCode == 200) {
+                            zoneList = zoneModel.getData();
+
+                            for (int i = 0; i < zoneModel.getData().size(); i++) {
+                                zoneArray.add(zoneModel.getData().get(i).getZn_name());
+                            }
+
+                        } else {
+                            Utility.displayToast(RegisterActivity.this, zoneModel.getMessage());
+                        }
+                    }
+
+                });
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item, zoneArray);
+        dataAdapter.add("Select Zone");
+        dataAdapter.setDropDownViewResource(R.layout.spinner_item);
+        spnr_zone.setAdapter(dataAdapter);
+
+    }*/

@@ -2,32 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:iconTint="@color/gray"
             android:id="@+id/nav_dashboard"
-            android:icon="@mipmap/ic_launcher"
+            android:iconTint="@color/gray"
             android:title="Dashboard" />
         <item
             android:id="@+id/nav_add_customer"
-            android:icon="@mipmap/ic_launcher"
             android:title="Add Profile" />
 
         <item
             android:id="@+id/nav_gift_managment"
-            android:icon="@mipmap/ic_launcher"
             android:title="Gift Management" />
 
         <item
             android:id="@+id/nav_add_invoice"
-            android:icon="@mipmap/ic_launcher"
             android:title="Contact Detail" />
         <item
             android:id="@+id/nav_view_invoice"
-            android:icon="@mipmap/ic_launcher"
             android:title="Setting" />
 
         <item
             android:id="@+id/nav_logout"
-            android:icon="@mipmap/ic_launcher"
             android:title="Logout" />
 
     </group>

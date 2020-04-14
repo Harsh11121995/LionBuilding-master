@@ -30,7 +30,7 @@ import rx.Observable;
 import rx.Observer;
 import rx.schedulers.Schedulers;
 
-public class SelectDealerActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
+public class SelectRMActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
     ListView listView;
     SessionManager sessionManager;
@@ -52,7 +52,7 @@ public class SelectDealerActivity extends AppCompatActivity implements SearchVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_dealer);
+        setContentView(R.layout.activity_select_rm);
 
         ButterKnife.bind(this);
         listView=findViewById(R.id.list_breed);
@@ -84,9 +84,7 @@ public class SelectDealerActivity extends AppCompatActivity implements SearchVie
         });
 
         simpleSearchView.setOnQueryTextListener(this);
-
     }
-
 
     private void getUsersList() {
 
@@ -98,7 +96,7 @@ public class SelectDealerActivity extends AppCompatActivity implements SearchVie
         pDialog.show();
 
 
-        Observable<NewUserModel> responseObservable = apiservice.getDealer();
+        Observable<NewUserModel> responseObservable = apiservice.getRM();
 
         responseObservable.subscribeOn(Schedulers.newThread())
                 .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
@@ -133,7 +131,7 @@ public class SelectDealerActivity extends AppCompatActivity implements SearchVie
                                 arrayList_user.add(res.get(i).getFirstName());
                             }
                             array = arrayList_user.toArray(new String[0]);
-                            adapter = new ArrayAdapter<String>(SelectDealerActivity.this, android.R.layout.simple_list_item_1, array);
+                            adapter = new ArrayAdapter<String>(SelectRMActivity.this, android.R.layout.simple_list_item_1, array);
                             //  country.setDropDownViewResource(R.layout.spinner_item);
                             listView.setAdapter(adapter);
                         }
@@ -141,7 +139,6 @@ public class SelectDealerActivity extends AppCompatActivity implements SearchVie
                 });
 
     }
-
 
     @Override
     public void onBackPressed() {
@@ -161,5 +158,4 @@ public class SelectDealerActivity extends AppCompatActivity implements SearchVie
         adapter.getFilter().filter(newText);
         return false;
     }
-
 }

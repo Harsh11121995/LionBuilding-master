@@ -26,64 +26,65 @@
             android:visibility="visible" />
 
         <LinearLayout
+            android:id="@+id/ln_notify_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            android:visibility="visible"
-            android:id="@+id/ln_notify_icon"
             android:layout_gravity="end"
             android:layout_marginRight="15dp"
-            android:orientation="horizontal">
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:visibility="visible">
 
-                <ImageView
-                    android:id="@+id/notify_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_vertical"
-                    android:contentDescription="@string/app_name"
-                    android:padding="3dp"
-                    android:src="@drawable/notification"
-                    android:visibility="visible" />
+            <!--
+                            <ImageView
+                                android:id="@+id/notify_icon"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/app_name"
+                                android:padding="3dp"
+                                android:src="@drawable/notification"
+                                android:visibility="visible" />
+            -->
 
-                <ImageView
-                    android:id="@+id/img_cart"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/cart_icon"
-                    android:layout_gravity="center_vertical"
-                    android:padding="3dp"
-                    android:visibility="gone"
-                    android:layout_marginLeft="15dp" />
+            <ImageView
+                android:id="@+id/img_cart"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:padding="3dp"
+                android:src="@drawable/cart_icon"
+                android:visibility="gone" />
 
-                <TextView
-                    android:id="@+id/badge_notification"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_alignEnd="@+id/notify_icon"
-                    android:layout_gravity="right|end|top"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="0dp"
-                    android:layout_marginRight="-5dp"
-                    android:background="@drawable/notification"
-                    android:gravity="center"
-                    android:padding="3dp"
-                    android:text="99"
-                    android:visibility="gone"
-                    android:textColor="@android:color/white"
-                    android:textSize="10sp" />
-
+            <TextView
+                android:id="@+id/badge_notification"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignEnd="@+id/notify_icon"
+                android:layout_gravity="right|end|top"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="-5dp"
+                android:background="@drawable/notification"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="99"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:visibility="gone" />
 
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ln_cart_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            android:visibility="gone"
-            android:id="@+id/ln_cart_icon"
+            android:layout_gravity="end"
             android:layout_marginEnd="0dp"
-            android:layout_gravity="end">
+            android:gravity="end"
+            android:visibility="gone">
 
         </LinearLayout>
 
@@ -102,12 +103,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/poppins_regular"
             android:gravity="center"
             android:text=""
-            android:textStyle="bold"
-            android:fontFamily="@font/poppins_regular"
             android:textColor="@android:color/white"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:textStyle="bold" />
     </android.support.v7.widget.Toolbar>
 
 </LinearLayout>

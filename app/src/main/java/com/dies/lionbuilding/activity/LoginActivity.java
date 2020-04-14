@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         sessionManager = new SessionManager(LoginActivity.this);
 
         if (sessionManager.isLoggedIn()) {
-            Intent intent = new Intent(this, HomeActivity.class);
+            Intent intent = new Intent(this, WelcomeActivity.class);
             startActivity(intent);
             finish();
         }
@@ -186,7 +186,7 @@ public class LoginActivity extends AppCompatActivity {
                             sessionManager.setKeyPassword(edt_password.getText().toString());
                             sessionManager.createLoginSession();
                             sessionManager.setTotalPoint(String.valueOf(userDataResponse.getData().get(0).getTotal_point()));
-                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
                             startActivity(intent);
                         }
                     }

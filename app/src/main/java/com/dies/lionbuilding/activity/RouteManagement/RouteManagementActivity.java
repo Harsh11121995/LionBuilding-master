@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.dies.lionbuilding.R;
 import com.dies.lionbuilding.ShopTimelineViewActivity;
@@ -31,6 +32,9 @@ public class RouteManagementActivity extends AppCompatActivity {
     @BindView(R.id.back_icon)
     ImageView back;
 
+    @BindView(R.id.toolbar_Title)
+    TextView toolbar_Title;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class RouteManagementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_route_management);
         ButterKnife.bind(this);
 
+        toolbar_Title.setText("Route Management");
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

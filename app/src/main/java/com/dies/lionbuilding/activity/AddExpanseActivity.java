@@ -22,6 +22,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
@@ -71,15 +72,12 @@ public class AddExpanseActivity extends AppCompatActivity {
     EditText et_expanse_amount;
     @BindView(R.id.et_expanse_detail)
     EditText et_expanse_detail;
-
-   // Calendar date;
+    @BindView(R.id.toolbar_Title)
+    TextView toolbar_Title;
+    // Calendar date;
     final Calendar myCalendar = Calendar.getInstance();
 
     String mediaPath;
-
-
-
-
 
     @BindView(R.id.spin_type)
     Spinner spin_type;
@@ -95,7 +93,7 @@ public class AddExpanseActivity extends AppCompatActivity {
 
     ArrayList<String> expansearray = new ArrayList<>();
     List<ExpanseModel.Data> data;
-    String Expanse,e_id;
+    String Expanse, e_id;
 
     private AwesomeValidation awesomeValidation;
 
@@ -108,7 +106,7 @@ public class AddExpanseActivity extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
 
-
+        toolbar_Title.setText("Add Expense");
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -147,25 +145,22 @@ public class AddExpanseActivity extends AppCompatActivity {
         });
 
 
-
         awesomeValidation.addValidation(this, R.id.et_date, "^(?:(?:31(\\\\/|-|\\\\.)(?:0?[13578]|1[02]))\\\\1|(?:(?:29|30)(\\\\/|-|\\\\.)(?:0?[1,3-9]|1[0-2])\\\\2))(?:(?:1[6-9]|[2-9]\\\\d)?\\\\d{2})$|^(?:29(\\\\/|-|\\\\.)0?2\\\\3(?:(?:(?:1[6-9]|[2-9]\\\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\\\d|2[0-8])(\\\\/|-|\\\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\\\4(?:(?:1[6-9]|[2-9]\\\\d)?\\\\d{2})$", R.string.dateerror);
 
         getExpansivetype();
 
         btn_submit.setOnClickListener(view -> {
 
-            if (et_date.getText().toString().equals("")){
+            if (et_date.getText().toString().equals("")) {
                 et_date.setError("please Enter date");
-            }else if (et_expanse_amount.getText().toString().equals("")){
+            } else if (et_expanse_amount.getText().toString().equals("")) {
                 et_expanse_amount.setError("Please Enter Expanse");
-            }else if (et_expanse_detail.getText().toString().equals("")){
+            } else if (et_expanse_detail.getText().toString().equals("")) {
                 et_expanse_detail.setError("Please Enter Expanse Detail");
-            }else {
-                    AddExpanse();
+            } else {
+                AddExpanse();
 
             }
-
-
 
 
         });
@@ -198,7 +193,7 @@ public class AddExpanseActivity extends AppCompatActivity {
     }
 
 
-    public void getExpansivetype(){
+    public void getExpansivetype() {
 
         pDialog = new ProgressDialog(this);
         pDialog.setTitle("Checking Data");
@@ -251,10 +246,10 @@ public class AddExpanseActivity extends AppCompatActivity {
     }
 
 
-    public void AddExpanse(){
+    public void AddExpanse() {
 
-        if (mediaPath==null){
-            mediaPath="";
+        if (mediaPath == null) {
+            mediaPath = "";
         }
 
         Map<String, RequestBody> map = new HashMap<>();
@@ -272,70 +267,69 @@ public class AddExpanseActivity extends AppCompatActivity {
             }
         }
 
-            try {
+        try {
 
-                RequestBody ex_date = RequestBody.create(MediaType.parse("text/plain"), et_date.getText().toString());
-                RequestBody ex_detail = RequestBody.create(MediaType.parse("text/plain"), et_expanse_detail.getText().toString());
-                RequestBody ex_amount = RequestBody.create(MediaType.parse("text/plain"), et_expanse_amount.getText().toString());
-                RequestBody ex_id = RequestBody.create(MediaType.parse("text/plain"), e_id);
-                RequestBody ex_user_id = RequestBody.create(MediaType.parse("text/plain"), sessionManager.getKeyId());
-
-
-
-                map.put("exp_date", ex_date);
-                map.put("exp_desc", ex_detail);
-                map.put("exp_amount", ex_amount);
-                map.put("exp_type", ex_id);
-                map.put("exp_user_id", ex_user_id);
+            RequestBody ex_date = RequestBody.create(MediaType.parse("text/plain"), et_date.getText().toString());
+            RequestBody ex_detail = RequestBody.create(MediaType.parse("text/plain"), et_expanse_detail.getText().toString());
+            RequestBody ex_amount = RequestBody.create(MediaType.parse("text/plain"), et_expanse_amount.getText().toString());
+            RequestBody ex_id = RequestBody.create(MediaType.parse("text/plain"), e_id);
+            RequestBody ex_user_id = RequestBody.create(MediaType.parse("text/plain"), sessionManager.getKeyId());
 
 
-                pDialog = new ProgressDialog(this);
-                pDialog.setTitle("Checking Data");
-                pDialog.setMessage("Please Wait...");
-                pDialog.setIndeterminate(false);
-                pDialog.setCancelable(false);
-                pDialog.show();
+            map.put("exp_date", ex_date);
+            map.put("exp_desc", ex_detail);
+            map.put("exp_amount", ex_amount);
+            map.put("exp_type", ex_id);
+            map.put("exp_user_id", ex_user_id);
 
-                Observable<ExpanseModel> responseObservable = apiservice.addExpanse(map);
 
-                responseObservable.subscribeOn(Schedulers.newThread())
-                        .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
-                        .onErrorResumeNext(throwable -> {
-                            if (throwable instanceof retrofit2.HttpException) {
-                                retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
-                                statusCode = ex.code();
-                                Log.e("error", ex.getLocalizedMessage());
-                            } else if (throwable instanceof SocketTimeoutException) {
-                                statusCode = 1000;
+            pDialog = new ProgressDialog(this);
+            pDialog.setTitle("Checking Data");
+            pDialog.setMessage("Please Wait...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+            pDialog.show();
+
+            Observable<ExpanseModel> responseObservable = apiservice.addExpanse(map);
+
+            responseObservable.subscribeOn(Schedulers.newThread())
+                    .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
+                    .onErrorResumeNext(throwable -> {
+                        if (throwable instanceof retrofit2.HttpException) {
+                            retrofit2.HttpException ex = (retrofit2.HttpException) throwable;
+                            statusCode = ex.code();
+                            Log.e("error", ex.getLocalizedMessage());
+                        } else if (throwable instanceof SocketTimeoutException) {
+                            statusCode = 1000;
+                        }
+                        return Observable.empty();
+                    })
+                    .subscribe(new Observer<ExpanseModel>() {
+                        @Override
+                        public void onCompleted() {
+                            pDialog.dismiss();
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+                            Log.e("error", "" + e.getMessage());
+                        }
+
+                        @Override
+                        public void onNext(ExpanseModel expanseModel) {
+                            statusCode = expanseModel.getStatusCode();
+                            if (statusCode == 200) {
+                                Utility.displayToast(AddExpanseActivity.this, expanseModel.getMessage());
+                                finish();
+                            } else {
+                                Utility.displayToast(AddExpanseActivity.this, expanseModel.getMessage());
                             }
-                            return Observable.empty();
-                        })
-                        .subscribe(new Observer<ExpanseModel>() {
-                            @Override
-                            public void onCompleted() {
-                                pDialog.dismiss();
-                            }
+                        }
+                    });
 
-                            @Override
-                            public void onError(Throwable e) {
-                                Log.e("error", "" + e.getMessage());
-                            }
-
-                            @Override
-                            public void onNext(ExpanseModel expanseModel) {
-                                statusCode = expanseModel.getStatusCode();
-                                if (statusCode == 200) {
-                                    Utility.displayToast(AddExpanseActivity.this,expanseModel.getMessage());
-                                    finish();
-                                }else {
-                                    Utility.displayToast(AddExpanseActivity.this,expanseModel.getMessage());
-                                }
-                            }
-                        });
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -361,16 +355,11 @@ public class AddExpanseActivity extends AppCompatActivity {
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             //filePath1 = cursor.getString(column_index);
             mediaPath = cursor.getString(columnIndex);
-           // mediaPath=compressImage(mediaPath1);
+            // mediaPath=compressImage(mediaPath1);
             img_doc.setImageBitmap(BitmapFactory.decodeFile(mediaPath));
             cursor.close();
         }
     }
-
-
-
-
-
 
 
 }

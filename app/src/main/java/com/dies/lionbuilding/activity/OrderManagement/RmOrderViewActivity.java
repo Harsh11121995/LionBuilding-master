@@ -49,6 +49,9 @@ public class RmOrderViewActivity extends AppCompatActivity {
     @BindView(R.id.back_icon)
     ImageView back_icon;
 
+    @BindView(R.id.toolbar_Title)
+    TextView toolbar_Title;
+
     SessionManager sessionManager;
     ApiService apiservice;
     ProgressDialog pDialog;
@@ -69,6 +72,7 @@ public class RmOrderViewActivity extends AppCompatActivity {
         apiservice = ApiServiceCreator.createService("latest");
         orderr_id = getIntent().getStringExtra("ord_id");
 
+        toolbar_Title.setText("View Order");
         back_icon.setOnClickListener(view -> {
             finish();
         });
@@ -124,7 +128,7 @@ public class RmOrderViewActivity extends AppCompatActivity {
                             txt_pprice.setText(arrayListdata.get(0).getProductPrice());
                             txt_pqty.setText(arrayListdata.get(0).getSordQty());
 
-                            Picasso.with(getApplicationContext()).load(ApiConstants.IMAGE_URL + arrayListdata.get(0).getProductImg()).into( iv_product);
+                            Picasso.with(getApplicationContext()).load(ApiConstants.IMAGE_URL + arrayListdata.get(0).getProductImg()).into(iv_product);
 
                             Utility.displayToast(RmOrderViewActivity.this, rmOrderViewModel.getMessage());
 

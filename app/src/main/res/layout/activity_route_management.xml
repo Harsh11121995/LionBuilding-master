@@ -18,112 +18,124 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-
-    <LinearLayout
-        android:id="@+id/lnr_c_route"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_margin="20dp"
-        android:background="@drawable/box"
-        android:gravity="center">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/route" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:gravity="center"
-            android:text="Create Route"
-            android:textColor="@color/colorblack"
-            android:textSize="17sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lnr_c_route"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/box"
+                android:gravity="center">
 
-    <LinearLayout
-        android:id="@+id/lnr_today_route"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/box"
-        android:gravity="center">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/route" />
 
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/route" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:gravity="center"
-            android:text="Today Route"
-            android:textColor="@color/colorblack"
-            android:textSize="17sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:gravity="center"
+                    android:text="Create Route"
+                    android:textColor="@color/colorblack"
+                    android:textSize="17sp" />
 
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/lnr_past_route"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/box"
-        android:gravity="center">
+            <LinearLayout
+                android:id="@+id/lnr_today_route"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/box"
+                android:gravity="center">
 
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/route" />
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/route" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:gravity="center"
-            android:text="Past Route"
-            android:textColor="@color/colorblack"
-            android:textSize="17sp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/lnr_future_route"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/box"
-        android:gravity="center">
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/route" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:gravity="center"
-            android:text="Future Route"
-            android:textColor="@color/colorblack"
-            android:textSize="17sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:gravity="center"
+                    android:text="Today Route"
+                    android:textColor="@color/colorblack"
+                    android:textSize="17sp" />
 
 
-    </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_past_route"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/box"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/route" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:gravity="center"
+                    android:text="Past Route"
+                    android:textColor="@color/colorblack"
+                    android:textSize="17sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_future_route"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/box"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/route" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp"
+                    android:gravity="center"
+                    android:text="Future Route"
+                    android:textColor="@color/colorblack"
+                    android:textSize="17sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

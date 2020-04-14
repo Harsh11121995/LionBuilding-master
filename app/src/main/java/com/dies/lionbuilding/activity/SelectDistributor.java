@@ -44,13 +44,9 @@ public class SelectDistributor extends AppCompatActivity implements SearchView.O
     String animal_id;
 
 
-
     @BindView(R.id.toolbar_Title)
     TextView toolbar_Title;
-    @BindView(R.id.notify_icon)
-    ImageView notify_icon;
-//    @BindView(R.id.cart_icon)
-//    ImageView cart_icon;
+
     @BindView(R.id.back_icon)
     ImageView backIcon;
 
@@ -69,7 +65,6 @@ public class SelectDistributor extends AppCompatActivity implements SearchView.O
         SearchView simpleSearchView = (SearchView) findViewById(R.id.simpleSearchView);
         toolbar_Title.setText("Breed");
         animal_id=getIntent().getStringExtra("animal_id");
-        notify_icon.setVisibility(View.GONE);
         backIcon.setVisibility(View.VISIBLE);
         backIcon.setOnClickListener(view -> {
             Intent returnIntent = new Intent();

@@ -56,7 +56,8 @@ public interface ApiService {
                                                   @Field("pincode") String pincode,
                                                   @Field("user_type") String user_type,
                                                   @Field("distributor_id") String d_id,
-                                                  @Field("zone") String zone);
+                                                  @Field("dealer_id") String dealer_id,
+                                                  @Field("nrm_id") String nrm_id);
 
 
     @FormUrlEncoded
@@ -332,6 +333,9 @@ public interface ApiService {
 
     @POST("UserData/getdealerdata")
     public Observable<NewUserModel> getDealer();
+
+    @POST("UserData/getrmdata")
+    public Observable<NewUserModel> getRM();
 
     @FormUrlEncoded
     @POST("UserData/add_visited_data")
