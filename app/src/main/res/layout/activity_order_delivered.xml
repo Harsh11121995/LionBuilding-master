@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+
     <TextView
         android:id="@+id/dlrname"
         android:layout_width="wrap_content"
@@ -20,7 +21,7 @@
         android:layout_below="@id/toolbar"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="30dp"
-        android:text="dealer name :-"
+        android:text="Dealer name :"
         android:textColor="@color/gray"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -29,9 +30,10 @@
         android:id="@+id/txt_dlrname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dlrname"
+        android:layout_below="@id/toolbar"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@id/dlrname"
         android:text="dealer name"
         android:textColor="@color/colorDashBoard"
         android:textSize="20sp"
@@ -44,7 +46,7 @@
         android:layout_below="@id/txt_dlrname"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="30dp"
-        android:text="Status :-"
+        android:text="Status :"
         android:textColor="@color/gray"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -53,9 +55,10 @@
         android:id="@+id/txt_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/status"
+        android:layout_below="@id/txt_dlrname"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@id/status"
         android:text="staus"
         android:textColor="@color/colorDashBoard"
         android:textSize="20sp"
@@ -68,7 +71,7 @@
         android:layout_below="@id/txt_status"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/round_circle"
+        android:background="@drawable/round_corner_button"
         android:text="Save"
         android:textAllCaps="false"
         android:textColor="@color/colorWight" />

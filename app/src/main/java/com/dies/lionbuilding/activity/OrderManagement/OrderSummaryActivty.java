@@ -113,6 +113,8 @@ public class OrderSummaryActivty extends AppCompatActivity {
             lnr_user.setVisibility(View.GONE);
         } else if (sessionManager.getKeyRoll().equals("Distributor")) {
             lnr_user.setVisibility(View.GONE);
+        } else if (sessionManager.getKeyRoll().equals("Contractor")) {
+            lnr_user.setVisibility(View.GONE);
         } else {
             lnr_user.setVisibility(View.GONE);
         }
@@ -123,7 +125,7 @@ public class OrderSummaryActivty extends AppCompatActivity {
 
         btn_add.setOnClickListener(view -> {
 
-            if (sessionManager.getKeyRoll().equals("Dealer") || sessionManager.getKeyRoll().equals("Distributor")) {
+            if (sessionManager.getKeyRoll().equals("Dealer") || sessionManager.getKeyRoll().equals("Distributor") || sessionManager.getKeyRoll().equals("Contractor")) {
                 callApi();
             } else {
 
@@ -249,7 +251,7 @@ public class OrderSummaryActivty extends AppCompatActivity {
 
     }
 
-    public void addOrder() {
+   /* public void addOrder() {
 
         if (dealer_id == null && distributor_id == null) {
             Utility.displayToast(OrderSummaryActivty.this, "Please select distributor or dealer");
@@ -259,7 +261,7 @@ public class OrderSummaryActivty extends AppCompatActivity {
 
         }
 
-    }
+    }*/
 
     private void callApi() {
 

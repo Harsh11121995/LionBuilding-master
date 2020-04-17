@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,7 +61,7 @@ public class RmLeaveAdapter extends RecyclerView.Adapter<RmLeaveAdapter.MyViewHo
         holder.txt_salesExename.setText(dataList.get(position).getSales_exe_name());
         holder.txt_edate.setText(dataList.get(position).getLv_end_date());
         holder.txt_sdate.setText(dataList.get(position).getLv_start_date());
-        holder.txt_lv_desc.setText(dataList.get(position).getLv_desc());
+        holder.txt_lv_desc.setText(Html.fromHtml(dataList.get(position).getLv_desc()));
         holder.txt_hr_status.setText(dataList.get(position).getHr_leave_status());
         holder.txt_rm_status.setText(dataList.get(position).getRm_leave_status());
 

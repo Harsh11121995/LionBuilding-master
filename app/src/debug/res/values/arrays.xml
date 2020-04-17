@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ld_drawerTitles">
+        <item>Dashboard</item>
+        <item>Add Profile</item>
+        <item>Gift Management</item>
+        <item>Contact Details</item>
+        <item>Settings</item>
+        <item>Logout</item>
+
+    </string-array>
+
+    <array name="ld_drawerIcons">
+        <item>@drawable/dashboard_black</item>
+        <item>@drawable/profile_black</item>
+        <item>@drawable/gift_black</item>
+        <item>@drawable/contact_black</item>
+        <item>@drawable/setting_black</item>
+        <item>@drawable/logout_black</item>
+    </array>
+
+</resources>

@@ -92,7 +92,6 @@
                         android:id="@+id/rd2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
                         android:buttonTint="@color/colorPrimary"
                         android:text="Contractor"
                         android:textSize="15sp" />
@@ -101,17 +100,16 @@
                         android:id="@+id/rd3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
                         android:buttonTint="@color/colorPrimary"
                         android:text="Distributor"
                         android:textSize="15sp" />
 
-                    <!-- <RadioButton
-                         android:id="@+id/rd4"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:text="RM"
-                         android:textSize="15sp" />-->
+                    <RadioButton
+                        android:id="@+id/rd4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Architecture"
+                        android:textSize="15sp" />
                 </RadioGroup>
 
             </LinearLayout>

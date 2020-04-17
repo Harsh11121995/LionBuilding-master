@@ -56,9 +56,18 @@
         android:background="@android:color/transparent"
         android:fitsSystemWindows="false"
         app:headerLayout="@layout/nav_header"
-        app:itemTextColor="#000"
-        app:menu="@menu/nav_menu" />
+        app:itemIconTint="@color/drawer_item"
+        app:itemTextColor="@color/drawer_item"
+        app:menu="@menu/nav_menu">
 
+        <!-- <android.support.v7.widget.RecyclerView
+             android:id="@+id/rv_draweritems"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="150dp"
+             android:layout_marginRight="5dp" />-->
+
+    </android.support.design.widget.NavigationView>
     <!--    android:background="@android:color/white"-->
 
 

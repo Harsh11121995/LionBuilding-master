@@ -3,25 +3,30 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_dashboard"
-            android:iconTint="@color/gray"
+            android:icon="@drawable/dashboard_black"
             android:title="Dashboard" />
         <item
             android:id="@+id/nav_add_customer"
+            android:icon="@drawable/profile_black"
             android:title="Add Profile" />
 
         <item
             android:id="@+id/nav_gift_managment"
+            android:icon="@drawable/gift_black"
             android:title="Gift Management" />
 
         <item
             android:id="@+id/nav_add_invoice"
+            android:icon="@drawable/contact_black"
             android:title="Contact Detail" />
         <item
             android:id="@+id/nav_view_invoice"
+            android:icon="@drawable/setting_black"
             android:title="Setting" />
 
         <item
             android:id="@+id/nav_logout"
+            android:icon="@drawable/logout_black"
             android:title="Logout" />
 
     </group>
