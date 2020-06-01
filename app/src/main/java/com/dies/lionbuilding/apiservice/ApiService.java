@@ -13,6 +13,7 @@ import com.dies.lionbuilding.model.OrderConData;
 import com.dies.lionbuilding.model.PastRouteModel;
 import com.dies.lionbuilding.model.ProductCategoryModel;
 import com.dies.lionbuilding.model.ProductModel;
+import com.dies.lionbuilding.model.RewardModel;
 import com.dies.lionbuilding.model.RmOrderViewModel;
 import com.dies.lionbuilding.model.RouteModel;
 import com.dies.lionbuilding.model.ShopViewModel;
@@ -337,6 +338,11 @@ public interface ApiService {
     @POST("UserData/getrmdata")
     public Observable<NewUserModel> getRM();
 
+
+    @FormUrlEncoded
+    @POST("UserData/getrm_exsaleslist")
+    public Observable<UserAllData> getRM_SalesExe(@Field("userId") String user_id);
+
     @FormUrlEncoded
     @POST("UserData/add_visited_data")
     public Observable<UserDataResponse> AddComment(@Field("tv_slid") String tv_slid,
@@ -360,6 +366,10 @@ public interface ApiService {
     @Multipart
     @POST("UserData/userendofdaylocation")
     public Observable<UserDataResponse> endofdayLatlong(@PartMap Map<String, RequestBody> map);
+
+    @FormUrlEncoded
+    @POST("UserData/getuser_giftstatus")
+    public Observable<RewardModel> getUserGiftStatus(@Field("userId") String user_id);
 
     /*@FormUrlEncoded
     @POST("UserData/getcurrentlocation")

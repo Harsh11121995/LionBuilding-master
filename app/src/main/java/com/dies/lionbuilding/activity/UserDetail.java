@@ -87,6 +87,7 @@ public class UserDetail extends AppCompatActivity {
         pDialog.show();
 
 
+        Log.e("TAG", "userid: " + arrayList.get(0).getUserId());
         Observable<NewUserModel> responseObservable = apiservice.getUserDetail(arrayList.get(0).getUserId());
 
         responseObservable.subscribeOn(Schedulers.newThread())
@@ -116,6 +117,7 @@ public class UserDetail extends AppCompatActivity {
                     public void onNext(NewUserModel newUserModel) {//
                         statusCode = newUserModel.getStatusCode();
                         if (statusCode == 200) {
+                            txt_name.setText(newUserModel.getData().get(0).getFirstName());
                             txt_usertype.setText(newUserModel.getData().get(0).getUsertype());
                             txt_email.setText(newUserModel.getData().get(0).getEmail());
                             txt_address.setText(newUserModel.getData().get(0).getAddress_line1());
@@ -126,8 +128,6 @@ public class UserDetail extends AppCompatActivity {
                             //tv_toolbar_title.setText(newUserModel.getData().get(0).getFirstName());
 
                             //txt_name.setText(newUserModel.getData().get(0).getFirstName());
-
-
                         }
                     }
                 });

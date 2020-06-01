@@ -18,6 +18,7 @@ import com.dies.lionbuilding.activity.OrderManagement.OrderConfirmActivity;
 import com.dies.lionbuilding.activity.OrderManagement.SalesExecOrderActivity;
 import com.dies.lionbuilding.activity.RmGetAllLeaveActivty;
 import com.dies.lionbuilding.activity.RouteManagement.RouteManagementActivity;
+import com.dies.lionbuilding.activity.SalesExeLocationActivity;
 import com.dies.lionbuilding.activity.SendLocation;
 import com.dies.lionbuilding.activity.Users;
 
@@ -41,6 +42,8 @@ public class RmFragment extends Fragment {
     CardView card_leave_management;
     @BindView(R.id.card_expense_management)
     CardView card_expense_management;
+    @BindView(R.id.card_salesExe_location)
+    CardView card_salesExe_location;
 
     public RmFragment() {
     }
@@ -89,6 +92,12 @@ public class RmFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), ExpanseManagementActivity.class));
+            }
+        });
+        card_salesExe_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), SalesExeLocationActivity.class));
             }
         });
         return view;

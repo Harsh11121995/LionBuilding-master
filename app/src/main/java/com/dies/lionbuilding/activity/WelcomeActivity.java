@@ -85,8 +85,8 @@ public class WelcomeActivity extends AppCompatActivity implements NavigationView
         navUsername = headerView.findViewById(R.id.txt_username);
         navUsertype = headerView.findViewById(R.id.txt_usertype);
 
-        icon = loadScreenIcons();
-        title = loadScreenTitles();
+        /*icon = loadScreenIcons();
+        title = loadScreenTitles();*/
 
        /* recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -111,6 +111,10 @@ public class WelcomeActivity extends AppCompatActivity implements NavigationView
                 getSupportFragmentManager().beginTransaction().add(R.id.contentContainer, rmFragment).commit();
 
             } else if (sessionManager.getKeyRoll().equals("Contractor")) {
+                ContractorFragment confgmnt = new ContractorFragment();
+                getSupportFragmentManager().beginTransaction().add(R.id.contentContainer, confgmnt).commit();
+
+            } else if (sessionManager.getKeyRoll().equals("Architect")) {
                 ContractorFragment confgmnt = new ContractorFragment();
                 getSupportFragmentManager().beginTransaction().add(R.id.contentContainer, confgmnt).commit();
 
@@ -232,11 +236,14 @@ public class WelcomeActivity extends AppCompatActivity implements NavigationView
                 });
     }
 
+/*
     private String[] loadScreenTitles() {
 
         return getResources().getStringArray(R.array.ld_drawerTitles);
     }
+*/
 
+/*
     private Drawable[] loadScreenIcons() {
 
         TypedArray ta = getResources().obtainTypedArray(R.array.ld_drawerIcons);
@@ -251,6 +258,7 @@ public class WelcomeActivity extends AppCompatActivity implements NavigationView
         ta.recycle();
         return icons;
     }
+*/
 
 /*
     public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {

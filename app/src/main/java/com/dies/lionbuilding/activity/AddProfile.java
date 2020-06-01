@@ -110,11 +110,11 @@ public class AddProfile extends AppCompatActivity {
 
         sessionManager=new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
-        userTypeAdapter userTypeAdapter = new userTypeAdapter(AddProfile.this, android.R.layout.simple_list_item_1);
+        /*userTypeAdapter userTypeAdapter = new userTypeAdapter(AddProfile.this, android.R.layout.simple_list_item_1);
         userTypeAdapter.addAll(users);
         userTypeAdapter.add("Select User Type");
         spnr_usertype.setAdapter(userTypeAdapter);
-        spnr_usertype.setSelection(userTypeAdapter.getCount());
+        spnr_usertype.setSelection(userTypeAdapter.getCount());*/
        // getCountry();
         getState("1");
         getUsertype();

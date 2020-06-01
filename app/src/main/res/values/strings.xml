@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LionBuilding</string>
+    <string name="app_name">Ekzekto</string>
     <string name="btn_register">Register</string>
     <string name="btn_Login">Login</string>
     <string name="title_activity_show_shop_map">Map</string>

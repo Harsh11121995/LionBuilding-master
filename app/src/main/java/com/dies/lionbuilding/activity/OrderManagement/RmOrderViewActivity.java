@@ -4,12 +4,15 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dies.lionbuilding.R;
+import com.dies.lionbuilding.adapter.Order.ViewOrderAdapter;
 import com.dies.lionbuilding.apiservice.ApiConstants;
 import com.dies.lionbuilding.apiservice.ApiService;
 import com.dies.lionbuilding.apiservice.ApiServiceCreator;
@@ -31,20 +34,6 @@ import rx.schedulers.Schedulers;
 
 public class RmOrderViewActivity extends AppCompatActivity {
 
-    @BindView(R.id.txt_disname)
-    TextView txt_disname;
-
-    @BindView(R.id.txt_pname)
-    TextView txt_pname;
-
-    @BindView(R.id.txt_pqty)
-    TextView txt_pqty;
-
-    @BindView(R.id.txt_pprice)
-    TextView txt_pprice;
-
-    @BindView(R.id.iv_product)
-    ImageView iv_product;
 
     @BindView(R.id.back_icon)
     ImageView back_icon;
@@ -52,6 +41,8 @@ public class RmOrderViewActivity extends AppCompatActivity {
     @BindView(R.id.toolbar_Title)
     TextView toolbar_Title;
 
+    @BindView(R.id.rv_viewodrdetails)
+    RecyclerView rv_viewodrdetails;
     SessionManager sessionManager;
     ApiService apiservice;
     ProgressDialog pDialog;
@@ -61,6 +52,8 @@ public class RmOrderViewActivity extends AppCompatActivity {
     Intent intent;
     String dlrname, status;
     String orderr_id;
+    ViewOrderAdapter viewOrderAdapter;
+    RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +69,9 @@ public class RmOrderViewActivity extends AppCompatActivity {
         back_icon.setOnClickListener(view -> {
             finish();
         });
+        rv_viewodrdetails.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(RmOrderViewActivity.this);
+        rv_viewodrdetails.setLayoutManager(layoutManager);
         loadServerData();
     }
 
@@ -123,13 +119,8 @@ public class RmOrderViewActivity extends AppCompatActivity {
                             arrayListdata = rmOrderViewModel.getData();
                             Log.e(TAG, "arrayListdata: " + new Gson().toJson(arrayListdata));
 
-                            txt_disname.setText(arrayListdata.get(0).getDistributorName());
-                            txt_pname.setText(arrayListdata.get(0).getProductName());
-                            txt_pprice.setText(arrayListdata.get(0).getProductPrice());
-                            txt_pqty.setText(arrayListdata.get(0).getSordQty());
-
-                            Picasso.with(getApplicationContext()).load(ApiConstants.IMAGE_URL + arrayListdata.get(0).getProductImg()).into(iv_product);
-
+                            viewOrderAdapter = new ViewOrderAdapter(RmOrderViewActivity.this, arrayListdata);
+                            rv_viewodrdetails.setAdapter(viewOrderAdapter);
                             Utility.displayToast(RmOrderViewActivity.this, rmOrderViewModel.getMessage());
 
                         }

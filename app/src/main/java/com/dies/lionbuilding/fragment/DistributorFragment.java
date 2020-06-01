@@ -15,6 +15,8 @@ import com.dies.lionbuilding.activity.OrderManagement.OrderActivity;
 import com.dies.lionbuilding.activity.OrderManagement.OrderConfirmActivity;
 import com.dies.lionbuilding.activity.OrderManagement.OrderDeliveredActivity;
 import com.dies.lionbuilding.activity.OrderManagement.OrderDeliveredSummary;
+import com.dies.lionbuilding.activity.RewardHistoryActivity;
+import com.dies.lionbuilding.activity.ShopActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,8 +42,8 @@ public class DistributorFragment extends Fragment {
     @BindView(R.id.card_oderCon)
     CardView card_oderCon;
 
-    @BindView(R.id.card_oderdilivered)
-    CardView card_oderdilivered;
+    /*@BindView(R.id.card_oderdilivered)
+    CardView card_oderdilivered;*/
 
     public DistributorFragment() {
         // Required empty public constructor
@@ -72,14 +74,14 @@ public class DistributorFragment extends Fragment {
         card_reward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), AddProfile.class));
+                startActivity(new Intent(getActivity(), RewardHistoryActivity.class));
             }
         });
 
         card_shop_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), AddProfile.class));
+                startActivity(new Intent(getActivity(), ShopActivity.class));
             }
         });
 
@@ -90,12 +92,12 @@ public class DistributorFragment extends Fragment {
             }
         });
 
-        card_oderdilivered.setOnClickListener(new View.OnClickListener() {
+       /* card_oderdilivered.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), OrderDeliveredSummary.class));
             }
-        });
+        });*/
         return view;
     }
 

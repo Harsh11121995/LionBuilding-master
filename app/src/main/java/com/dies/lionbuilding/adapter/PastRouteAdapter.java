@@ -51,7 +51,7 @@ public class PastRouteAdapter extends RecyclerView.Adapter<PastRouteAdapter.MyVi
                 .into(holder.iv_location);
 
         holder.txt_shopname.setText(dataList.get(position).getShopName());
-        holder.txt_pincode.setText(dataList.get(position).getSlPincode());
+        // holder.txt_pincode.setText(dataList.get(position).getSlPincode());
         holder.txt_add1.setText(dataList.get(position).getSlAddressLine1());
         holder.txt_add2.setText(dataList.get(position).getSlAddressLine2());
 
@@ -74,8 +74,8 @@ public class PastRouteAdapter extends RecyclerView.Adapter<PastRouteAdapter.MyVi
         @BindView(R.id.txt_shopname)
         TextView txt_shopname;
 
-        @BindView(R.id.txt_pincode)
-        TextView txt_pincode;
+     /*   @BindView(R.id.txt_pincode)
+        TextView txt_pincode;*/
 
         @BindView(R.id.txt_add1)
         TextView txt_add1;

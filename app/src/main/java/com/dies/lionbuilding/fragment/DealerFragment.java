@@ -13,6 +13,7 @@ import com.dies.lionbuilding.R;
 import com.dies.lionbuilding.activity.AddProfile;
 import com.dies.lionbuilding.activity.OrderManagement.OrderActivity;
 import com.dies.lionbuilding.activity.ProductCategory;
+import com.dies.lionbuilding.activity.RewardHistoryActivity;
 import com.dies.lionbuilding.activity.ScanBarcodeActivity;
 import com.dies.lionbuilding.activity.ShopActivity;
 
@@ -23,7 +24,6 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class DealerFragment extends Fragment {
-
 
 
     @BindView(R.id.card_add_user)
@@ -39,11 +39,6 @@ public class DealerFragment extends Fragment {
     CardView card_shop_location;
 
 
-
-
-
-
-
     public DealerFragment() {
         // Required empty public constructor
     }
@@ -53,8 +48,8 @@ public class DealerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_dealer, container, false);
-        ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.fragment_dealer, container, false);
+        ButterKnife.bind(this, view);
 
         card_add_user.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,10 +65,18 @@ public class DealerFragment extends Fragment {
             }
         });
 
+/*
         card_reward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), ScanBarcodeActivity.class));
+            }
+        });
+*/
+        card_reward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), RewardHistoryActivity.class));
             }
         });
 

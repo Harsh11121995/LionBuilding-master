@@ -5,17 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.OrderManagement.RmOrderViewActivity">
+    tools:context=".activity.RewardHistoryActivity">
 
     <include
-        android:id="@+id/toolbar"
         layout="@layout/toolbar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_viewodrdetails"
+        android:id="@+id/rv_rewardlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
 </LinearLayout>

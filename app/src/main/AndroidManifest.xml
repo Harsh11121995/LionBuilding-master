@@ -15,33 +15,81 @@
     <application
         android:name=".application.Utility"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/appicon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/appicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustResize">
-        <activity android:name=".activity.SelectRMActivity"></activity>
-        <activity android:name=".activity.WelcomeActivity" />
-        <activity android:name=".activity.RmGetAllLeaveActivty" />
-        <activity android:name=".RmSalesMapActivity" />
-        <activity android:name=".activity.OrderManagement.SalesExecOrderActivity" />
-        <activity android:name=".activity.OrderManagement.RmOrderViewActivity" />
-        <activity android:name=".activity.OrderManagement.OrderDeliveredSummary" />
-        <activity android:name=".activity.OrderManagement.OrderDeliveredActivity" />
-        <activity android:name=".activity.OrderManagement.OrderConfirmActivity" />
-        <activity android:name=".activity.RouteManagement.FutureRouteActivity" />
-        <activity android:name=".activity.RouteManagement.PastRouteActivity" />
-        <activity android:name=".activity.OrderManagement.OrderSummaryActivty" />
-        <activity android:name=".activity.OrderManagement.OrderActivity" />
-        <activity android:name=".activity.SelectDealerActivity" />
-        <activity android:name=".activity.OrderManagement.SelectOrdereTypeActivity" />
-        <activity android:name=".activity.RouteManagement.CreateRouteActivity" />
-        <activity android:name=".activity.RouteManagement.RouteManagementActivity" />
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.GiftTransaction" />
-        <activity android:name=".activity.ViewProductPointCart" />
-        <activity android:name=".activity.GiftDetailActivity" />
+        <activity
+            android:name=".activity.SalesExeLocationActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.RewardHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SelectRMActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.WelcomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RmGetAllLeaveActivty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RmSalesMapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OrderManagement.SalesExecOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OrderManagement.RmOrderViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OrderManagement.OrderDeliveredSummary"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OrderManagement.OrderDeliveredActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OrderManagement.OrderConfirmActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RouteManagement.FutureRouteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RouteManagement.PastRouteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OrderManagement.OrderSummaryActivty"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OrderManagement.OrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SelectDealerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OrderManagement.SelectOrdereTypeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RouteManagement.CreateRouteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RouteManagement.RouteManagementActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.GiftTransaction"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ViewProductPointCart"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.GiftDetailActivity"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -52,38 +100,66 @@
         -->
         <activity
             android:name=".activity.MultiRouteViewMap"
-            android:label="@string/title_activity_multi_route_view_map" />
-        <activity android:name=".ShopTimelineViewActivity" />
-        <activity android:name=".activity.ExpanseManagementActivity" />
-        <activity android:name=".activity.AddExpanseActivity" />
-        <activity android:name=".activity.AddLeave" />
-        <activity android:name=".activity.LeaveManagementActivity" />
-        <activity android:name=".activity.RouteManagement.RouteViewActivity" />
-        <activity android:name=".activity.RewardActivity" />
-        <activity android:name=".activity.SelectDistributor" />
-        <activity android:name=".activity.ViewUserList" />
-        <activity android:name=".activity.ProductOrderUsingBarcode" />
+            android:label="@string/title_activity_multi_route_view_map"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShopTimelineViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ExpanseManagementActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AddExpanseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AddLeave"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LeaveManagementActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RouteManagement.RouteViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RewardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SelectDistributor"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ViewUserList"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ProductOrderUsingBarcode"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".activity.CartActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.ProductDetailActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.ProductCategory"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.Product"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.ContactDetail"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.ShowShopMap"
-            android:label="@string/title_activity_show_shop_map" />
+            android:label="@string/title_activity_show_shop_map"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -94,41 +170,57 @@
         -->
         <activity
             android:name=".activity.AddBank"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.ScanBarcodeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.MyProfile"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.Users"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.UserDetail"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.BankManagement.BankView"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.SendLocation"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.ShopActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.AddProfile"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.AddShop"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".activity.DashBoardActivity" />
-        <activity android:name=".activity.MainActivity" />
+        <activity
+            android:name=".activity.DashBoardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.RegisterActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -246,18 +246,21 @@ public class RegisterActivity extends AppCompatActivity {
                         ll_rm.setVisibility(View.VISIBLE);
                         vgst.setVisibility(View.VISIBLE);
                         break;
-                   /* case R.id.rd4:
+                    case R.id.rd4:
                         ll_distributor.setVisibility(View.GONE);
-                        ll_zone.setVisibility(View.VISIBLE);
-                        ll_gst.setVisibility(View.VISIBLE);
-                        vgst.setVisibility(View.VISIBLE);
+                        //ll_zone.setVisibility(View.VISIBLE);
+                        ll_gst.setVisibility(View.GONE);
+                        ll_rm.setVisibility(View.GONE);
+                        ll_dealer.setVisibility(View.VISIBLE);
+                        vgst.setVisibility(View.GONE);
 
-                    break;*/
+                        break;
                     default:
                         break;
                 }
             }
         });
+
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -321,9 +324,9 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (rb3.getText().toString().equals("Distributor")) {
                     ll_distributor.setVisibility(View.GONE);
                     roll_id = "4";
-                } else if (rb4.getText().toString().equals("RM")) {
+                } else if (rb4.getText().toString().equals("Architecture")) {
                     ll_distributor.setVisibility(View.GONE);
-                    roll_id = "6";
+                    roll_id = "7";
                 } else {
                     ll_distributor.setVisibility(View.GONE);
                     roll_id = "5";

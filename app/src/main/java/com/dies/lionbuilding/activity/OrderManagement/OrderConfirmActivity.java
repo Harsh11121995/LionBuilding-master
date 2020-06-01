@@ -126,14 +126,13 @@ public class OrderConfirmActivity extends AppCompatActivity {
                             rv_conOder_list.setAdapter(myrmAdapter);
                             //   myrmAdapter.notifyDataSetChanged();
 
-
                         }
                     }
                 });
     }
 
 
-    private void getAllDisOrderApi() {
+    public void getAllDisOrderApi() {
 
         pDialog = new ProgressDialog(OrderConfirmActivity.this);
         pDialog.setTitle("Checking Data");

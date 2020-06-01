@@ -39,6 +39,7 @@ public class RmSalesMapActivity extends FragmentActivity implements OnMapReadyCa
     String TAG = "TAG";
     double lat = 0.0;
     double logi = 0.0;
+    private String id = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,8 @@ public class RmSalesMapActivity extends FragmentActivity implements OnMapReadyCa
         ButterKnife.bind(this);
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
-        odrSlm_id = getIntent().getStringExtra("ord_slm_id");
+        //odrSlm_id = getIntent().getStringExtra("ord_slm_id");
+        id = getIntent().getStringExtra("id");
 
         getMapData();
 
@@ -56,9 +58,9 @@ public class RmSalesMapActivity extends FragmentActivity implements OnMapReadyCa
     private void getMapData() {
 
         Observable<UserAllData> responseObservable = apiservice.getRmSalesExe_currentLocation(
-                odrSlm_id);
+                id);
 
-        Log.e(TAG, "odrSlm_id: " + odrSlm_id);
+        // Log.e(TAG, "odrSlm_id: " + odrSlm_id);
 
         responseObservable.subscribeOn(Schedulers.newThread())
                 .observeOn(rx.android.schedulers.AndroidSchedulers.mainThread())
@@ -133,18 +135,22 @@ public class RmSalesMapActivity extends FragmentActivity implements OnMapReadyCa
         CameraUpdate updatePosition = CameraUpdateFactory.newLatLng(position);
 
         // Creating CameraUpdate object for zoom
-       // CameraUpdate updateZoom = CameraUpdateFactory.zoomBy(4);
+        // CameraUpdate updateZoom = CameraUpdateFactory.zoomBy(4);
 
         // Updating the camera position to the user input latitude and longitude
         //googleMap.moveCamera(CameraUpdateFactory.newLatLng(position));
 
         // Applying zoom to the marker position
-       // googleMap.animateCamera(updateZoom);
+        // googleMap.animateCamera(updateZoom);
 
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat,logi), 12.0f));
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, logi), 12.0f));
 
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

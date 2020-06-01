@@ -92,9 +92,6 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.View
         @BindView(R.id.card_view_detail)
         CardView card_view_detail;
 
-
-
-
         public ViewHolder(View itemView) {
             super(itemView);
 

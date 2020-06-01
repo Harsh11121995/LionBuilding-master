@@ -8,6 +8,7 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -24,6 +25,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Log;
@@ -126,19 +128,7 @@ public class SendLocation extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                    String fileName = "temp.jpg";
-                    ContentValues values = new ContentValues();
-                    values.put(MediaStore.Images.Media.TITLE, fileName);
-                    mCapturedImageURI = getContentResolver()
-                            .insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                                    values);
-                    takePictureIntent
-                            .putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
-                    startActivityForResult(takePictureIntent, CAPTURE_IMAGE);
-
-                }
+                selectImage();
             }
         });
 
@@ -244,6 +234,56 @@ public class SendLocation extends AppCompatActivity {
         });
     }
 
+    private void selectImage() {
+
+
+        final CharSequence[] options = {"Take Photo", "Choose from Gallery", "Cancel"};
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(SendLocation.this);
+
+        builder.setTitle("Add Photo!");
+
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+
+            @Override
+
+            public void onClick(DialogInterface dialog, int item) {
+
+                if (options[item].equals("Take Photo")) {
+
+                    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                        String fileName = "temp.jpg";
+                        ContentValues values = new ContentValues();
+                        values.put(MediaStore.Images.Media.TITLE, fileName);
+                        mCapturedImageURI = getContentResolver()
+                                .insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                                        values);
+                        takePictureIntent
+                                .putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
+                        startActivityForResult(takePictureIntent, CAPTURE_IMAGE);
+
+                    }
+                } else if (options[item].equals("Choose from Gallery")) {
+
+                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(intent, 1);
+
+
+                } else if (options[item].equals("Cancel")) {
+
+                    dialog.dismiss();
+
+                }
+
+            }
+
+        });
+
+        builder.show();
+
+    }
 
     private void startdayApi(Context context) {
 
@@ -458,6 +498,25 @@ public class SendLocation extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+            } else if (requestCode == 1 && resultCode == RESULT_OK && null != data) {
+                //selectedImage = data.getData();
+//            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+                Uri selectedImage = data.getData();
+                String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+                Cursor cursor = null;
+                if (selectedImage != null) {
+                    cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+                }
+                assert cursor != null;
+                cursor.moveToFirst();
+
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                //filePath1 = cursor.getString(column_index);
+                filePath = cursor.getString(columnIndex);
+                // mediaPath=compressImage(mediaPath1);
+                openCamera.setImageBitmap(BitmapFactory.decodeFile(filePath));
+                cursor.close();
             }
         }
 

@@ -5,12 +5,16 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.dies.lionbuilding"
-        minSdkVersion 19
-        targetSdkVersion 27
-        versionCode 1
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 2
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        lintOptions {
+            checkReleaseBuilds false
+        }
     }
     buildTypes {
         release {
@@ -80,12 +84,10 @@ dependencies {
 
     implementation 'com.thomashaertel:multispinner:0.1.1'
 
-
     //rounded imageview
     implementation 'com.github.chirag-kachhadiya:RoundedImageView:1.0'
 
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.3.+'
-
 
     //floating button
     //  implementation 'com.robertlevonyan.view:CustomFloatingActionButton:3.0.0'

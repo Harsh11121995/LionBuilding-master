@@ -74,16 +74,16 @@ public class AddLeave extends AppCompatActivity {
         });
 
 
-        toolbar_Title.setText("Leave");
+        toolbar_Title.setText("Add Leave");
         final Calendar myCalendar = Calendar.getInstance();
 
         btn_add.setOnClickListener(view -> {
             if (et_startdate.getText().toString().equals("")) {
-                Utility.displayToast(this, "Please check startate");
+                Utility.displayToast(this, "Please select start date");
             } else if (et_enddate.getText().toString().equals("")) {
-                Utility.displayToast(this, "Please check endate");
+                Utility.displayToast(this, "Please select end date");
             } else if (et_detail.getText().toString().equals("")) {
-                Utility.displayToast(this, "Please check Detail");
+                Utility.displayToast(this, "Please enter Details");
             } else {
                 AddLeave();
             }

@@ -15,6 +15,7 @@ import com.dies.lionbuilding.activity.ExpanseManagementActivity;
 import com.dies.lionbuilding.activity.OrderManagement.OrderActivity;
 import com.dies.lionbuilding.activity.OrderManagement.OrderConfirmActivity;
 import com.dies.lionbuilding.activity.OrderManagement.SalesExecOrderActivity;
+import com.dies.lionbuilding.activity.RewardHistoryActivity;
 import com.dies.lionbuilding.activity.RmGetAllLeaveActivty;
 import com.dies.lionbuilding.activity.RouteManagement.RouteManagementActivity;
 import com.dies.lionbuilding.activity.SendLocation;
@@ -29,6 +30,8 @@ public class ContractorFragment extends Fragment {
 
     @BindView(R.id.card_order)
     CardView card_order;
+    @BindView(R.id.card_reward)
+    CardView card_reward;
 
 
     public ContractorFragment() {
@@ -48,6 +51,12 @@ public class ContractorFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), OrderActivity.class));
+            }
+        });
+        card_reward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), RewardHistoryActivity.class));
             }
         });
 

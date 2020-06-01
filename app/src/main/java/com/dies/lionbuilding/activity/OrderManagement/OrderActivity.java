@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dies.lionbuilding.R;
@@ -70,6 +71,10 @@ public class OrderActivity extends AppCompatActivity {
     String total_price, total_qty;
     private String TAG = "TAG";
 
+    @BindView(R.id.back_icon)
+    ImageView back_icon;
+    @BindView(R.id.toolbar_Title)
+    TextView tv_toolbar_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +83,11 @@ public class OrderActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
+
+        back_icon.setOnClickListener(view -> {
+            finish();
+        });
+        tv_toolbar_title.setText("Create Order");
 
         ProductCat();
 
@@ -209,7 +219,6 @@ public class OrderActivity extends AppCompatActivity {
         Utility.getAppcon().getSession().arrayListOrderData = dt;
 
 
-
         Log.e("arrayList_new_data", new Gson().toJson(Utility.getAppcon().getSession().arrayListOrderData));
         ArrayList<ProductModel.Data> arrayList = new ArrayList<ProductModel.Data>();
 
@@ -234,7 +243,7 @@ public class OrderActivity extends AppCompatActivity {
             Utility.getAppcon().getSession().arrayListOrderData.get(0).setProduct_total_qty(total_qty);
 
             Intent intent = new Intent(OrderActivity.this, OrderSummaryActivty.class);
-            Utility.getAppcon().getSession().arrayListOrderDatanew=arrayList;
+            Utility.getAppcon().getSession().arrayListOrderDatanew = arrayList;
             startActivity(intent);
         }
     }

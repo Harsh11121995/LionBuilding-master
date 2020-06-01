@@ -16,6 +16,7 @@ import com.dies.lionbuilding.activity.ExpanseManagementActivity;
 import com.dies.lionbuilding.activity.LeaveManagementActivity;
 import com.dies.lionbuilding.activity.OrderManagement.OrderActivity;
 import com.dies.lionbuilding.activity.ProductCategory;
+import com.dies.lionbuilding.activity.RewardHistoryActivity;
 import com.dies.lionbuilding.activity.RouteManagement.RouteManagementActivity;
 import com.dies.lionbuilding.activity.SendLocation;
 import com.dies.lionbuilding.activity.Users;
@@ -44,7 +45,8 @@ public class SalseExecutiveFragment extends Fragment {
     CardView card_Leave;
     @BindView(R.id.card_expanse)
     CardView card_expanse;
-
+    @BindView(R.id.card_reward)
+    CardView card_reward;
 
 
     public SalseExecutiveFragment() {
@@ -56,10 +58,10 @@ public class SalseExecutiveFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_salse_executive, container, false);
-        ButterKnife.bind(this,view);
+        View view = inflater.inflate(R.layout.fragment_salse_executive, container, false);
+        ButterKnife.bind(this, view);
 
-         checkAndRequestPermissions();
+        checkAndRequestPermissions();
         card_add_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,6 +105,12 @@ public class SalseExecutiveFragment extends Fragment {
             }
         });
 
+        card_reward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), RewardHistoryActivity.class));
+            }
+        });
 
 
         return view;

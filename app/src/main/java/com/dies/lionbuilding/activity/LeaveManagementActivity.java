@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.dies.lionbuilding.R;
 import com.dies.lionbuilding.adapter.LeaveAdapter;
@@ -41,6 +42,8 @@ public class LeaveManagementActivity extends AppCompatActivity {
     @BindView(R.id.back_icon)
     ImageView back;
 
+    @BindView(R.id.toolbar_Title)
+    TextView toolbar_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class LeaveManagementActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         sessionManager = new SessionManager(this);
         apiservice = ApiServiceCreator.createService("latest");
+        toolbar_title.setText("Leave Details");
         fab_add_leave.setOnClickListener(view -> {
             Intent intent=new Intent(LeaveManagementActivity.this,AddLeave.class);
             startActivity(intent);
