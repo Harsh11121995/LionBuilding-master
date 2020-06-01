@@ -64,7 +64,7 @@ Context context;
                 .fit()
                 .into(holder.img_product);
 
-        arrayList.get(position).setProduct_quentity("");
+        arrayList.get(position).setProduct_quentity("");  // Empty quentity
 
 
         holder.img_plus.setOnClickListener(view -> {
@@ -181,77 +181,7 @@ Context context;
             if (s.length() != 0) {
                 arrayList.get(position).setProduct_qty(s.toString());
 
-//                Integer main_qty = ((InvoiceCatagoryActivity) context).getText();
-//                Double order_total = ((InvoiceCatagoryActivity) context).getTotal();
 
-//                main_qty -= before_val;
-//                order_total -= before_val * Double.valueOf(arrayList.get(position).getProduct_price());
-//                main_qty += Integer.valueOf(s.toString());
-
-
-
-//                if (usertype=="DAIICT"){
-//                    if (arrayList.get(position).getDaiict()!=null && !arrayList.get(position).getDaiict().equals("") && !arrayList.get(position).getDaiict().equals("0") ){
-//                        order_total += Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getDaiict());
-//                        single_product_price = Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getDaiict());
-//                    }else{
-//                        order_total += Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
-//                        single_product_price = Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
-//                    }
-//                }else if (usertype=="GFSU"){
-//                    if (arrayList.get(position).getGfsu()!=null && !arrayList.get(position).getGfsu().equals("") && !arrayList.get(position).getGfsu().equals("0") ){
-//                        order_total += Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getGfsu());
-//                        single_product_price = Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getGfsu());
-//                    }else{
-//                        order_total += Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
-//                        single_product_price = Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
-//                    }
-//                }else if (usertype=="HOSTEL"){
-//                    if (arrayList.get(position).getHostel()!=null && !arrayList.get(position).getHostel().equals("") && !arrayList.get(position).getHostel().equals("0")){
-//                        order_total += Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getHostel());
-//                        single_product_price = Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getHostel());
-//                    }else{
-//                        order_total += Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
-//                        single_product_price = Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
-//                    }
-//                }else if (usertype=="REGULAR"){
-//                    if (arrayList.get(position).getRegular()!=null && !arrayList.get(position).getRegular().equals("") && !arrayList.get(position).getRegular().equals("0")){
-//                        order_total += Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getRegular());
-//                        single_product_price = Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getRegular());
-//                    }else{
-//                        order_total += Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
-//                        single_product_price = Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
-//                    }
-//                }
-//
-//
-////                order_total += Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
-////                single_product_price = Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
-//
-//
-//                ((InvoiceCatagoryActivity) context).setText(main_qty.toString());
-//                ((InvoiceCatagoryActivity) context).setTotal(order_total.toString());
-//                arrayList.get(position).setProduct_total(String.valueOf(single_product_price));
-//                Log.d("data1", new Gson().toJson(arrayList));
-//
-//
-//                int pos=Integer.parseInt(fragment_type);
-//                ((InvoiceCatagoryActivity) context).setArray(arrayList,pos);
-
-                // MyApplication.getAppcon().getSession().arrayListShoes = arrayList;
-//                if (fragment_type.equals("shoes_and_bag")) {
-//                    MyApplication.getAppcon().getSession().arrayListShoes = arrayList;
-//                } else if (fragment_type.equals("ironing")) {
-//                    MyApplication.getAppcon().getSession().arrayListIron = arrayList;
-//                } else if (fragment_type.equals("dray_clean")) {
-//                    MyApplication.getAppcon().getSession().arrayListDryClean = arrayList;
-//                } else if (fragment_type.equals("roll_polish")) {
-//                    MyApplication.getAppcon().getSession().arrayListRollPolish = arrayList;
-//                } else if (fragment_type.equals("wash_and_fold")) {
-//                    MyApplication.getAppcon().getSession().arrayListWashandFold = arrayList;
-//                } else if (fragment_type.equals("wash_and_iron")) {
-//                    MyApplication.getAppcon().getSession().arrayListWashandIron = arrayList;
-//                }
 
             } else {
 //                holder.edt_qty.setText("0");
