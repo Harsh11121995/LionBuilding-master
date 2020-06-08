@@ -53,6 +53,7 @@ Context context;
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
+        holder.myCustomEditTextListener.updatePosition(holder.getAdapterPosition(), holder);
 
         holder.txt_product_name.setText(arrayList.get(position).getProduct_name());
 
@@ -147,14 +148,11 @@ Context context;
         ImageView img_product;
 
 
-
-
-
         public MyViewHolder(View itemView,MyCustomEditTextListener myCustomEditTextListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.myCustomEditTextListener = myCustomEditTextListener;
-            //this.edt_qty.addTextChangedListener(this.myCustomEditTextListener);
+            this.edt_qty.addTextChangedListener(this.myCustomEditTextListener);
         }
     }
 
@@ -181,12 +179,12 @@ Context context;
             if (s.length() != 0) {
                 arrayList.get(position).setProduct_qty(s.toString());
 
-//                Integer main_qty = ((InvoiceCatagoryActivity) context).getText();
-//                Double order_total = ((InvoiceCatagoryActivity) context).getTotal();
+                Integer main_qty = ((OrderActivity) context).getText();
+                Double order_total = ((OrderActivity) context).getTotal();
 
-//                main_qty -= before_val;
-//                order_total -= before_val * Double.valueOf(arrayList.get(position).getProduct_price());
-//                main_qty += Integer.valueOf(s.toString());
+                main_qty -= before_val;
+                order_total -= before_val * Double.valueOf(arrayList.get(position).getProduct_price());
+                main_qty += Integer.valueOf(s.toString());
 
 
 
@@ -225,36 +223,21 @@ Context context;
 //                }
 //
 //
-////                order_total += Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
-////                single_product_price = Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
-//
-//
-//                ((InvoiceCatagoryActivity) context).setText(main_qty.toString());
-//                ((InvoiceCatagoryActivity) context).setTotal(order_total.toString());
-//                arrayList.get(position).setProduct_total(String.valueOf(single_product_price));
-//                Log.d("data1", new Gson().toJson(arrayList));
-//
-//
-//                int pos=Integer.parseInt(fragment_type);
-//                ((InvoiceCatagoryActivity) context).setArray(arrayList,pos);
+                order_total += Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
+                single_product_price = Integer.valueOf(s.toString()) * Double.valueOf(arrayList.get(position).getProduct_price());
 
-                // MyApplication.getAppcon().getSession().arrayListShoes = arrayList;
-//                if (fragment_type.equals("shoes_and_bag")) {
-//                    MyApplication.getAppcon().getSession().arrayListShoes = arrayList;
-//                } else if (fragment_type.equals("ironing")) {
-//                    MyApplication.getAppcon().getSession().arrayListIron = arrayList;
-//                } else if (fragment_type.equals("dray_clean")) {
-//                    MyApplication.getAppcon().getSession().arrayListDryClean = arrayList;
-//                } else if (fragment_type.equals("roll_polish")) {
-//                    MyApplication.getAppcon().getSession().arrayListRollPolish = arrayList;
-//                } else if (fragment_type.equals("wash_and_fold")) {
-//                    MyApplication.getAppcon().getSession().arrayListWashandFold = arrayList;
-//                } else if (fragment_type.equals("wash_and_iron")) {
-//                    MyApplication.getAppcon().getSession().arrayListWashandIron = arrayList;
-//                }
+
+                ((OrderActivity) context).setText(main_qty.toString());
+                ((OrderActivity) context).setTotal(order_total.toString());
+                arrayList.get(position).setProduct_total(String.valueOf(single_product_price));
+                Log.d("data1", new Gson().toJson(arrayList));
+
+
+                int pos=Integer.parseInt(fragment_type);
+                ((OrderActivity) context).setArray(arrayList,pos);
 
             } else {
-//                holder.edt_qty.setText("0");
+                holder.edt_qty.setText("0");
             }
         }
 

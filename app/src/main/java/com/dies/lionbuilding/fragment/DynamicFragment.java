@@ -38,7 +38,7 @@ import rx.schedulers.Schedulers;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DynamicFragment extends Fragment {
+public class  DynamicFragment extends Fragment {
 
     View view;
 

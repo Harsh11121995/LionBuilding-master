@@ -226,6 +226,7 @@ public class CreateRouteActivity extends AppCompatActivity {
         arrayList.add("March");
         arrayList.add("April");
         arrayList.add("May");
+        arrayList.add("June");
         arrayList.add("July");
         arrayList.add("Auguest");
         arrayList.add("Septemebr");
