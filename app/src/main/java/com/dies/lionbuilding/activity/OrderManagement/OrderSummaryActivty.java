@@ -265,7 +265,6 @@ public class OrderSummaryActivty extends AppCompatActivity {
 
     private void callApi() {
 
-
         pDialog = new ProgressDialog(this);
         pDialog.setTitle("Checking Data");
         pDialog.setMessage("Please Wait...");
