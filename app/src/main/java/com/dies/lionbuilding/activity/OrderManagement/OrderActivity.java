@@ -230,7 +230,6 @@ public class OrderActivity extends AppCompatActivity {
             }
         }
 
-
         Log.e("arrayList-step-1", new Gson().toJson(Utility.getAppcon().getSession().arrayListOrderData));
 
         total_qty = txt_total_qty.getText().toString();
